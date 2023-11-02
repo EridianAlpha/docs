@@ -1,0 +1,33 @@
+# Table of contents
+
+* [📖 Eridian Docs](README.md)
+
+## Infrastructure
+
+* [💻 Hardware](infrastructure/hardware.md)
+* [🌐 Networking](infrastructure/networking.md)
+* [💿 Linux software](infrastructure/linux-software/README.md)
+  * [💾 Installation](infrastructure/linux-software/installation.md)
+  * [🏗 Maintenance](infrastructure/linux-software/maintenance.md)
+* [⛓ Client software](infrastructure/client-software/README.md)
+  * [Geth](infrastructure/client-software/geth/README.md)
+    * [💾 Installation](infrastructure/client-software/geth/installation.md)
+    * [⌨ Useful commands](infrastructure/client-software/geth/useful-commands.md)
+    * [🏗 Maintenance](infrastructure/client-software/geth/maintenance.md)
+  * [Lighthouse](infrastructure/client-software/lighthouse/README.md)
+    * [Lighthouse client](infrastructure/client-software/lighthouse/lighthouse-client/README.md)
+      * [💾 Installation](infrastructure/client-software/lighthouse/lighthouse-client/installation.md)
+      * [🏗 Maintenance](infrastructure/client-software/lighthouse/lighthouse-client/maintenance.md)
+    * [Lighthouse BN](infrastructure/client-software/lighthouse/lighthouse-bn/README.md)
+      * [💾 Installation](infrastructure/client-software/lighthouse/lighthouse-bn/installation.md)
+      * [⌨ Useful commands](infrastructure/client-software/lighthouse/lighthouse-bn/useful-commands.md)
+      * [🏗 Maintenance](infrastructure/client-software/lighthouse/lighthouse-bn/maintenance.md)
+    * [Lighthouse VC (No DVT)](infrastructure/client-software/lighthouse/lighthouse-vc-no-dvt/README.md)
+      * [💾 Installation](infrastructure/client-software/lighthouse/lighthouse-vc-no-dvt/installation.md)
+      * [⌨ Useful commands](infrastructure/client-software/lighthouse/lighthouse-vc-no-dvt/useful-commands.md)
+      * [🏗 Maintenance](infrastructure/client-software/lighthouse/lighthouse-vc-no-dvt/maintenance.md)
+  * [MEV Boost](infrastructure/client-software/mev-boost/README.md)
+    * [💾 Installation](infrastructure/client-software/mev-boost/installation.md)
+    * [🏗 Maintenance](infrastructure/client-software/mev-boost/maintenance.md)
+* [🎛 Operations](infrastructure/operations/README.md)
+  * [📡 Failovers](infrastructure/operations/failovers.md)
