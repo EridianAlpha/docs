@@ -26,16 +26,6 @@ echo "alias mev-update='~/mev-update-check.sh'" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### Firewall Configuration
-
-Configure the firewall.
-
-```bash
-MEV_PORT=        # Default: 18550
-
-sudo ufw allow ${MEV_PORT} comment 'Allow MEV Boost in'
-```
-
 ### MEV Boost - Install
 
 Build the latest version of `MEV Boost`.
@@ -44,7 +34,7 @@ Build the latest version of `MEV Boost`.
 cd ~
 git clone https://github.com/flashbots/mev-boost.git
 cd mev-boost
-make build-portable
+make build
 ```
 
 Move the compiled `MEV Boost` build to a new directory.
@@ -144,6 +134,7 @@ vim ~/mev-update.sh
 {% code title="~/mev-update.sh" %}
 ```bash
 #!/bin/bash
+set -e
 cd ~/mev-boost
 
 read -p "Enter the commit hash you want to checkout: " commit_hash
@@ -151,28 +142,31 @@ read -p "Enter the commit hash you want to checkout: " commit_hash
 git fetch
 git checkout $commit_hash
 
-echo "***************************************"
-echo "Pulling latest changes for MEV Boost..."
-echo "***************************************"
-make build
-
 echo
 echo "*******************"
 echo "Making MEV Boost..."
 echo "*******************"
 make build
 
-echo "*********************"
-echo "Stopping MEV Boost..."
-sudo systemctl stop mevboost.service
+# Check if mevboost.service exists and is running
+service_was_running=0
+if sudo systemctl is-active --quiet mevboost.service; then
+    service_was_running=1
+    echo "*********************"
+    echo "Stopping MEV Boost..."
+    sudo systemctl stop mevboost.service
+fi
 
 echo "Replacing previous version..."
 sudo rm /usr/local/bin/mev-boost
 sudo cp ~/mev-boost/mev-boost /usr/local/bin
 
-echo "Restarting MEV Boost..."
-echo "***********************"
-sudo systemctl start mevboost.service
+# Only start mevboost.service if it was running originally
+if [ $service_was_running -eq 1 ]; then
+    echo "Restarting MEV Boost..."
+    echo "***********************"
+    sudo systemctl start mevboost.service
+fi
 ```
 {% endcode %}
 

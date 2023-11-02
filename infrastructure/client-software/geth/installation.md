@@ -127,7 +127,8 @@ TimeoutStopSec=1200
 Environment=NETWORK=         # E.g. mainnet or goerli
 Environment=P2P_PORT=        # Default: 30303
 Environment=MAX_PEERS=       # Default: 50
-Environment=CACHE=           # Default 
+Environment=WS_PORT=         
+Environment=WS_ADDR=         # e.g. 192.168.1.2
 
 ExecStart=/usr/local/bin/geth \
     --${NETWORK} \
@@ -142,7 +143,10 @@ ExecStart=/usr/local/bin/geth \
     --pprof \
     --authrpc.jwtsecret=/var/lib/goethereum/jwtsecret \
     --maxpeers ${MAX_PEERS} \
-    --cache ${CACHE}
+    --ws \
+    --ws.port ${WS_PORT} \
+    --ws.addr ${WS_ADDR} \
+    --http.corsdomain '*'
 
 [Install]
 WantedBy=default.target
@@ -192,6 +196,7 @@ vim ~/geth-update.sh
 {% code title="~/geth-update.sh" %}
 ```bash
 #!/bin/bash
+set -e
 cd ~/go-ethereum
 
 read -p "Enter the commit hash you want to checkout: " commit_hash
@@ -199,28 +204,31 @@ read -p "Enter the commit hash you want to checkout: " commit_hash
 git fetch
 git checkout $commit_hash
 
-echo "****************************"
-echo "Pulling changes for Geth..."
-echo "****************************"
-git pull
-
 echo
 echo "**************"
 echo "Making Geth..."
 echo "**************"
 make geth
 
-echo "****************"
-echo "Stopping Geth..."
-sudo systemctl stop geth.service
+# Check if geth.service is running
+service_was_running=0
+if sudo systemctl is-active --quiet geth.service; then
+    service_was_running=1
+    echo "****************"
+    echo "Stopping Geth..."
+    sudo systemctl stop geth.service
+fi
 
 echo "Replacing previous version..."
 sudo rm /usr/local/bin/geth
 sudo cp ~/go-ethereum/build/bin/geth /usr/local/bin
 
-echo "Restarting Geth..."
-echo "******************"
-sudo systemctl start geth.service
+# Only start geth.service if it was running originally
+if [ $service_was_running -eq 1 ]; then
+    echo "Restarting Geth..."
+    echo "******************"
+    sudo systemctl start geth.service
+fi
 ```
 {% endcode %}
 

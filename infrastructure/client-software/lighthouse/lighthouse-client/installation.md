@@ -77,17 +77,13 @@ vim ~/lighthouse-build.sh
 {% code title="~/lighthouse-build.sh" %}
 ```bash
 #!/bin/bash
+set -e
 cd ~/lighthouse
 
 read -p "Enter the commit hash you want to checkout: " commit_hash
 
 git fetch
 git checkout $commit_hash
-
-echo "****************************************"
-echo "Pulling latest changes for Lighthouse..."
-echo "****************************************"
-git pull
 
 echo
 echo "********************"
@@ -106,6 +102,7 @@ vim ~/lighthouse-deploy.sh
 {% code title="~/lighthouse-deploy.sh" %}
 ```bash
 #!/bin/bash
+set -e
 
 beacon_status=$(sudo systemctl is-active lighthousebeacon.service 2>/dev/null)
 validator_status=$(sudo systemctl is-active lighthousevalidator.service 2>/dev/null)
