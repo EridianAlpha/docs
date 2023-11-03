@@ -5,24 +5,24 @@ layout: landing
 
 # 📖 Eridian Docs
 
-## Infrastructure
+## Staking Infrastructure
 
-{% content-ref url="infrastructure/hardware.md" %}
-[hardware.md](infrastructure/hardware.md)
+{% content-ref url="staking-infrastructure/hardware.md" %}
+[hardware.md](staking-infrastructure/hardware.md)
 {% endcontent-ref %}
 
-{% content-ref url="infrastructure/networking.md" %}
-[networking.md](infrastructure/networking.md)
+{% content-ref url="staking-infrastructure/networking.md" %}
+[networking.md](staking-infrastructure/networking.md)
 {% endcontent-ref %}
 
-{% content-ref url="infrastructure/linux-software/" %}
-[linux-software](infrastructure/linux-software/)
+{% content-ref url="staking-infrastructure/linux-software/" %}
+[linux-software](staking-infrastructure/linux-software/)
 {% endcontent-ref %}
 
-{% content-ref url="infrastructure/client-software/" %}
-[client-software](infrastructure/client-software/)
+{% content-ref url="staking-infrastructure/client-software/" %}
+[client-software](staking-infrastructure/client-software/)
 {% endcontent-ref %}
 
-{% content-ref url="infrastructure/operations/" %}
-[operations](infrastructure/operations/)
+{% content-ref url="staking-infrastructure/operations/" %}
+[operations](staking-infrastructure/operations/)
 {% endcontent-ref %}
