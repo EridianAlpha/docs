@@ -111,7 +111,7 @@ update-firmware  # Update firmware
 
 {% tab title="Full Commands" %}
 ```bash
-fwupdmgr refresh; fwupdmgr get-updates; fwupdmgr update                          # Update firmware
+fwupdmgr refresh; fwupdmgr get-updates; fwupdmgr update     # Update firmware
 ```
 {% endtab %}
 {% endtabs %}
