@@ -42,9 +42,12 @@ protoc --version
 Build the latest version of `Lighthouse`.
 
 ```bash
+LIGHTHOUSE_VERSION_COMMIT_HASH=        # e.g.441fc16 
+
 cd ~
 git clone -b stable https://github.com/sigp/lighthouse.git
 cd ~/lighthouse
+git checkout ${LIGHTHOUSE_VERSION_COMMIT_HASH}
 make
 ```
 

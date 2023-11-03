@@ -66,9 +66,12 @@ echo 'PATH="$PATH:/usr/local/go/bin"' >> ~/.profile
 Build the latest version of `Geth`.
 
 ```bash
+GETH_VERSION_COMMIT_HASH=        # e.g.3f907d6
+
 cd ~
 git clone -b master https://github.com/ethereum/go-ethereum.git
 cd go-ethereum
+git checkout ${GETH_VERSION_COMMIT_HASH}
 make geth
 ```
 
