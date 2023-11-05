@@ -42,7 +42,7 @@ Configure the firewall.
 ```bash
 GETH_P2P_PORT=        # Default: 30303
 GETH_WS_PORT=         # Default: 8546
-RPC_PORT=
+RPC_PORT=             # Default: 8545
 
 sudo ufw allow ${GETH_P2P_PORT} comment 'Allow Geth P2P in'
 sudo ufw allow ${GETH_WS_PORT} comment 'Allow Geth WS in'
@@ -134,6 +134,7 @@ Environment=P2P_PORT=        # Default: 30303
 Environment=MAX_PEERS=       # Default: 50
 Environment=WS_PORT=         # Default: 8546
 Environment=WS_ADDR=         # e.g. 192.168.1.2
+Environment=RPC_ADDR=        # e.g. 0.0.0.0
 
 ExecStart=/usr/local/bin/geth \
     --${NETWORK} \
@@ -151,6 +152,7 @@ ExecStart=/usr/local/bin/geth \
     --ws \
     --ws.port ${WS_PORT} \
     --ws.addr ${WS_ADDR} \
+    --http.addr ${RPC_ADDR} \
     --http.corsdomain '*'
 
 [Install]
