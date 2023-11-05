@@ -4,6 +4,10 @@ description: Notes on how to install, use and maintain multiple validator client
 
 # ⛓ Client software
 
+{% content-ref url="dappnode.md" %}
+[dappnode.md](dappnode.md)
+{% endcontent-ref %}
+
 {% content-ref url="geth/" %}
 [geth](geth/)
 {% endcontent-ref %}

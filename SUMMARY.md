@@ -10,6 +10,7 @@
   * [💾 Installation](staking-infrastructure/linux-software/installation.md)
   * [🏗 Maintenance](staking-infrastructure/linux-software/maintenance.md)
 * [⛓ Client software](staking-infrastructure/client-software/README.md)
+  * [Dappnode](staking-infrastructure/client-software/dappnode.md)
   * [Geth](staking-infrastructure/client-software/geth/README.md)
     * [💾 Installation](staking-infrastructure/client-software/geth/installation.md)
     * [⌨ Useful commands](staking-infrastructure/client-software/geth/useful-commands.md)
