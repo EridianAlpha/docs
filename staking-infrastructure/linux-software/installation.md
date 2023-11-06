@@ -16,6 +16,7 @@ description: >-
 * [🛑 Brute-Force SSH Protection](installation.md#brute-force-ssh-protection)
 * [🔒 Automatic Security Updates](installation.md#automatic-security-updates)
 * [📱 SSH Security - 2FA](installation.md#ssh-security-2fa)
+* [🐳 Install Docker](installation.md#install-docker)
 * [🚦 Git Configuration](installation.md#git-configuration)
 * [📝 Systemd Journal Logs](installation.md#systemd-journal-logs)
 
@@ -250,6 +251,39 @@ To avoid duplication these details can be found on the EthStaker Knowledge Base.
 {% content-ref url="http://127.0.0.1:5000/s/KnJhWg57YoZq2MPfatKE/tutorials/ssh-security-2fa" %}
 [SSH security - 2FA](http://127.0.0.1:5000/s/KnJhWg57YoZq2MPfatKE/tutorials/ssh-security-2fa)
 {% endcontent-ref %}
+
+### 🐳 Install Docker
+
+```bash
+# Update the package index
+sudo apt-get update
+
+# Install packages to allow apt to use a repository over HTTPS
+sudo apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    gnupg \
+    lsb-release
+    
+# Add Docker's official GPG key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# Set up the stable repository
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Update the package index again
+sudo apt-get update
+
+# Install the latest version of Docker Engine and containerd
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+# To use Docker without sudo, add your current user to the docker group
+sudo usermod -aG docker $USER
+```
+
+Log out and log back in or restart your machine for the group membership to take effect. You should now be able to run Docker commands without `sudo`.
 
 ### 🚦 Git Configuration
 
