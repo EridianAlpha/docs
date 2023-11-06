@@ -11,8 +11,8 @@ layout: landing
 [hardware.md](staking-infrastructure/hardware.md)
 {% endcontent-ref %}
 
-{% content-ref url="staking-infrastructure/networking.md" %}
-[networking.md](staking-infrastructure/networking.md)
+{% content-ref url="staking-infrastructure/networking/" %}
+[networking](staking-infrastructure/networking/)
 {% endcontent-ref %}
 
 {% content-ref url="staking-infrastructure/linux-software/" %}

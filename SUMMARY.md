@@ -5,7 +5,8 @@
 ## Staking Infrastructure
 
 * [💻 Hardware](staking-infrastructure/hardware.md)
-* [🌐 Networking](staking-infrastructure/networking.md)
+* [🌐 Networking](staking-infrastructure/networking/README.md)
+  * [ZeroTier One](staking-infrastructure/networking/zerotier-one.md)
 * [💿 Linux software](staking-infrastructure/linux-software/README.md)
   * [💾 Installation](staking-infrastructure/linux-software/installation.md)
   * [🏗 Maintenance](staking-infrastructure/linux-software/maintenance.md)
