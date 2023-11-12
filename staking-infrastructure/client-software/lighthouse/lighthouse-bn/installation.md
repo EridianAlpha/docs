@@ -70,10 +70,10 @@ Environment=NETWORK=                     # E.g. mainnet or goerli
 Environment=P2P_PORT=                    # Default: 9000
 Environment=HTTP_ADDRESS=                # E.g. 0.0.0.0
 Environment=HTTP_PORT=                   # Default: 5052
-Environment=EXECUTION_ENDPOINTS=         
-Environment=SUGGESTED_FEE_RECIPIENT=     
-Environment=CHECKPOINT_SYNC_URL=
-Environment=BUILDER=
+Environment=EXECUTION_ENDPOINTS=         # E.g. http://127.0.0.1:8551
+Environment=SUGGESTED_FEE_RECIPIENT=     # E.g. 0x0000...
+Environment=CHECKPOINT_SYNC_URL=         # E.g. https://beaconstate.ethstaker.cc
+Environment=BUILDER=                     # E.g. http://127.0.0.1:18550
 
 ExecStart=/usr/local/bin/lighthouse bn \
     --network ${NETWORK} \
