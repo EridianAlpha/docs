@@ -277,7 +277,7 @@ echo \
 sudo apt-get update
 
 # Install the latest version of Docker Engine and containerd
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 # To use Docker without sudo, add your current user to the docker group
 sudo usermod -aG docker $USER
