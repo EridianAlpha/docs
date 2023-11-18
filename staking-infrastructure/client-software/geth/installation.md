@@ -43,12 +43,12 @@ Configure the firewall.
 GETH_P2P_PORT=        # Default: 30303
 GETH_WS_PORT=         # Default: 8546
 GETH_METRICS_PORT=    # Default: 6060
-RPC_PORT=             # Default: 8545
+GETH_RPC_PORT=        # Default: 8545
 
 sudo ufw allow ${GETH_P2P_PORT} comment 'Allow Geth P2P in'
 sudo ufw allow ${GETH_WS_PORT} comment 'Allow Geth WS in'
 sudo ufw allow ${GETH_METRICS_PORT} comment 'Allow Geth Metrics in'
-sudo ufw allow ${RPC_PORT} comment 'Allow MetaMask RPC Port in'
+sudo ufw allow ${GETH_RPC_PORT} comment 'Allow Geth RPC Port in'
 ```
 
 ### Go - Install
@@ -137,6 +137,7 @@ Environment=MAX_PEERS=       # Default: 50
 Environment=WS_PORT=         # Default: 8546
 Environment=WS_ADDR=         # e.g. 192.168.1.2
 Environment=RPC_ADDR=        # e.g. 0.0.0.0
+Environment=RPC_PORT=        # e.g. 8545
 Environment=METRICS_ADDR=    # e.g. 0.0.0.0
 Environment=METRICS_PORT=    # e.g. 6061
 
@@ -146,8 +147,6 @@ ExecStart=/usr/local/bin/geth \
     --syncmode=snap \
     --port ${P2P_PORT} \
     --discovery.port ${P2P_PORT} \
-    --http \
-    --http.api="engine,eth,web3,net" \
     --datadir /var/lib/goethereum \
     --metrics \
     --metrics.expensive \
@@ -159,8 +158,12 @@ ExecStart=/usr/local/bin/geth \
     --ws \
     --ws.port ${WS_PORT} \
     --ws.addr ${WS_ADDR} \
+    --http \
+    --http.api "db,eth,net,engine,rpc,web3" \
     --http.addr ${RPC_ADDR} \
-    --http.corsdomain '*'
+    --http.port ${RPC_PORT} \
+    --http.vhosts "*" \
+    --http.corsdomain "*"
 
 [Install]
 WantedBy=default.target
