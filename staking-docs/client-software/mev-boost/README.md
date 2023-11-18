@@ -2,7 +2,7 @@
 description: Notes on how to install and maintain an MEV Boost client.
 ---
 
-# MEV Boost
+# 💰 MEV Boost
 
 {% content-ref url="installation.md" %}
 [installation.md](installation.md)

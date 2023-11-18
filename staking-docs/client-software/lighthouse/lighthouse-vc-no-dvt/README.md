@@ -1,10 +1,8 @@
 ---
-description: >-
-  Notes on how to install and maintain a Lighthouse Validator Client. For the
-  existing validators that don't use DVT on mainnet... yet!
+description: Notes on how to install and maintain a Lighthouse Validator Client.
 ---
 
-# Lighthouse VC (No DVT)
+# Lighthouse VC
 
 {% content-ref url="installation.md" %}
 [installation.md](installation.md)

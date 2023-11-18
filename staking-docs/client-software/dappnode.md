@@ -2,7 +2,7 @@
 description: Installing Dappnode on a vanilla Ubuntu server machine.
 ---
 
-# Dappnode
+# 📱 Dappnode
 
 ### Install Dappnode
 

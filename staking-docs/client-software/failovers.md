@@ -2,7 +2,7 @@
 description: Infrastructure resilient to failures on multiple fronts.
 ---
 
-# 📡 Failovers
+# 🚧 Failovers
 
 ### Local failovers
 

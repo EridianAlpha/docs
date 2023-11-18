@@ -2,7 +2,7 @@
 description: Notes on how to install, use and maintain Lighthouse.
 ---
 
-# Lighthouse
+# 💡 Lighthouse
 
 {% content-ref url="lighthouse-client/" %}
 [lighthouse-client](lighthouse-client/)
