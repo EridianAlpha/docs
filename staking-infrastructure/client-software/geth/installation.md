@@ -135,6 +135,9 @@ Environment=MAX_PEERS=       # Default: 50
 Environment=WS_PORT=         # Default: 8546
 Environment=WS_ADDR=         # e.g. 192.168.1.2
 Environment=RPC_ADDR=        # e.g. 0.0.0.0
+Environment=METRICS_ADDR=    # e.g. 0.0.0.0
+Environment=METRICS_PORT=    # e.g. 6061
+
 
 ExecStart=/usr/local/bin/geth \
     --${NETWORK} \
@@ -146,6 +149,8 @@ ExecStart=/usr/local/bin/geth \
     --datadir /var/lib/goethereum \
     --metrics \
     --metrics.expensive \
+    --metrics.addr ${METRICS_ADDR} \
+    --metrics.port ${METRICS_PORT} \
     --pprof \
     --authrpc.jwtsecret=/var/lib/goethereum/jwtsecret \
     --maxpeers ${MAX_PEERS} \
