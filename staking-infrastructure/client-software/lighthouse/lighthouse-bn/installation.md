@@ -74,6 +74,8 @@ Environment=EXECUTION_ENDPOINTS=         # E.g. http://127.0.0.1:8551
 Environment=SUGGESTED_FEE_RECIPIENT=     # E.g. 0x0000...
 Environment=CHECKPOINT_SYNC_URL=         # E.g. https://beaconstate.ethstaker.cc
 Environment=BUILDER=                     # E.g. http://127.0.0.1:18550
+Environment=METRICS_ADDR=                # E.g. 0.0.0.0
+Environment=METRICS_PORT=                # E.g. 5054
 
 ExecStart=/usr/local/bin/lighthouse bn \
     --network ${NETWORK} \
@@ -83,6 +85,9 @@ ExecStart=/usr/local/bin/lighthouse bn \
     --http-address=${HTTP_ADDRESS} \
     --http-port=${HTTP_PORT} \
     --metrics \
+    --metrics-address ${METRICS_ADDR} \
+    --metrics-port ${METRICS_PORT} \
+    --metrics-allow-origin "*" \
     --validator-monitor-auto \
     --execution-endpoints ${EXECUTION_ENDPOINTS} \
     --jwt-secrets="/var/lib/goethereum/jwtsecret" \
