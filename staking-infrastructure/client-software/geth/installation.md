@@ -42,10 +42,12 @@ Configure the firewall.
 ```bash
 GETH_P2P_PORT=        # Default: 30303
 GETH_WS_PORT=         # Default: 8546
+GETH_METRICS_PORT=    # Default: 6060
 RPC_PORT=             # Default: 8545
 
 sudo ufw allow ${GETH_P2P_PORT} comment 'Allow Geth P2P in'
 sudo ufw allow ${GETH_WS_PORT} comment 'Allow Geth WS in'
+sudo ufw allow ${GETH_METRICS_PORT} comment 'Allow Geth Metrics in'
 sudo ufw allow ${RPC_PORT} comment 'Allow MetaMask RPC Port in'
 ```
 
