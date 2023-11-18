@@ -2,6 +2,17 @@
 
 * [📖 Eridian Docs](README.md)
 
+## Ethereum Dev
+
+* [✏ General Notes](ethereum-dev/general-notes/README.md)
+  * [⛽ Gas Fees Explained](ethereum-dev/general-notes/gas-fees-explained.md)
+* [⚒ Foundry Notes](ethereum-dev/foundry-notes.md)
+* [📝 Solidity Notes](ethereum-dev/solidity-notes/README.md)
+  * [ABI](ethereum-dev/solidity-notes/abi.md)
+* [👾 DeFi Challenges](ethereum-dev/defi-challenges/README.md)
+  * [👨🚀 Ethernaut](ethereum-dev/defi-challenges/ethernaut.md)
+  * [💸 Damn Vulnerable DeFi](ethereum-dev/defi-challenges/damn-vulnerable-defi.md)
+
 ## Staking Docs
 
 * [💻 Hardware](staking-docs/hardware.md)
