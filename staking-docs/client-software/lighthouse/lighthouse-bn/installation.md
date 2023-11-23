@@ -86,6 +86,7 @@ ExecStart=/usr/local/bin/lighthouse bn \
     --http \
     --http-address=${HTTP_ADDRESS} \
     --http-port=${HTTP_PORT} \
+    --http-allow-origin "*" \
     --metrics \
     --metrics-address ${METRICS_ADDR} \
     --metrics-port ${METRICS_PORT} \
