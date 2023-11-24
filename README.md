@@ -15,18 +15,28 @@ layout:
 
 # 📖 Eridian Docs
 
-### Ethereum Dev
+### General Notes
 
-{% content-ref url="ethereum-dev/general-notes/" %}
-[general-notes](ethereum-dev/general-notes/)
+{% content-ref url="general-notes/linux-notes/" %}
+[linux-notes](general-notes/linux-notes/)
 {% endcontent-ref %}
 
-{% content-ref url="ethereum-dev/foundry-notes.md" %}
-[foundry-notes.md](ethereum-dev/foundry-notes.md)
+{% content-ref url="general-notes/git-notes/" %}
+[git-notes](general-notes/git-notes/)
+{% endcontent-ref %}
+
+### Ethereum Dev
+
+{% content-ref url="ethereum-dev/ethereum-notes/" %}
+[ethereum-notes](ethereum-dev/ethereum-notes/)
 {% endcontent-ref %}
 
 {% content-ref url="ethereum-dev/solidity-notes/" %}
 [solidity-notes](ethereum-dev/solidity-notes/)
+{% endcontent-ref %}
+
+{% content-ref url="ethereum-dev/foundry-notes.md" %}
+[foundry-notes.md](ethereum-dev/foundry-notes.md)
 {% endcontent-ref %}
 
 {% content-ref url="ethereum-dev/defi-challenges/" %}

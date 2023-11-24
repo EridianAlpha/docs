@@ -1,4 +1,4 @@
-# 💾 Git Commands
+# 💾 Git Notes
 
 ```
 Still to document

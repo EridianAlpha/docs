@@ -2,20 +2,22 @@
 
 * [📖 Eridian Docs](README.md)
 
-## Useful Commands
+## General Notes
 
-* [🐧 Linux Commands](useful-commands/linux-commands.md)
-* [💾 Git Commands](useful-commands/git-commands/README.md)
-  * [Repos](useful-commands/git-commands/repos.md)
-  * [Committing changes](useful-commands/git-commands/committing-changes.md)
-  * [Branches](useful-commands/git-commands/branches.md)
-  * [Merging & Rebasing](useful-commands/git-commands/merging-and-rebasing.md)
+* [🐧 Linux Notes](general-notes/linux-notes/README.md)
+  * [Linux Glossary](general-notes/linux-notes/linux-glossary.md)
+  * [Linux Commands](general-notes/linux-notes/linux-commands.md)
+  * [TMUX](general-notes/linux-notes/tmux.md)
+* [💾 Git Notes](general-notes/git-notes/README.md)
+  * [Repos](general-notes/git-notes/repos.md)
+  * [Committing changes](general-notes/git-notes/committing-changes.md)
+  * [Branches](general-notes/git-notes/branches.md)
+  * [Merging & Rebasing](general-notes/git-notes/merging-and-rebasing.md)
 
 ## Ethereum Dev
 
-* [✏ General Notes](ethereum-dev/general-notes/README.md)
-  * [⛽ Gas Fees Explained](ethereum-dev/general-notes/gas-fees-explained.md)
-* [⚒ Foundry Notes](ethereum-dev/foundry-notes.md)
+* [✏ Ethereum Notes](ethereum-dev/ethereum-notes/README.md)
+  * [⛽ Gas Fees Explained](ethereum-dev/ethereum-notes/gas-fees-explained.md)
 * [📝 Solidity Notes](ethereum-dev/solidity-notes/README.md)
   * [ABI](ethereum-dev/solidity-notes/abi.md)
   * [Abstract Contracts](ethereum-dev/solidity-notes/abstract-contracts.md)
@@ -50,6 +52,7 @@
   * [Typecasting](ethereum-dev/solidity-notes/typecasting.md)
   * [Variables, Consts & Immutable](ethereum-dev/solidity-notes/variables-consts-and-immutable.md)
   * [Withdraws](ethereum-dev/solidity-notes/withdraws.md)
+* [⚒ Foundry Notes](ethereum-dev/foundry-notes.md)
 * [👾 DeFi Challenges](ethereum-dev/defi-challenges/README.md)
   * [👨🚀 Ethernaut](ethereum-dev/defi-challenges/ethernaut.md)
   * [💸 Damn Vulnerable DeFi](ethereum-dev/defi-challenges/damn-vulnerable-defi.md)
