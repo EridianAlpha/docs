@@ -1,14 +1,13 @@
 # ABI
 
-
-
 * [https://coinsbench.com/solidity-tutorial-all-about-abi-46da8b517e7](https://coinsbench.com/solidity-tutorial-all-about-abi-46da8b517e7)
 * [https://blog.ricmoo.com/human-readable-contract-abis-in-ethers-js-141902f4d917](https://blog.ricmoo.com/human-readable-contract-abis-in-ethers-js-141902f4d917)
 
 
 
-* Hashing functions
-  * [https://medium.com/0xcode/hashing-functions-in-solidity-using-keccak256-70779ea55bb0](https://medium.com/0xcode/hashing-functions-in-solidity-using-keccak256-70779ea55bb0)
+{% embed url="https://github.com/EridianAlpha/ethereum-direct-deploy-contract" %}
+
+
 
 ### ABI with ethers.js
 
