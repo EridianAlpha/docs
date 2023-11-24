@@ -86,7 +86,7 @@ contract SandwichFactory {
 
 One of the more expensive operations in Solidity is using `storage` — particularly writes.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 * This is because every time you write or change a piece of data, it’s written permanently to the blockchain. Forever! Thousands of nodes across the world need to store that data on their hard drives, and this amount of data keeps growing over time as the blockchain grows. So there's a cost to doing that.
 * In order to keep costs down, you want to avoid writing data to storage except when absolutely necessary. Sometimes this involves seemingly inefficient programming logic — like rebuilding an array in `memory`every time a function is called instead of simply saving that array in a variable for quick lookups.

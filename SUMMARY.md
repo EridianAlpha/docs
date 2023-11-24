@@ -5,7 +5,11 @@
 ## Useful Commands
 
 * [🐧 Linux Commands](useful-commands/linux-commands.md)
-* [💾 Git Commands](useful-commands/git-commands.md)
+* [💾 Git Commands](useful-commands/git-commands/README.md)
+  * [Repos](useful-commands/git-commands/repos.md)
+  * [Committing changes](useful-commands/git-commands/committing-changes.md)
+  * [Branches](useful-commands/git-commands/branches.md)
+  * [Merging & Rebasing](useful-commands/git-commands/merging-and-rebasing.md)
 
 ## Ethereum Dev
 
