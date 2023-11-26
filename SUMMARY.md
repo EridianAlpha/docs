@@ -17,8 +17,10 @@
 ## Ethereum Dev
 
 * [✏ Ethereum Notes](ethereum-dev/ethereum-notes/README.md)
+  * [🔨 Useful Tools](ethereum-dev/ethereum-notes/useful-tools.md)
   * [⛽ Gas Fees Explained](ethereum-dev/ethereum-notes/gas-fees-explained.md)
 * [📝 Solidity Notes](ethereum-dev/solidity-notes/README.md)
+  * [💡 Note Ideas](ethereum-dev/solidity-notes/note-ideas.md)
   * [ABI](ethereum-dev/solidity-notes/abi.md)
   * [Abstract Contracts](ethereum-dev/solidity-notes/abstract-contracts.md)
   * [Arrays](ethereum-dev/solidity-notes/arrays.md)
