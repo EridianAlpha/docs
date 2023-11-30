@@ -75,13 +75,14 @@ Restart=always
 RestartSec=5
 
 Environment=NETWORK=        # E.g. mainnet or goerli
+Environment=ADDR_IP=        # E.g. 0.0.0.0
 Environment=ADDR_PORT=      # Default: 18550
 Environment=MIN_BID=        # E.g. 0.01
 Environment=RELAYS=         # E.g. "https://<HASH>@relay.ultrasound.money"
 
 ExecStart=/usr/local/bin/mev-boost \
     -${NETWORK} \
-    -addr localhost:${ADDR_PORT} \
+    -addr ${ADDR_IP}:${ADDR_PORT} \
     -min-bid ${MIN_BID} \
     -relay-check \
     -relays ${RELAYS}

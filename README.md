@@ -35,8 +35,8 @@ layout:
 [solidity-notes](ethereum-dev/solidity-notes/)
 {% endcontent-ref %}
 
-{% content-ref url="ethereum-dev/foundry-notes.md" %}
-[foundry-notes.md](ethereum-dev/foundry-notes.md)
+{% content-ref url="ethereum-dev/foundry-notes/" %}
+[foundry-notes](ethereum-dev/foundry-notes/)
 {% endcontent-ref %}
 
 {% content-ref url="ethereum-dev/defi-challenges/" %}
