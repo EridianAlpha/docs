@@ -24,7 +24,7 @@ forge install OpenZeppelin/openzeppelin-contracts@v4.9.3 --no-commit
 
 ### Using Foundry
 
-{% content-ref url="tests.md" %}
-[tests.md](tests.md)
+{% content-ref url="tests/" %}
+[tests](tests/)
 {% endcontent-ref %}
 

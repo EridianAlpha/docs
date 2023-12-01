@@ -9,14 +9,14 @@
 * Note that this contract needs to be defined as abstract, because the function utterance() is declared, but no implementation was provided (no implementation body { } was given)
 
 ```solidity
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.6.0 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
-abstract contract Feline {
-    function utterance() public pure virtual returns (bytes32);
+abstract contract Fruit {
+    function color() public pure virtual returns (bytes32);
 }
 
-contract Cat is Feline {
-    function utterance() public pure override returns (bytes32) { return "miaow"; }
+contract Apple is Fruit {
+    function color() public pure override returns (bytes32) { return "green"; }
 }
 ```

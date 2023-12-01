@@ -72,7 +72,7 @@ numbers.push(15);
 {% code fullWidth="false" %}
 ```solidity
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.0;
 
 contract Array {
     // Several ways to initialize an array
@@ -130,7 +130,7 @@ contract Array {
 {% code fullWidth="false" %}
 ```solidity
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.0;
 
 contract ArrayReplaceFromEnd {
     uint[] public arr;

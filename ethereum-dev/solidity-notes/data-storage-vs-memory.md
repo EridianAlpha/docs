@@ -45,6 +45,9 @@ Usually, these keywords aren't needed because Solidity handles them by default. 
 However, there are times when you do need to use these keywords, namely when dealing with structs and arrays within functions:
 
 ```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
 contract SandwichFactory {
   struct Sandwich {
     string name;

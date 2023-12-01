@@ -1,12 +1,26 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # 🧪 Tests
 
-{% hint style="info" %}
-**Quick Notes**
-
-
-{% endhint %}
-
-
+{% code title="Useful Commands" %}
+```bash
+forge test --summary
+forge test -vvv
+forge test -m <SPECIFIC_TEST_FUNCTION_NAME>
+```
+{% endcode %}
 
 * [https://book.getfoundry.sh/forge/writing-tests](https://book.getfoundry.sh/forge/writing-tests)
 
@@ -85,31 +99,34 @@ contract MyOtherContractTest is TestHelperContract {
 
 ```
 
-### Running tests
+### Unit Testing
 
 ```bash
 forge test --summary
 forge test -vvv
 forge test -m <SPECIFIC_TEST_FUNCTION_NAME>
+forge test --fork-url <RPC_URL>
 ```
 
-#### Unit Testing
+### Integration Testing
 
 TODO
 
-#### Integration Testing
+### Forked Testing
+
+To run all tests in a forked environment, such as a forked Ethereum mainnet, pass an RPC URL via the `--fork-url` flag.
+
+```bash
+forge test --fork-url <RPC_URL>
+```
+
+Forking is especially useful when you need to interact with existing contracts. You may choose to do integration testing this way, as if you were on an actual network.
+
+### Staging Testing
 
 TODO
 
-#### Forked Testing
-
-TODO
-
-#### Staging Testing
-
-TODO
-
-#### Fuzz Testing
+### Fuzz Testing
 
 TODO: Turn this video into notes.
 
@@ -137,7 +154,4 @@ forge coverage --report lcov
 
 
 
-
-
-
-
+###
