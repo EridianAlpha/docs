@@ -77,9 +77,8 @@ sudo apt-get update -y; sudo apt-get upgrade -y; sudo apt-get dist-upgrade -y   
 
 Install useful packages.
 
-```sh
-sudo apt-get install -y \
-git \
+<pre class="language-sh"><code class="lang-sh"><strong>sudo apt-get install -y \
+</strong>git \
 build-essential \
 software-properties-common \
 pkg-config \
@@ -97,7 +96,9 @@ screen \
 mosh \
 ufw \
 fwupd
+</code></pre>
 
+```bash
 sudo snap install btop
 ```
 
@@ -126,32 +127,6 @@ btop
 * Press `ESC` key to see menu and select `OPTIONS`.
 * Change theme to TTY.
 * Change time interval to 1000ms.
-
-Use `ntpd` instead of the default time synchronization `timedatectl`.
-
-The firewall is set to allow NTP calls out, so that's why it needs to be used.
-
-```bash
-sudo timedatectl set-ntp no
-```
-
-Verify `timedatectl` is disabled - The result should say `NTP service: inactvie`.
-
-```bash
-timedatectl
-```
-
-Install `ntp`.
-
-```bash
-sudo apt-get install -y ntp
-```
-
-Check `ntp` is running - There should be some results shown.
-
-```bash
-ntpq -p
-```
 
 ### 📏 Use all Available Disk Space
 

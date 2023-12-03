@@ -8,6 +8,7 @@
   * [Linux Glossary](general-notes/linux-notes/linux-glossary.md)
   * [Linux Commands](general-notes/linux-notes/linux-commands.md)
   * [TMUX](general-notes/linux-notes/tmux.md)
+  * [Ubuntu Desktop](general-notes/linux-notes/ubuntu-desktop.md)
 * [💾 Git Notes](general-notes/git-notes/README.md)
   * [Repos](general-notes/git-notes/repos.md)
   * [Committing changes](general-notes/git-notes/committing-changes.md)
