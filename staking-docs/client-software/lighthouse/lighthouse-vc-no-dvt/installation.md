@@ -57,7 +57,7 @@ Type=simple
 Restart=always
 RestartSec=5
 
-Environment=NETWORK=                    # E.g. mainnet or goerli
+Environment=NETWORK=                    # E.g. mainnet or holesky
 Environment=DATADIR=                    # Default: /var/lib/lighthouse
 Environment=GRAFFITI=                   # E.g. DVStakers
 Environment=METRICS_PORT=               # Default: 5064

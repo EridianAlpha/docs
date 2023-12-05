@@ -68,7 +68,7 @@ Group=lighthousebeacon
 Restart=always
 RestartSec=5
 
-Environment=NETWORK=                     # E.g. mainnet or goerli
+Environment=NETWORK=                     # E.g. mainnet or holesky
 Environment=P2P_PORT=                    # Default: 9000
 Environment=HTTP_ADDRESS=                # E.g. 0.0.0.0
 Environment=HTTP_PORT=                   # Default: 5052
