@@ -131,13 +131,13 @@ Restart=always
 RestartSec=5
 TimeoutStopSec=1200
 
-Environment=NETWORK=         # E.g. mainnet or goerli
+Environment=NETWORK=         # E.g. mainnet or holesky
 Environment=P2P_PORT=        # Default: 30303
 Environment=MAX_PEERS=       # Default: 50
 Environment=WS_PORT=         # Default: 8546
-Environment=WS_ADDR=         # e.g. 192.168.1.2
+Environment=WS_ADDR=         # e.g. 0.0.0.0
 Environment=RPC_ADDR=        # e.g. 0.0.0.0
-Environment=RPC_PORT=        # e.g. 8545
+Environment=RPC_PORT=        # Default: 8545
 Environment=METRICS_ADDR=    # e.g. 0.0.0.0
 Environment=METRICS_PORT=    # e.g. 6061
 
