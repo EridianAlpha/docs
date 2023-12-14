@@ -56,3 +56,23 @@ Stops an active prank started by [`startPrank`](https://book.getfoundry.sh/cheat
 function stopPrank() external;
 ```
 {% endcode %}
+
+### txGasPrice
+
+Sets `tx.gasprice` for the rest of the transaction.
+
+{% code title="txGasPrice example" %}
+```solidity
+function txGasPrice(uint256) external;
+function txGasPrice(uint256 newGasPrice) external;
+
+// Example usage
+uint256 gasStart = gasleft();
+vm.txGasPrice(GAS_PRICE);
+// ...Do things...
+uint256 gasEnd = gasleft();
+uint256 gasUsed = (gasStart - gasEnd) * GAS_PRICE;
+console.log("Gas used: ", gasUsed);
+```
+{% endcode %}
+

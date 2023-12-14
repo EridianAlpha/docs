@@ -1,5 +1,7 @@
 # Data - Storage vs Memory
 
+{% @github-files/github-code-block %}
+
 ### Data Locations
 
 The EVM can access and store information in six places:
@@ -13,8 +15,6 @@ The EVM can access and store information in six places:
    * Temporary variables that can't be modified
 5. Code
 6. Logs
-
-
 
 Data locations can only be specified for types:
 
@@ -87,10 +87,7 @@ contract SandwichFactory {
 
 ### Storage is Expensive
 
-One of the more expensive operations in Solidity is using `storage` — particularly writes.
-
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
-
+* One of the more expensive operations in Solidity is using `storage` — particularly writes.
 * This is because every time you write or change a piece of data, it’s written permanently to the blockchain. Forever! Thousands of nodes across the world need to store that data on their hard drives, and this amount of data keeps growing over time as the blockchain grows. So there's a cost to doing that.
 * In order to keep costs down, you want to avoid writing data to storage except when absolutely necessary. Sometimes this involves seemingly inefficient programming logic — like rebuilding an array in `memory`every time a function is called instead of simply saving that array in a variable for quick lookups.
 * In most programming languages, looping over large data sets is expensive. But in Solidity, this is way cheaper than using `storage` if it's in an `external view`function, since `view` functions don't cost your users any gas. (And gas costs your users real money!).
