@@ -15,7 +15,6 @@ Constants and immutable variables are not in storage and don't take up a storage
 [1] 0x00...01       <--    bool someBool = true;                        // Hex value of 1 for true 
 [2] 0x00...01       <--    uint256[] myArray;                           // Storage slot only contains array length
 [3] 0x00...00       <--    mapping(address => uint256) public balances  // Empty storage slot to show it's a mapping
-[4]
 ...
 
 // ARRAYS
