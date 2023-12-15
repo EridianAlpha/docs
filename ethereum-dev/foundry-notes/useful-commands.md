@@ -30,6 +30,15 @@ cast storage <CONTRACT_ADDRRESS> <STORAGE_SLOT> --rpc-url <RPC_URL>
 ```
 {% endcode %}
 
+{% code title="Get OPCODES for a contract" %}
+```bash
+CONTRACT_NAME=
+
+BYTECODE=$(jq -r '.bytecode.object' out/${CONTRACT_NAME}.sol/${CONTRACT_NAME}.json)
+cast disassemble $BYTECODE > "${CONTRACT_NAME}-opcodes.txt"
+```
+{% endcode %}
+
 ### Forge
 
 {% code title="Inspect contract and view storage layout" %}

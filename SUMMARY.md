@@ -47,6 +47,7 @@
   * [Mappings](ethereum-dev/solidity-notes/mappings.md)
   * [Msg.sender](ethereum-dev/solidity-notes/msg.sender.md)
   * [Objects & Types](ethereum-dev/solidity-notes/objects-and-types.md)
+  * [EVM Opcodes](ethereum-dev/solidity-notes/evm-opcodes.md)
   * [Payable](ethereum-dev/solidity-notes/payable.md)
   * [Require](ethereum-dev/solidity-notes/require.md)
   * [Security](ethereum-dev/solidity-notes/security.md)
