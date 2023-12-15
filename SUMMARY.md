@@ -58,6 +58,7 @@
   * [Variables, Consts & Immutable](ethereum-dev/solidity-notes/variables-consts-and-immutable.md)
   * [Withdraws](ethereum-dev/solidity-notes/withdraws.md)
 * [⚒ Foundry Notes](ethereum-dev/foundry-notes/README.md)
+  * [🤝 Useful Commands](ethereum-dev/foundry-notes/useful-commands.md)
   * [🧪 Tests](ethereum-dev/foundry-notes/tests/README.md)
     * [Cheatcodes](ethereum-dev/foundry-notes/tests/cheatcodes.md)
 * [👾 DeFi Challenges](ethereum-dev/defi-challenges/README.md)
