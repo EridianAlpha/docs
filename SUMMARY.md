@@ -54,6 +54,7 @@
   * [Self Destruct](ethereum-dev/solidity-notes/self-destruct.md)
   * [Send ETH (transfer, send, call)](ethereum-dev/solidity-notes/send-eth-transfer-send-call.md)
   * [Structs](ethereum-dev/solidity-notes/structs.md)
+  * [Style Guide](ethereum-dev/solidity-notes/style-guide.md)
   * [Time Units](ethereum-dev/solidity-notes/time-units.md)
   * [Typecasting](ethereum-dev/solidity-notes/typecasting.md)
   * [Variables, Consts & Immutable](ethereum-dev/solidity-notes/variables-consts-and-immutable.md)

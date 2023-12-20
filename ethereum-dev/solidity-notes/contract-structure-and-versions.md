@@ -31,7 +31,6 @@ contract HelloWorld {
 
 ### Import
 
-* Our code was getting pretty long, so we split it up into multiple files to make it more manageable. This is normally how you will handle long codebases in your Solidity projects.
 * When you have multiple files and you want to import one file into another, Solidity uses the `import`keyword:
 
 ```solidity
@@ -42,3 +41,27 @@ contract newContract is SomeOtherContract {
 ```
 
 * So if we had a file named `someothercontract.sol` in the same directory as this contract (that's what the `./`means), it would get imported by the compiler.
+
+### Contract Layout
+
+* Version
+* Imports
+* Errors
+* Interfaces, libraries, contracts
+* Type declarations
+* State variables
+* Events
+* Modifiers
+* Functions
+
+### Function Layout
+
+* constructor
+* receive function (if exists)
+* fallback function (if exists)
+* external
+* public
+* internal
+* private
+* view & pure functions
+

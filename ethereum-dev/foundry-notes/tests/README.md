@@ -104,7 +104,8 @@ contract MyOtherContractTest is TestHelperContract {
 ```bash
 forge test --summary
 forge test -vvv
-forge test -m <SPECIFIC_TEST_FUNCTION_NAME>
+forge test --mc <SPECIFIC_TEST_CONTRACT_NAME>
+forge test --mt <SPECIFIC_TEST_FUNCTION_NAME>
 forge test --fork-url <RPC_URL>
 ```
 
