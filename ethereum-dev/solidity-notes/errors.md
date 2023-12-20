@@ -30,6 +30,9 @@ vm.expectRevert(FundMe__RefundFailed.selector);
 testHelper.fundMeRefund();
 ```
 
+* The `.selector` property retrieves the unique identifier (selector) of the `FundMe__RefundFailed` error.
+* In the case of errors (and events), the selector is derived from the error's name and its parameters.
+
 ### assert
 
 ```solidity
@@ -85,7 +88,7 @@ contract Error {
         assert(num == 0);
     }
 
-    // custom error
+    // Custom error with multiple parameters
     error InsufficientBalance(uint balance, uint withdrawAmount);
 
     function testCustomError(uint _withdrawAmount) public view {

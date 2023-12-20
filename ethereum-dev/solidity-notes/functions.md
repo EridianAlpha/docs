@@ -29,8 +29,6 @@ function _addToArray(uint _number) private {
 
 <table data-full-width="true"><thead><tr><th width="141">Visibility</th><th>Description</th></tr></thead><tbody><tr><td><code>internal</code></td><td><ul><li>Default visibility specifier when none are specified.</li><li>Internal functions can only be called inside the current contract (more specifically, inside the current code unit, which also includes internal library functions and inherited functions) because they cannot be executed outside of the context of the current contract.</li><li>Calling an internal function is realized by jumping to its entry label, just like when calling a function of the current contract internally.</li><li>Those functions and state variables can only be accessed internally (i.e. from within the current contract or contracts deriving from it), without using <code>this</code>.</li></ul></td></tr><tr><td><code>external</code></td><td><ul><li>External functions consist of an address and a function signature and they can be passed via and returned from external function calls.</li><li>Can be called from outside, can’t be called from inside (functions from same contract, functions from inherited contracts).</li><li>External functions are part of the contract interface, which means they can be called from other contracts and via transactions.</li><li>An external function <code>f</code> cannot be called internally (i.e. <code>f()</code> does not work, but <code>this.f()</code> works).</li><li>External functions are sometimes more efficient when they receive large arrays of data.</li></ul></td></tr><tr><td><code>private</code></td><td><ul><li>Private functions can only be called from inside the current contract, even the inherited contracts can’t call them.</li><li>Private functions and state variables are only visible for the contract they are defined in and not in derived contracts.</li></ul></td></tr><tr><td><code>public</code></td><td><ul><li>Public functions can be called from anywhere.</li><li>Public functions are part of the contract interface and can be either called internally or via messages.</li><li>For public state variables, an automatic getter function is generated.</li></ul></td></tr></tbody></table>
 
-
-
 ### Function Declarations
 
 A function declaration in Solidity looks like the following:
@@ -112,6 +110,20 @@ contract BLT is Sandwich {
   }
 }
 ```
+
+## Function Input Parameters
+
+* If a function requires an input parameter for the function to be valid (e.g. for an override) but you don't actually use the parameter in the function, it can be commented out.
+
+```solidity
+function checkUpkeep( bytes memory /* checkData */ ) public view override
+    returns (bool upkeepNeeded, bytes memory /* performData */)
+{
+    // Function content...
+}
+```
+
+
 
 ## Handling Multiple Return Values
 
