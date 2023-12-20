@@ -2,7 +2,7 @@
 
 ### Code License
 
-* Specify a license at the top of every file (or Remix will complain)
+* Specify a license at the top of every file.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -64,4 +64,3 @@ contract newContract is SomeOtherContract {
 * internal
 * private
 * view & pure functions
-

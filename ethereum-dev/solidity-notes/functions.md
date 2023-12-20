@@ -1,12 +1,12 @@
 # Functions
 
-### Function Types
+## Function Types
 
-<table><thead><tr><th width="131">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>view</code></td><td><ul><li>Doesn't cost gas when called directly (externally by a user)</li><li>Does cost gas when called by another function or contract</li><li>Reads the state of the blockchain but can't modify it</li></ul></td></tr><tr><td><code>pure</code></td><td><ul><li>Doesn't cost gas when called directly</li><li>Does cost gas when called by another function or contract</li><li>Does not read the state of the blockchain, only memory and calldata</li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="179">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>non-constant</code></td><td><ul><li>The default function type and doesn't get specified as a <a href="function-modifiers.md">modifier</a>.</li><li>The function can modify the state of the contract on the blockchain. Non-constant functions can write to the contract's storage, emit events, create other contracts, and use <code>selfdestruct</code>.</li></ul></td></tr><tr><td><code>view</code></td><td><ul><li>Doesn't cost gas when called directly (externally by a user).</li><li>Does cost gas when called by another function or contract.</li><li>Reads the state of the blockchain but can't modify it.</li></ul></td></tr><tr><td><code>pure</code></td><td><ul><li>Doesn't cost gas when called directly.</li><li>Does cost gas when called by another function or contract.</li><li>Does not read the state of the blockchain, only memory and calldata.</li></ul></td></tr></tbody></table>
 
 
 
-### Code Conventions
+## Code Conventions
 
 * Function parameters and private function names start with an underscore `_`
 
@@ -18,7 +18,7 @@ function _addToArray(uint _number) private {
 }
 ```
 
-### Visibility Specifiers
+## Visibility Specifiers
 
 * Info
   * [https://docs.soliditylang.org/en/v0.8.13/cheatsheet.html#function-visibility-specifiers](https://docs.soliditylang.org/en/v0.8.13/cheatsheet.html#function-visibility-specifiers)
@@ -90,18 +90,136 @@ In addition to `public` and `private`, Solidity has two more types of visibility
 * `internal`
   * Similar `private`, except that it's also accessible to contracts that inherit from this contract.
 * `external`
-  * Similar to `public`, except that these functions can ONLY be called outside the contract — they can't be called by other functions inside that contract.\
-    For declaring internal or external functions, the syntax is the same as private and public:
+  * Similar to `public`, except that these functions can ONLY be called outside the contract — they can't be called by other functions inside that contract.
+  * For declaring internal or external functions, the syntax is the same as private and public:
 
+```solidity
+contract Sandwich {
+  uint private sandwichesEaten = 0;
 
+  function eat() internal {
+    sandwichesEaten++;
+  }
+}
 
+contract BLT is Sandwich {
+  uint private baconSandwichesEaten = 0;
 
+  function eatWithBacon() public returns (string memory) {
+    baconSandwichesEaten++;
+    // We can call this here because it's internal
+    eat();
+  }
+}
+```
 
+## Handling Multiple Return Values
 
+This `getKitty` function is the first example we've seen that returns multiple values. Let's look at how to handle them:
 
+```solidity
+function multipleReturns() internal returns(uint a, uint b, uint c) {
+  return (1, 2, 3);
+}
 
+function processMultipleReturns() external {
+  uint a;
+  uint b;
+  uint c;
+  // This is how you do multiple assignment:
+  (a, b, c) = multipleReturns();
+}
 
+// Or if we only cared about one of the values:
+function getLastReturnValue() external {
+  uint c;
+  // We can just leave the other fields blank:
+  (,,c) = multipleReturns();
+}
+```
 
+## Example
 
+* [https://solidity-by-example.org/function/](https://solidity-by-example.org/function/)
 
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.13;
 
+contract Function {
+    // Functions can return multiple values.
+    function returnMany()
+        public
+        pure
+        returns (
+            uint,
+            bool,
+            uint
+        )
+    {
+        return (1, true, 2);
+    }
+
+    // Return values can be named.
+    function named()
+        public
+        pure
+        returns (
+            uint x,
+            bool b,
+            uint y
+        )
+    {
+        return (1, true, 2);
+    }
+
+    // Return values can be assigned to their name.
+    // In this case the return statement can be omitted.
+    function assigned()
+        public
+        pure
+        returns (
+            uint x,
+            bool b,
+            uint y
+        )
+    {
+        x = 1;
+        b = true;
+        y = 2;
+    }
+
+    // Use destructuring assignment when calling another
+    // function that returns multiple values.
+    function destructuringAssignments()
+        public
+        pure
+        returns (
+            uint,
+            bool,
+            uint,
+            uint,
+            uint
+        )
+    {
+        (uint i, bool b, uint j) = returnMany();
+
+        // Values can be left out.
+        (uint x, , uint y) = (4, 5, 6);
+
+        return (i, b, j, x, y);
+    }
+
+    // Cannot use map for either input or output
+
+    // Can use array for input
+    function arrayInput(uint[] memory _arr) public {}
+
+    // Can use array for output
+    uint[] public arr;
+
+    function arrayOutput() public view returns (uint[] memory) {
+        return arr;
+    }
+}
+```

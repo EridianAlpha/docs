@@ -1,7 +1,7 @@
 # Enum
 
-* Solidity supports enumerables and they are useful to model choice and keep track of state
-* Enums can be declared outside of a contract
+* Solidity supports enumerables and they are useful to model choice and keep track of state.
+* Enums can be declared outside of a contract.
 
 ### Example
 
@@ -54,7 +54,7 @@ contract Enum {
 
 ### Declaring and Importing Enum
 
-* File that the enum is declared in
+* File that the enum is declared in.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -70,7 +70,7 @@ enum Status {
 }
 ```
 
-* File that imports the enum above
+* File that imports the enum above.
 
 ```solidity
 // SPDX-License-Identifier: MIT

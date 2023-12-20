@@ -24,8 +24,8 @@ description: >-
 
 To avoid duplication these details can be found on the EthStaker Knowledge Base.
 
-{% content-ref url="http://127.0.0.1:5000/s/KnJhWg57YoZq2MPfatKE/tutorials/installing-linux" %}
-[Installing Linux](http://127.0.0.1:5000/s/KnJhWg57YoZq2MPfatKE/tutorials/installing-linux)
+{% content-ref url="https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/installing-linux" %}
+[Installing Linux](https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/installing-linux)
 {% endcontent-ref %}
 
 ### 🚪 Change Default SSH Port
@@ -132,8 +132,8 @@ btop
 
 To avoid duplication these details can be found on the EthStaker Knowledge Base.
 
-{% content-ref url="http://127.0.0.1:5000/s/KnJhWg57YoZq2MPfatKE/tutorials/confirm-available-disk-space" %}
-[Use all available disk space](http://127.0.0.1:5000/s/KnJhWg57YoZq2MPfatKE/tutorials/confirm-available-disk-space)
+{% content-ref url="https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/confirm-available-disk-space" %}
+[Use all available disk space](https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/confirm-available-disk-space)
 {% endcontent-ref %}
 
 ### 🫣 Hide Welcome Message on Login
@@ -207,24 +207,24 @@ sudo ufw status verbose
 
 To avoid duplication these details can be found on the EthStaker Knowledge Base.
 
-{% content-ref url="http://127.0.0.1:5000/s/KnJhWg57YoZq2MPfatKE/networking/brute-force-ssh-protection" %}
-[Brute-force SSH protection](http://127.0.0.1:5000/s/KnJhWg57YoZq2MPfatKE/networking/brute-force-ssh-protection)
+{% content-ref url="https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/networking/brute-force-ssh-protection" %}
+[Brute-force SSH protection](https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/networking/brute-force-ssh-protection)
 {% endcontent-ref %}
 
 ### 🔒 Automatic Security Updates
 
 To avoid duplication these details can be found on the EthStaker Knowledge Base.
 
-{% content-ref url="http://127.0.0.1:5000/s/KnJhWg57YoZq2MPfatKE/tutorials/automatic-security-updates" %}
-[Automatic security updates](http://127.0.0.1:5000/s/KnJhWg57YoZq2MPfatKE/tutorials/automatic-security-updates)
+{% content-ref url="https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/automatic-security-updates" %}
+[Automatic security updates](https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/automatic-security-updates)
 {% endcontent-ref %}
 
 ### 📱 SSH Security - 2FA
 
 To avoid duplication these details can be found on the EthStaker Knowledge Base.
 
-{% content-ref url="http://127.0.0.1:5000/s/KnJhWg57YoZq2MPfatKE/tutorials/ssh-security-2fa" %}
-[SSH security - 2FA](http://127.0.0.1:5000/s/KnJhWg57YoZq2MPfatKE/tutorials/ssh-security-2fa)
+{% content-ref url="https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/ssh-security-2fa" %}
+[SSH security - 2FA](https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/ssh-security-2fa)
 {% endcontent-ref %}
 
 ### 🐳 Install Docker

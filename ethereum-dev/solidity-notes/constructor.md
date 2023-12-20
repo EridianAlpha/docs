@@ -1,6 +1,6 @@
 # Constructor
 
-* A constructor is an optional function that is executed upon contract creation
+* A constructor is an optional function that is executed upon contract creation.
 
 ### Example
 

@@ -1,7 +1,7 @@
 # Errors
 
-* An error will undo all changes made to the state during a transaction
-* You can throw an error by calling `require`, `revert` or `assert`
+* An error will undo all changes made to the state during a transaction.
+* You can throw an error by calling `require`, `revert` or `assert`.
 
 ### require
 
