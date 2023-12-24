@@ -94,6 +94,21 @@ vm.roll(100);
 emit log_uint(block.number); // 100
 ```
 
+## recordLogs
+
+Tells the VM to start recording all the emitted events. To access them, use `getRecordedLogs`.
+
+{% code fullWidth="true" %}
+```solidity
+vm.recordLogs();                                // Start recording logs
+raffle.performUpkeep("");                       // Call function that emits event log
+Vm.Log[] memory entries = vm.getRecordedLogs(); // Store emitted log
+bytes32 requestId = entries[1].topics[1];       // Access stored log by knowing exactly which logs are emitted
+                                                // .topics[o] would refer to the entire event,
+                                                // .topics[1] is for the first actual topic
+```
+{% endcode %}
+
 ## expectEmit
 
 Assert a specific log is emitted during the next call.
@@ -147,7 +162,7 @@ In functions that emit a lot of events, it's possible to "skip" events and only 
 
 ### expectEmit Examples
 
-{% code title="This does not check the emitting address." %}
+{% code title="This does not check the emitting address." fullWidth="true" %}
 ```solidity
 event Transfer(address indexed from, address indexed to, uint256 amount);
 
@@ -163,7 +178,7 @@ function testERC20EmitsTransfer() public {
 ```
 {% endcode %}
 
-{% code title="This does check the emitting address." %}
+{% code title="This does check the emitting address." fullWidth="true" %}
 ```solidity
 event Transfer(address indexed from, address indexed to, uint256 amount);
 
@@ -178,11 +193,9 @@ function testERC20EmitsTransfer() public {
 ```
 {% endcode %}
 
-{% code title="We can also assert that multiple events are emitted in a single call." %}
-```solidity
-function testERC20EmitsBatchTransfer() public {
-    // We declare multiple expected transfer events
-    for (uint256 i = 0; i < users.length; i++) {
+<pre class="language-solidity" data-title="We can also assert that multiple events are emitted in a single call." data-full-width="true"><code class="lang-solidity"><strong>function testERC20EmitsBatchTransfer() public {
+</strong>    // We declare multiple expected transfer events
+    for (uint256 i = 0; i &#x3C; users.length; i++) {
         // Here we use the longer signature for demonstration purposes. This call checks
         // topic0 (always checked), topic1 (true), topic2 (true), NOT topic3 (false), and data (true).
         vm.expectEmit(true, true, false, true);
@@ -196,10 +209,9 @@ function testERC20EmitsBatchTransfer() public {
     // We perform the call.
     myToken.batchTransfer(users, 10);
 }
-```
-{% endcode %}
+</code></pre>
 
-{% code title="This example fails, as the expected event is not emitted on the next call." %}
+{% code title="This example fails, as the expected event is not emitted on the next call." fullWidth="true" %}
 ```solidity
 event Transfer(address indexed from, address indexed to, uint256 amount);
 
