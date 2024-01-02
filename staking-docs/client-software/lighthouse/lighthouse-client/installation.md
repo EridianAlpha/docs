@@ -107,28 +107,49 @@ vim ~/lighthouse-deploy.sh
 #!/bin/bash
 set -e
 
-beacon_status=$(sudo systemctl is-active lighthousebeacon.service 2>/dev/null)
-validator_status=$(sudo systemctl is-active lighthousevalidator.service 2>/dev/null)
+# Check if the services exist before checking their status
+if systemctl list-units --full -all | grep -Fq lighthousebeacon.service; then
+    beacon_status=$(sudo systemctl is-active lighthousebeacon.service)
+else
+    beacon_status="not_installed"
+fi
+
+if systemctl list-units --full -all | grep -Fq lighthousevalidator.service; then
+    validator_status=$(sudo systemctl is-active lighthousevalidator.service)
+else
+    validator_status="not_installed"
+fi
 
 echo "**********************"
 
 if [ "$beacon_status" = "active" ]; then
     echo "Stopping Lighthouse Beacon..."
     sudo systemctl stop lighthousebeacon.service
-elif [ "$beacon_status" = "failed" ]; then
-    echo "Warning: Lighthouse Beacon service does not exist."
+elif [ "$beacon_status" = "not_installed" ]; then
+    echo "Warning: Lighthouse Beacon service is not installed."
 fi
 
 if [ "$validator_status" = "active" ]; then
     echo "Stopping Lighthouse Validator..."
     sudo systemctl stop lighthousevalidator.service
-elif [ "$validator_status" = "failed" ]; then
-    echo "Warning: Lighthouse Validator service does not exist."
+elif [ "$validator_status" = "not_installed" ]; then
+    echo "Warning: Lighthouse Validator service is not installed."
 fi
 
 echo "Replacing previous version..."
-sudo rm /usr/local/bin/lighthouse
-sudo cp ~/.cargo/bin/lighthouse /usr/local/bin
+
+# Check if the file exists before trying to remove it
+if [ -f /usr/local/bin/lighthouse ]; then
+    sudo rm /usr/local/bin/lighthouse
+fi
+
+# Check if the source file exists before copying
+if [ -f ~/.cargo/bin/lighthouse ]; then
+    sudo cp ~/.cargo/bin/lighthouse /usr/local/bin
+else
+    echo "Error: Source file does not exist. Installation aborted."
+    exit 1
+fi
 
 if [ "$beacon_status" = "active" ]; then
     echo "Restarting Lighthouse Beacon..."
