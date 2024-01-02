@@ -19,6 +19,7 @@ layout:
 forge test --summary
 forge test -vvv
 forge test -m <SPECIFIC_TEST_FUNCTION_NAME>
+forge test --debug <SPECIFIC_TEST_FUNCTION_NAME> # h to show/hide help
 ```
 {% endcode %}
 

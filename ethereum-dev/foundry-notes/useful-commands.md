@@ -31,6 +31,8 @@ function interactWithPreviouslyDeployedContracts() public {
 
 ### Makefile
 
+* `@` stops the command being printed out to the command line which is useful when you don't want sensitive info to be printed e.g. private keys.
+
 {% tabs %}
 {% tab title="FundMe Usage" %}
 {% code overflow="wrap" %}

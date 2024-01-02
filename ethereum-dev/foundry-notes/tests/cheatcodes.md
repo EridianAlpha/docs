@@ -247,3 +247,14 @@ function testERC20EmitsTransfer() public {
 }
 ```
 {% endcode %}
+
+## envUint
+
+Read an environment variable as `uint256` or `uint256[]`.
+
+```solidity
+vm.envUint("PRIVATE_KEY")
+```
+
+
+

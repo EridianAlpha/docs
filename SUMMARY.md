@@ -49,6 +49,7 @@
   * [Objects & Types](ethereum-dev/solidity-notes/objects-and-types.md)
   * [EVM Opcodes](ethereum-dev/solidity-notes/evm-opcodes.md)
   * [Payable](ethereum-dev/solidity-notes/payable.md)
+  * [Public State Variable vs Function](ethereum-dev/solidity-notes/public-state-variable-vs-function.md)
   * [Receive & Fallback](ethereum-dev/solidity-notes/fallback.md)
   * [Require](ethereum-dev/solidity-notes/require.md)
   * [Security](ethereum-dev/solidity-notes/security.md)
