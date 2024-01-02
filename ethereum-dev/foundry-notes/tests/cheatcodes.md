@@ -57,6 +57,22 @@ function stopPrank() external;
 ```
 {% endcode %}
 
+## deal
+
+Sets the balance of an address `who` to `newBalance`.
+
+```solidity
+function deal(address who, uint256 newBalance) external;
+```
+
+## hoax
+
+Similar to `prank` + `deal` except that it adds to the existing user's balance where `deal` resets the balance to the specified amount.
+
+```solidity
+function hoax(address who, uint256 give) public;
+```
+
 ## txGasPrice
 
 Sets `tx.gasprice` for the rest of the transaction.

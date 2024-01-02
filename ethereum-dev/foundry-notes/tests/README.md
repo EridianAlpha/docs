@@ -129,17 +129,34 @@ TODO
 
 ### Fuzz Testing
 
-TODO: Turn this video into notes.
-
-{% embed url="https://www.youtube.com/watch?v=juyY-CTolac" %}
-
-
-
-### Test Coverage
-
-```bash
-forge coverage
+```solidity
+function test_FuzzTestExample(
+    uint256 randomRequestId
+) public raffleEntered {
+    vm.expectRevert("nonexistent request");
+    VRFCoordinatorV2Mock(vrfCoordinatorV2).fulfillRandomWords(
+        randomRequestId,
+        address(raffle)
+    );
+}
 ```
+
+{% hint style="info" %}
+**TODO: Turn this video into notes.**
+
+[https://www.youtube.com/watch?v=juyY-CTolac](https://www.youtube.com/watch?v=juyY-CTolac)
+{% endhint %}
+
+
+
+
+
+### Coverage
+
+<pre class="language-bash"><code class="lang-bash">forge coverage
+<strong>forge coverage --report debug
+</strong>forge coverage --report debug > coverage-report.txt
+</code></pre>
 
 
 
