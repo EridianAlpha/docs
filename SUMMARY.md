@@ -54,6 +54,7 @@
   * [Security](ethereum-dev/solidity-notes/security.md)
   * [Self Destruct](ethereum-dev/solidity-notes/self-destruct.md)
   * [Send ETH (transfer, send, call)](ethereum-dev/solidity-notes/send-eth-transfer-send-call.md)
+  * [Stack Too Deep](ethereum-dev/solidity-notes/stack-too-deep.md)
   * [Structs](ethereum-dev/solidity-notes/structs.md)
   * [Style Guide](ethereum-dev/solidity-notes/style-guide.md)
   * [Time Units](ethereum-dev/solidity-notes/time-units.md)

@@ -98,14 +98,17 @@ emit log_uint(block.number); // 100
 
 Tells the VM to start recording all the emitted events. To access them, use `getRecordedLogs`.
 
-{% code fullWidth="true" %}
+{% code fullWidth="false" %}
 ```solidity
 vm.recordLogs();                                // Start recording logs
 raffle.performUpkeep("");                       // Call function that emits event log
 Vm.Log[] memory entries = vm.getRecordedLogs(); // Store emitted log
-bytes32 requestId = entries[1].topics[1];       // Access stored log by knowing exactly which logs are emitted
-                                                // .topics[o] would refer to the entire event,
-                                                // .topics[1] is for the first actual topic
+
+// Access stored log by knowing exactly which logs are emitted
+// .topics[0] would refer to the entire event
+// .topics[1] is for the first actual topic
+// All logs are recorded as bytes32 in foundry
+bytes32 requestId = entries[1].topics[1];       
 ```
 {% endcode %}
 
