@@ -28,20 +28,9 @@ forge install OpenZeppelin/openzeppelin-contracts@v4.9.3 --no-commit
 * The `--no-commit` flag modifies this behavior. When you use this flag, Foundry will still install the OpenZeppelin contracts, but it will not automatically create a new Git commit for these changes. This means you have to manually commit the changes to your Git repository if you wish to do so.
 * The use of `--no-commit` gives you more control over your Git history and commit messages, which can be useful in certain workflows or for maintaining a clean project history.
 
-### foundry.toml
+### Foundry Template Files
 
-```toml
-[profile.default]
-src = "src"
-out = "out"
-libs = ["lib"]
-ffi = true # Allow foundry to run commands on the command line
-remappings = [
-    "@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/", 
-    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
-    "@foundry-devops/=lib/foundry-devops/"
-    ]
-```
+{% embed url="https://github.com/EridianAlpha/foundry-template/tree/main" %}
 
 ### Using Foundry
 

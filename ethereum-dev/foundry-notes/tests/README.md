@@ -45,10 +45,14 @@ import "forge-std/Test.sol";
 
 contract ContractBTest is Test {
     uint256 testNumber;
+    string string1;
+    string string2;
 
     // An optional function invoked before each test case is run.
     function setUp() public {
         testNumber = 42;
+        string1 = ABC;
+        string2 = XYZ;
     }
 
     // Functions prefixed with test are run as a test case.
@@ -59,6 +63,13 @@ contract ContractBTest is Test {
     // Inverse test prefix - if the function does not revert, the test fails.
     function testFail_Subtract43() public {
         testNumber -= 43;
+    }
+    
+    function test_CompareStrings() public {
+        assertEq(
+            keccak256(abi.encodePacked(string1)),
+            keccak256(abi.encodePacked(string2))
+        );
     }
 }
 

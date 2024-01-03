@@ -24,6 +24,10 @@ People[] public people; // dynamic Array, we can keep adding to it
 
 Remember that state variables are stored permanently in the blockchain. So creating a dynamic array of structs like this can be useful for storing structured data in your contract, kind of like a database.
 
+{% hint style="info" %}
+Strings are an array of bytes, which means they can't be directly compared.
+{% endhint %}
+
 ### Public Arrays
 
 You can declare an array as public, and Solidity will automatically create a getter method for it. The syntax looks like:
