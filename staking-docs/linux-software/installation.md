@@ -231,7 +231,7 @@ To avoid duplication these details can be found on the EthStaker Knowledge Base.
 
 ```bash
 # Update the package index
-sudo apt-get update
+sudo apt-get update -y
 
 # Install packages to allow apt to use a repository over HTTPS
 sudo apt-get install -y \
@@ -249,7 +249,7 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 # Update the package index again
-sudo apt-get update
+sudo apt-get update -y
 
 # Install the latest version of Docker Engine and containerd
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
