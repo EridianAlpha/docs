@@ -4,14 +4,19 @@
   * So you say "This contract that I'm referencing has a `fund()` function"
   * This means it can be called, but you don't actually need to know what happens inside the function, you just need to know the name and inputs
 
+{% hint style="info" %}
+**CAN NOT:**
+
+* have any functions implemented
+* inherit from other contracts, but they can inherit from other interfaces
+* declare a constructor
+* declare state variables
+* declare modifiers
 
 
-* Cannot have any functions implemented
-* Cannot inherit from other contracts, but they can inherit from other interfaces
-* All declared functions must be external
-* Cannot declare a constructor
-* Cannot declare state variables
-* Cannot declare modifiers
+
+**All declared functions must be external**
+{% endhint %}
 
 ### Using an Interface
 
