@@ -70,10 +70,23 @@ The contract uses an old method of defining the constructor by (attempting) to s
 
 1. Call the function either using an interface or a `.call` with the function signature.
 
+{% tabs %}
+{% tab title="Anvil" %}
 ```bash
-make exploit-level-2
+make anvil-exploit-level-2
+
 <INPUT_LEVEL_INSTANCE_CONTRACT_ADDRESS>
 ```
+{% endtab %}
+
+{% tab title="Holesky" %}
+```bash
+make holesky-exploit-level-2
+
+<INPUT_LEVEL_INSTANCE_CONTRACT_ADDRESS>
+```
+{% endtab %}
+{% endtabs %}
 
 {% @github-files/github-code-block url="https://github.com/EridianAlpha/ethernaut-foundry/blob/main/script/Level2.s.sol" fullWidth="false" %}
 
