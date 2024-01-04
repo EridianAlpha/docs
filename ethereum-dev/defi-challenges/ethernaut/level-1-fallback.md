@@ -24,6 +24,8 @@ Things that might help:
 
 ### Level Contract
 
+{% embed url="https://github.com/OpenZeppelin/ethernaut/blob/master/contracts/contracts/levels/Fallback.sol" %}
+
 {% code lineNumbers="true" %}
 ```solidity
 // SPDX-License-Identifier: MIT
