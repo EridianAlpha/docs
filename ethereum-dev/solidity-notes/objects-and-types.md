@@ -4,14 +4,7 @@
 
 * [https://docs.soliditylang.org/en/v0.8.13/types.html](https://docs.soliditylang.org/en/v0.8.13/types.html)
 
-s
-
-```solidity
-```
-
-s
-
-<table data-header-hidden data-full-width="true"><thead><tr><th width="388"></th><th></th></tr></thead><tbody><tr><td><pre class="language-solidity"><code class="lang-solidity">uint
+<table data-full-width="true"><thead><tr><th width="388">Type</th><th>Description</th></tr></thead><tbody><tr><td><pre class="language-solidity"><code class="lang-solidity">uint
 uint8
 uint16
 uint32

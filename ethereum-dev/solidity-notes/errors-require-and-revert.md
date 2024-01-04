@@ -1,4 +1,4 @@
-# Errors
+# Errors (require & revert)
 
 * An error will undo all changes made to the state during a transaction.
 * You can throw an error by calling `require`, `revert` or `assert`.
@@ -44,6 +44,8 @@ assertEq(funders.length, 3); // More informative logs
 ### Gas Saving
 
 ```solidity
+error FundMe__NotOwner();
+
 // Uses more gas as a custom error is stored as a string (bytes array)
 require(msg.sender == i_owner);
 
