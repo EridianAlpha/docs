@@ -127,7 +127,7 @@ Well... Not quite.
 
 The story of Rubixi is a very well known case in the Ethereum ecosystem. The company changed its name from 'Dynamic Pyramid' to 'Rubixi' but somehow they didn't rename the constructor method of its contract:
 
-```
+```solidity
 contract Rubixi {
   address private owner;
   function DynamicPyramid() { owner = msg.sender; }
@@ -142,3 +142,4 @@ This allowed the attacker to call the old constructor and claim ownership of the
 
 * This exploit occurred because before Solidity `v0.5.0` it was not mandatory to name the constructor `constructor`. This was updated with a [breaking change in the `v0.5.0` release](https://docs.soliditylang.org/en/latest/050-breaking-changes.html#constructors).
 * Even though this contract uses `v0.6.0` this mistake still happened.
+* Exploited contract: [https://etherscan.io/address/0xe82719202e5965Cf5D9B6673B7503a3b92DE20be](https://etherscan.io/address/0xe82719202e5965Cf5D9B6673B7503a3b92DE20be)
