@@ -63,6 +63,8 @@ Sets the balance of an address `who` to `newBalance`.
 
 ```solidity
 function deal(address who, uint256 newBalance) external;
+
+vm.deal(alice, 1 ether);
 ```
 
 ## hoax
