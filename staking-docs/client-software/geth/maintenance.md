@@ -117,5 +117,12 @@ To avoid duplication these details can be found on the EthStaker Knowledge Base.
 
 ### Geth - Pruning
 
-TODO
+```bash
+geth-stop
 
+tmux new -s prune-geth
+sudo /usr/local/bin/geth --datadir /var/lib/goethereum snapshot prune-state
+
+exit
+geth-start
+```
