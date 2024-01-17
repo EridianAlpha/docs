@@ -22,8 +22,10 @@
   * [🔨 Useful Tools](ethereum-dev/ethereum-notes/useful-tools.md)
   * [⛽ Gas Fees Explained](ethereum-dev/ethereum-notes/gas-fees-explained.md)
 * [📝 Solidity Notes](ethereum-dev/solidity-notes/README.md)
+  * [OpenZeppelin](ethereum-dev/solidity-notes/openzeppelin.md)
   * [💡 Note Ideas](ethereum-dev/solidity-notes/note-ideas.md)
   * [ABI](ethereum-dev/solidity-notes/abi.md)
+  * [abi.encodePacked](ethereum-dev/solidity-notes/abi.encodepacked.md)
   * [Abstract Contracts](ethereum-dev/solidity-notes/abstract-contracts.md)
   * [Arrays](ethereum-dev/solidity-notes/arrays.md)
   * [CEI - Checks, Effects, Interactions](ethereum-dev/solidity-notes/cei-checks-effects-interactions.md)
@@ -35,6 +37,7 @@
   * [Enum](ethereum-dev/solidity-notes/enum.md)
   * [Errors (require & revert)](ethereum-dev/solidity-notes/errors-require-and-revert.md)
   * [Events](ethereum-dev/solidity-notes/events.md)
+  * [EVM Opcodes](ethereum-dev/solidity-notes/evm-opcodes.md)
   * [External Contract Interaction](ethereum-dev/solidity-notes/external-contract-interaction.md)
   * [🏗 External Dependencies](ethereum-dev/solidity-notes/external-dependencies.md)
   * [Functions](ethereum-dev/solidity-notes/functions.md)
@@ -45,9 +48,8 @@
   * [Keccak256](ethereum-dev/solidity-notes/keccak256.md)
   * [Library](ethereum-dev/solidity-notes/library.md)
   * [Mappings](ethereum-dev/solidity-notes/mappings.md)
-  * [Msg.sender](ethereum-dev/solidity-notes/msg.sender.md)
+  * [msg.sender](ethereum-dev/solidity-notes/msg.sender.md)
   * [Objects & Types](ethereum-dev/solidity-notes/objects-and-types.md)
-  * [EVM Opcodes](ethereum-dev/solidity-notes/evm-opcodes.md)
   * [Payable](ethereum-dev/solidity-notes/payable.md)
   * [Public State Variable vs Function](ethereum-dev/solidity-notes/public-state-variable-vs-function.md)
   * [Receive & Fallback](ethereum-dev/solidity-notes/fallback.md)
@@ -100,6 +102,7 @@
     * [Level 28 - Gatekeeper 3 ⏺⏺⏺](ethereum-dev/defi-challenges/ethernaut/level-28-gatekeeper-three.md)
     * [Level 29 - Switch ⏺⏺⏺⏺](ethereum-dev/defi-challenges/ethernaut/level-29-switch.md)
   * [💸 Damn Vulnerable DeFi](ethereum-dev/defi-challenges/damn-vulnerable-defi.md)
+* [🤖 MEV](ethereum-dev/mev.md)
 
 ## Staking Docs
 

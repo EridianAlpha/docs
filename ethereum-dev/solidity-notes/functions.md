@@ -4,7 +4,15 @@
 
 <table><thead><tr><th width="179">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>non-constant</code></td><td><ul><li>The default function type and doesn't get specified as a <a href="function-modifiers.md">modifier</a>.</li><li>The function can modify the state of the contract on the blockchain. Non-constant functions can write to the contract's storage, emit events, create other contracts, and use <code>selfdestruct</code>.</li></ul></td></tr><tr><td><code>view</code></td><td><ul><li>Doesn't cost gas when called directly (externally by a user).</li><li>Does cost gas when called by another function or contract.</li><li>Reads the state of the blockchain but can't modify it.</li></ul></td></tr><tr><td><code>pure</code></td><td><ul><li>Doesn't cost gas when called directly.</li><li>Does cost gas when called by another function or contract.</li><li>Does not read the state of the blockchain, only memory and calldata.</li></ul></td></tr></tbody></table>
 
+## Selector and Signature
 
+```solidity
+// Example Function Selector:
+0xa9059cbb
+
+// Example Function Signature:
+"transfer(address,uint256)"
+```
 
 ## Code Conventions
 
