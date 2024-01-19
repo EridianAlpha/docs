@@ -44,15 +44,16 @@ contract newContract is SomeOtherContract {
 
 ### Contract Layout
 
-* Version
-* Imports
-* Errors
-* Interfaces, libraries, contracts
-* Type declarations
-* State variables
-* Events
-* Modifiers
-* Functions
+* license
+* version
+* imports
+* errors
+* interfaces, libraries, contracts
+* type declarations
+* state variables
+* events
+* modifiers
+* functions
 
 ### Function Layout
 

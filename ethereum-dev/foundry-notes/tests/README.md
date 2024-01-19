@@ -111,6 +111,23 @@ contract MyOtherContractTest is TestHelperContract {
 
 ```
 
+### Custom Error Reverts
+
+* Specify which custom error is expected on revert.
+
+<pre class="language-solidity"><code class="lang-solidity">import {DSC} from "../../src/DSC.sol";
+
+contract DSCTest is Test {
+    function test_CantMintToZeroAddress() public {
+        vm.prank(dsc.owner());
+<strong>        vm.expectRevert(DSC.DSC__MintNotZeroAddress.selector);
+</strong>        dsc.mint(address(0), 100);
+    }
+}
+</code></pre>
+
+
+
 ### Unit Testing
 
 ```bash
@@ -161,16 +178,13 @@ function test_FuzzTestExample(
 
 
 
-
-
 ### Coverage
 
-<pre class="language-bash"><code class="lang-bash">forge coverage
-<strong>forge coverage --report debug
-</strong>forge coverage --report debug > coverage-report.txt
-</code></pre>
-
-
+```bash
+forge coverage
+forge coverage --report debug
+forge coverage --report debug > coverage-report.txt
+```
 
 #### Coverage line highlighting
 
@@ -181,7 +195,3 @@ forge coverage --report lcov
 ```
 
 * Open the command palette in VS Code (`CMD+SHIFT+P` or `CTRL+SHIFT+P` by default) and type “Display Coverage”
-
-
-
-###

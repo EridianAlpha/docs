@@ -12,7 +12,7 @@ It's best practice to have events emitted before the "Interactions" section of y
 ```solidity
 contract SimpleStorage {
     uint256 favoriteNumber;
-    event storedNumber(
+    event StoredNumber(
         uint256 indexed oldNumber,
         uint256 indexed newNumber,
         uint256 addedNumber,
@@ -20,7 +20,7 @@ contract SimpleStorage {
     );
 
     function store(uint256 _favoriteNumber) public {
-        emit storedNumber(
+        emit StoredNumber(
             favoriteNumber,
             _favoriteNumber,
             _favoriteNumber + favoriteNumber,
