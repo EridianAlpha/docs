@@ -114,14 +114,29 @@ contract MyOtherContractTest is TestHelperContract {
 ### Custom Error Reverts
 
 * Specify which custom error is expected on revert.
+* If the error returns a value, the test needs to encode the value using `abi.encodeWithSelector` to ensure the test passes.
 
-<pre class="language-solidity"><code class="lang-solidity">import {DSC} from "../../src/DSC.sol";
+<pre class="language-solidity"><code class="lang-solidity">contract DSC {
+    error DSC__MintNotZeroAddress();
+    error DSCEngine__HealthFactorIsBelowMinimum(uint256 healthFactor);
+}
 
 contract DSCTest is Test {
     function test_CantMintToZeroAddress() public {
         vm.prank(dsc.owner());
 <strong>        vm.expectRevert(DSC.DSC__MintNotZeroAddress.selector);
 </strong>        dsc.mint(address(0), 100);
+    }
+
+    function test_MintFailsIfHealthFactorIsBroken() public depositedCollateral {
+        bytes memory encodedRevert = abi.encodeWithSelector(
+            DSCEngine.DSCEngine__HealthFactorIsBelowMinimum.selector,
+            2
+        );
+        vm.startPrank(USER);
+<strong>        vm.expectRevert(encodedRevert);
+</strong>        dscEngine.mintDsc(usdAmount);
+        vm.stopPrank();
     }
 }
 </code></pre>
