@@ -260,3 +260,11 @@ vm.envUint("PRIVATE_KEY")
 
 
 
+## load
+
+Read a storage value directly.
+
+```solidity
+vm.load(targetContractAddress, bytes32(uint256(1)));
+```
+

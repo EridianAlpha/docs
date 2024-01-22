@@ -43,7 +43,7 @@ make holesky-exploit-level-1
 
 {% tabs %}
 {% tab title="Exploit Contract" %}
-{% embed url="https://github.com/EridianAlpha/ethernaut-foundry/blob/main/src/Level4.sol" %}
+LINK
 
 {% code title="src/Level4.sol" %}
 ```solidity
@@ -52,7 +52,7 @@ make holesky-exploit-level-1
 {% endtab %}
 
 {% tab title="Exploit Deployment Script" %}
-{% embed url="https://github.com/EridianAlpha/ethernaut-foundry/blob/main/script/Level4.s.sol" %}
+LINK
 
 {% code title="script/Level4.s.sol" %}
 ```solidity
