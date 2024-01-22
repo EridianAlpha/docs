@@ -119,6 +119,13 @@ contract MyOtherContractTest is TestHelperContract {
 <pre class="language-solidity"><code class="lang-solidity">contract DSC {
     error DSC__MintNotZeroAddress();
     error DSCEngine__HealthFactorIsBelowMinimum(uint256 healthFactor);
+    
+    function _revertIfHealthFactorIsBroken(address user) internal view {
+        uint256 userHealthFactor = _healthFactor(user);
+        if (userHealthFactor &#x3C; MIN_HEALTH_FACTOR) {
+            revert DSCEngine__HealthFactorIsBelowMinimum(userHealthFactor);
+        }
+    }
 }
 
 contract DSCTest is Test {

@@ -19,9 +19,7 @@ forge install Cyfrin/foundry-devops --no-commit
 ```solidity
 import {DevOpsTools} from "lib/foundry-devops/src/DevOpsTools.sol";
 import {MyContract} from "my-contract/MyContract.sol";
-.
-.
-.
+
 function interactWithPreviouslyDeployedContracts() public {
     address contractAddress = DevOpsTools.get_most_recent_deployment("MyContract", block.chainid);
     MyContract myContract = MyContract(contractAddress);
@@ -150,3 +148,11 @@ forge inspect <CONTRACT_NAME> storageLayout
 forge snapshot
 ```
 {% endcode %}
+
+### Inspect
+
+* List out all the methods and function selectors in a contract
+
+```bash
+forge inspect <CONTRACT_NAME> methods
+```
