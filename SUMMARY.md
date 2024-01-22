@@ -71,6 +71,7 @@
     * [Deploy Contract Using Hex](ethereum-dev/foundry-notes/useful-scripts/deploy-contract-using-hex.md)
 * [👾 DeFi Challenges](ethereum-dev/defi-challenges/README.md)
   * [👨🚀 Ethernaut](ethereum-dev/defi-challenges/ethernaut/README.md)
+    * [Ethernaut - Template](ethereum-dev/defi-challenges/ethernaut/ethernaut-template.md)
     * [Level 0 - Hello Ethernaut](ethereum-dev/defi-challenges/ethernaut/level-0-hello-ethernaut.md)
     * [Level 1 - Fallback ⏺](ethereum-dev/defi-challenges/ethernaut/level-1-fallback.md)
     * [Level 2 - Fallout ⏺](ethereum-dev/defi-challenges/ethernaut/level-2-fallout.md)

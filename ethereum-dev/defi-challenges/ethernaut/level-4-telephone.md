@@ -1,6 +1,6 @@
 # Level 4 - Telephone ⏺
 
-https://ethernaut.openzeppelin.com/level/3
+{% embed url="https://ethernaut.openzeppelin.com/level/4" %}
 
 ### Level Setup
 
