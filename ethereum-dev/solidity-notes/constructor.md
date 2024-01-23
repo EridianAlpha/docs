@@ -2,6 +2,12 @@
 
 * A constructor is an optional function that is executed upon contract creation.
 
+{% hint style="info" %}
+No functions, including the `receive()` function, can be invoked from logic in the constructor. Only logic and calls inside the constructor will execute as expected.
+
+An unexpected consequence of this is if a call is made in the constructor that results in ETH being sent to the `receive()` function, as the ETH does get received, but the logic in the `receive()` function doesn't execute.
+{% endhint %}
+
 ### Example
 
 * [https://solidity-by-example.org/constructor/](https://solidity-by-example.org/constructor/)
