@@ -74,7 +74,7 @@ Group=mevboost
 Restart=always
 RestartSec=5
 
-Environment=NETWORK=        # E.g. mainnet or goerli
+Environment=NETWORK=        # E.g. mainnet or holesky
 Environment=ADDR_IP=        # E.g. 0.0.0.0
 Environment=ADDR_PORT=      # Default: 18550
 Environment=MIN_BID=        # E.g. 0.01
