@@ -28,6 +28,7 @@
   * [abi.encodePacked](ethereum-dev/solidity-notes/abi.encodepacked.md)
   * [Abstract Contracts](ethereum-dev/solidity-notes/abstract-contracts.md)
   * [Arrays](ethereum-dev/solidity-notes/arrays.md)
+  * [Casting](ethereum-dev/solidity-notes/casting.md)
   * [CEI - Checks, Effects, Interactions](ethereum-dev/solidity-notes/cei-checks-effects-interactions.md)
   * [Comments (NATSPEC)](ethereum-dev/solidity-notes/comments-natspec.md)
   * [Constructor](ethereum-dev/solidity-notes/constructor.md)
