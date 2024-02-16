@@ -158,6 +158,7 @@ ExecStart=/usr/local/bin/geth \
     --ws \
     --ws.port ${WS_PORT} \
     --ws.addr ${WS_ADDR} \
+    --ws.origins '*' \
     --http \
     --http.api "db,eth,net,engine,rpc,web3" \
     --http.addr ${RPC_ADDR} \
