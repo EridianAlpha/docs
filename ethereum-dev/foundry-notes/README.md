@@ -1,5 +1,17 @@
 # ⚒ Foundry Notes
 
+{% hint style="info" %}
+**What is Foundry good for?**
+
+* Deploying contracts and interacting with those contracts
+* Running tests where everything is simulated
+
+**What's it bad at?**
+
+* Listening for events on a live blockchain
+* Loops and timing scripts
+{% endhint %}
+
 ### Installation
 
 * [https://getfoundry.sh/](https://getfoundry.sh/)
