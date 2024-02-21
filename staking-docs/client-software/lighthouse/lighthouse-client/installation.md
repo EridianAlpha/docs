@@ -11,13 +11,14 @@ description: Lighthouse client installation guide.
 
 ### Create Aliases
 
-<pre class="language-bash"><code class="lang-bash"><strong>echo "alias lighthouse-version-current='/usr/local/bin/lighthouse --version'" >> ~/.bashrc
-</strong>echo "alias lighthouse-build='~/lighthouse-build.sh'" >> ~/.bashrc
+```bash
+echo "alias lighthouse-version-current='/usr/local/bin/lighthouse --version'" >> ~/.bashrc
+echo "alias lighthouse-build='~/lighthouse-build.sh'" >> ~/.bashrc
 echo "alias lighthouse-version-new='~/.cargo/bin/lighthouse --version'" >> ~/.bashrc
 echo "alias lighthouse-deploy='~/lighthouse-deploy-check.sh'" >> ~/.bashrc
 
 source ~/.bashrc
-</code></pre>
+```
 
 ### Rust - Install
 
@@ -105,7 +106,7 @@ vim ~/lighthouse-deploy.sh
 {% code title="~/lighthouse-deploy.sh" %}
 ```bash
 #!/bin/bash
-set -e
+# set -e     # This isn't working correctly, so comment out for now
 
 # Check if the services exist before checking their status
 if systemctl list-units --full -all | grep -Fq lighthousebeacon.service; then
