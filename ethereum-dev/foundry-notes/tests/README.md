@@ -18,7 +18,8 @@ layout:
 ```bash
 forge test --summary
 forge test -vvv
-forge test -m <SPECIFIC_TEST_FUNCTION_NAME>
+forge test --match-test <SPECIFIC_TEST_FUNCTION_NAME>
+forge test --match-contract <SPECIFIC_CONTRACT_NAME>
 forge test --debug <SPECIFIC_TEST_FUNCTION_NAME> # h to show/hide help
 ```
 {% endcode %}
