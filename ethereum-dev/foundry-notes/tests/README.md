@@ -136,9 +136,11 @@ contract DSCTest is Test {
     }
 
     function test_MintFailsIfHealthFactorIsBroken() public depositedCollateral {
+        uint256 healthFactor = 2;
+        
         bytes memory encodedRevert = abi.encodeWithSelector(
             DSCEngine.DSCEngine__HealthFactorIsBelowMinimum.selector,
-            2
+            healthFactor
         );
         vm.startPrank(USER);
 <strong>        vm.expectRevert(encodedRevert);
