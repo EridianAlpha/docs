@@ -151,7 +151,9 @@ contract DSCTest is Test {
 }
 </code></pre>
 
+### Event Testing
 
+[#expectemit](cheatcodes.md#expectemit "mention")
 
 ### Unit Testing
 
