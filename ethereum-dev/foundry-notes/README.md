@@ -1,4 +1,4 @@
-# ⚒ Foundry Notes
+# ⚒️ Foundry Notes
 
 {% hint style="info" %}
 **What is Foundry good for?**
@@ -43,6 +43,15 @@ forge install OpenZeppelin/openzeppelin-contracts@v4.9.3 --no-commit
 ### Foundry Template Files
 
 {% embed url="https://github.com/EridianAlpha/foundry-template/tree/main" %}
+
+### Upgrade Foundry
+
+* `foundryup` updates foundry, but for some reason the command might not be available on the command line, so run the installation script again, then call it.
+
+```bash
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
+```
 
 ### Using Foundry
 

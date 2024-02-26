@@ -214,9 +214,11 @@ function testERC20EmitsTransfer() public {
 ```
 {% endcode %}
 
-<pre class="language-solidity" data-title="We can also assert that multiple events are emitted in a single call." data-full-width="true"><code class="lang-solidity"><strong>function testERC20EmitsBatchTransfer() public {
-</strong>    // We declare multiple expected transfer events
-    for (uint256 i = 0; i &#x3C; users.length; i++) {
+{% code title="We can also assert that multiple events are emitted in a single call." fullWidth="true" %}
+```solidity
+function testERC20EmitsBatchTransfer() public {
+    // We declare multiple expected transfer events
+    for (uint256 i = 0; i < users.length; i++) {
         // Here we use the longer signature for demonstration purposes. This call checks
         // topic0 (always checked), topic1 (true), topic2 (true), NOT topic3 (false), and data (true).
         vm.expectEmit(true, true, false, true);
@@ -230,7 +232,8 @@ function testERC20EmitsTransfer() public {
     // We perform the call.
     myToken.batchTransfer(users, 10);
 }
-</code></pre>
+```
+{% endcode %}
 
 {% code title="This example fails, as the expected event is not emitted on the next call." fullWidth="true" %}
 ```solidity
