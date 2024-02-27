@@ -85,6 +85,10 @@ Tests are deployed to `0xb4c79daB8f259C7Aee6E5b2Aa729821864227e84`. If you deplo
 Test functions must have either `external` or `public` visibility. Functions declared as `internal` or `private` won't be picked up by Forge, even if they are prefixed with `test`.
 {% endhint %}
 
+### Naming Convention
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p><a href="https://twitter.com/paulrberg/status/1616068157088714765">https://twitter.com/paulrberg/status/1616068157088714765</a></p></figcaption></figure>
+
 ### Shared test setups
 
 * If there are multiple tests that all have the same  initial setup configuration, use a helper contract to reduce code duplication
