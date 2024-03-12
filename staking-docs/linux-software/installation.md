@@ -6,20 +6,6 @@ description: >-
 
 # 💾 Installation
 
-* [💾 Installing Linux](installation.md#installing-linux)
-* [🚪 Change Default SSH Port](installation.md#change-default-ssh-port)
-* [🔧 System Configuration](installation.md#system-configuration)
-* [📏 Use all Available Disk Space](installation.md#use-all-available-disk-space)
-* [🫣 Hide Welcome Message on Login](installation.md#hide-welcome-message-on-login)
-* [⏱️ Increases Service Shutdown Timer](installation.md#increases-service-shutdown-timer)
-* [🚧 Firewall Configuration](installation.md#firewall-configuration)
-* [🛑 Brute-Force SSH Protection](installation.md#brute-force-ssh-protection)
-* [🔒 Automatic Security Updates](installation.md#automatic-security-updates)
-* [📱 SSH Security - 2FA](installation.md#ssh-security-2fa)
-* [🐳 Install Docker](installation.md#install-docker)
-* [🚦 Git Configuration](installation.md#git-configuration)
-* [📝 Systemd Journal Logs](installation.md#systemd-journal-logs)
-
 ### 💾 Installing Linux
 
 To avoid duplication these details can be found on the EthStaker Knowledge Base.
@@ -28,57 +14,41 @@ To avoid duplication these details can be found on the EthStaker Knowledge Base.
 [Installing Linux](https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/installing-linux)
 {% endcontent-ref %}
 
-### 🚪 Change Default SSH Port
-
-Useful when you have multiple machines running on the same ip address.
-
-```bash
-sudo vim /etc/ssh/sshd_config
-```
-
-Uncomment `#Port 22` and change it to your modified ssh port.
-
-Restart the `sshd` service.
-
-```bash
-sudo systemctl restart sshd
-```
-
 ### 🔧 System Configuration
 
 Add useful `Bash` aliases.
 
+{% code fullWidth="true" %}
 ```bash
 echo "alias lsl='ls -la'" >> ~/.bashrc
 echo "alias clc='clear'" >> ~/.bashrc
 echo "alias myip='echo Response from https://ipinfo.io/ip:; curl https://ipinfo.io/ip; echo'" >> ~/.bashrc
 echo "alias ports='sudo lsof -i -P -n | grep LISTEN'" >> ~/.bashrc
-echo "alias update-system='sudo apt-get update -y; sudo apt-get upgrade -y; sudo apt-get dist-upgrade -y'" >> ~/.bashrc
+echo "alias update-system='sudo apt-get update -y; sudo apt-get dist-upgrade -y'" >> ~/.bashrc
 echo "alias update-firmware='fwupdmgr refresh; fwupdmgr get-updates; fwupdmgr update'" >> ~/.bashrc
+echo "alias update-kernel='sudo apt-get install -y linux-image-generic-hwe-22.04'" >> ~/.bashrc
 echo "alias daemon-reload='sudo systemctl daemon-reload'" >> ~/.bashrc
 source ~/.bashrc
+```
+{% endcode %}
+
+Update kernel to the latest version for 22.04.
+
+```bash
+update-kernel
 ```
 
 Update system packages.
 
-{% tabs %}
-{% tab title="Command Alias" %}
 ```bash
-update-system    # Update all system packages
+update-system
 ```
-{% endtab %}
-
-{% tab title="Full Commands" %}
-```bash
-sudo apt-get update -y; sudo apt-get upgrade -y; sudo apt-get dist-upgrade -y    # Update all system packages
-```
-{% endtab %}
-{% endtabs %}
 
 Install useful packages.
 
-<pre class="language-sh"><code class="lang-sh"><strong>sudo apt-get install -y \
-</strong>git \
+```sh
+sudo apt-get install -y \
+git \
 build-essential \
 software-properties-common \
 pkg-config \
@@ -95,28 +65,32 @@ unzip \
 screen \
 mosh \
 ufw \
-fwupd
-</code></pre>
+fwupd \
+linux-tools-common \
+linux-tools-generic
+```
 
 ```bash
 sudo snap install btop
 ```
 
+Update the system again after installing all packages.
+
+```bash
+update-system
+```
+
 Update [firmware](https://github.com/fwupd/fwupd).
 
-{% tabs %}
-{% tab title="Command Alias" %}
 ```bash
-update-firmware  # Update firmware
+update-firmware
 ```
-{% endtab %}
 
-{% tab title="Full Commands" %}
+Restart machine.
+
 ```bash
-fwupdmgr refresh; fwupdmgr get-updates; fwupdmgr update     # Update firmware
+sudo shutdown -r now
 ```
-{% endtab %}
-{% endtabs %}
 
 Set up `btop`.
 
@@ -128,36 +102,21 @@ btop
 * Change theme to TTY.
 * Change time interval to 1000ms.
 
-### 📏 Use all Available Disk Space
+### 🚪 Change Default SSH Port
 
-To avoid duplication these details can be found on the EthStaker Knowledge Base.
-
-{% content-ref url="https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/confirm-available-disk-space" %}
-[Use all available disk space](https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/confirm-available-disk-space)
-{% endcontent-ref %}
-
-### 🫣 Hide Welcome Message on Login
-
-Some of the messages are useful so I don't want to hide everything, but some are annoying.
-
-Hide parts of the message by making the template `non-executable`.
+Useful when you have multiple machines running on the same ip address.
 
 ```bash
-sudo chmod -x /etc/update-motd.d/10-help-text
-sudo chmod -x /etc/update-motd.d/50-motd-news
+sudo vim /etc/ssh/sshd_config
 ```
 
-### ⏱️ Increases Service Shutdown Timer
+Uncomment `#Port 22` and change it to your modified ssh port.
 
-I was concerned that the default time of 180 seconds wouldn't be long enough for all the services running to gracefully shutdown.
-
-The shutdown time can be individually set on each service, but this is a catch-all.
+Restart the `sshd` service.
 
 ```bash
-sudo vim /etc/systemd/system.conf
+sudo systemctl restart sshd
 ```
-
-Uncomment out the line `#DefaultTimeoutStopSec=90s` and change it to `1200s`.
 
 ### 🚧 Firewall Configuration
 
@@ -203,21 +162,177 @@ sudo ufw --force enable
 sudo ufw status verbose
 ```
 
+### 📅 noatime
+
+By default, Linux will write a new file timestamp on every read. As you may imagine, this is no bueno for database applications like an Ethereum node.
+
+You can increase the lifetime of your SSD - and incidentally get a small speed boost - by turning this "atime" feature off. [\[1\]](https://eth-docker.net/Usage/LinuxSecurity#noatime)
+
+```bash
+sudo vim /etc/fstab
+```
+
+Find the entry for your `/` filesystem.
+
+{% code title="/etc/fstab" fullWidth="false" %}
+```bash
+# BEFORE
+# /dev/disk/by-id/dm-uuid-LVM-u1...i3uPy21O / ext4 defaults 0 1
+
+# AFTER
+/dev/disk/by-id/dm-uuid-LVM-u1...i3uPy21 / ext4 defaults,noatime 0 1
+```
+{% endcode %}
+
+Don't delete any parameters, just add `,noatime`. And make sure to add that to the 4th column, not anywhere else.
+
+Save the file, and if the following command then runs without any errors, the configuration is correct.
+
+```
+sudo mount -o remount /
+```
+
+### 🔁 Turn off swap
+
+If you have a lot of RAM you can turn off swap completely. [\[2\]](https://eth-docker.net/Usage/LinuxSecurity#swappiness)
+
+```
+sudo swapoff -a
+```
+
+```bash
+sudo vim /etc/fstab
+```
+
+Find the entry for your `/` filesystem.
+
+{% code title="/etc/fstab" fullWidth="false" %}
+```bash
+# BEFORE
+/swapfile swap swap defaults 0 0
+
+# AFTER
+#/swapfile swap swap defaults 0 0
+```
+{% endcode %}
+
+### 🎚️ cpupower
+
+Some CPUs have a power saving feature that reduces their speed when not in use. This doesn't work well for Ethereum nodes as the time between blocks can cause CPUs to slow down... only to need them to speed back up again when a block arrives.
+
+```bash
+cpupower
+
+# <INSTALL THE VERSION IT THEN SUGGESTS>
+sudo apt-get install -y <SUGGESTED_VERSION>
+
+cpupower frequency-info
+
+# <CHECK THAT THIS ROW EXISTS>
+# available cpufreq governors: performance powersave
+```
+
+If the performance option exists, set that.
+
+```bash
+sudo cpupower frequency-set -g performance
+```
+
+Then create a service to set `performance` after reboot as that setting doesn't persist on its own.
+
+```bash
+sudo vim /etc/systemd/system/cpupower.service
+```
+
+{% code title="/etc/systemd/system/cpupower.service" %}
+```ini
+[Unit]
+Description=Set CPU governor to performance
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/cpupower frequency-set -g performance
+
+[Install]
+WantedBy=multi-user.target
+```
+{% endcode %}
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable cpupower.service
+sudo systemctl status cpupower.service
+```
+
+### 📏 Use all Available Disk Space
+
+```bash
+sudo lvdisplay # Check your logical volume size
+
+sudo lvm # Attach the lvm console
+lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
+lvextend -l +100%FREE -r /dev/ubuntu-vg/ubuntu-lv
+exit
+
+sudo resize2fs /dev/ubuntu-vg/ubuntu-lv
+df -h # Check results
+```
+
+### 🫣 Hide Welcome Message on Login
+
+Some of the messages are useful so I don't want to hide everything, but some are annoying.
+
+Hide parts of the message by making the template `non-executable`.
+
+```bash
+sudo chmod -x /etc/update-motd.d/10-help-text
+sudo chmod -x /etc/update-motd.d/50-motd-news
+```
+
+### ⏱️ Increases Service Shutdown Timer
+
+I was concerned that the default time of 180 seconds wouldn't be long enough for all the services running to gracefully shutdown.
+
+The shutdown time can be individually set on each service, but this is a catch-all.
+
+```bash
+sudo vim /etc/systemd/system.conf
+```
+
+Uncomment out the line `#DefaultTimeoutStopSec=90s` and change it to `1200s`.
+
 ### 🛑 Brute-Force SSH Protection
 
-To avoid duplication these details can be found on the EthStaker Knowledge Base.
+To protect your server from brute-force SSH connection attempts, you can install `fail2ban` which will monitor incoming connections and block IP addresses that try to log in with faulty credentials repeatedly.
 
-{% content-ref url="https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/networking/brute-force-ssh-protection" %}
-[Brute-force SSH protection](https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/networking/brute-force-ssh-protection)
-{% endcontent-ref %}
+```bash
+sudo apt-get install -y fail2ban
+sudo vim /etc/fail2ban/jail.d/ssh.local
+```
 
-### 🔒 Automatic Security Updates
+{% hint style="warning" %}
+If you're using a non-standard SSH port that isn't `22` then you will need to change that in the cofig file below.
+{% endhint %}
 
-To avoid duplication these details can be found on the EthStaker Knowledge Base.
+{% code title="/etc/fail2ban/jail.d/ssh.local" %}
+```bash
+[sshd]
+enabled = true
+banaction = ufw
+port = <SSH_PORT>
+filter = sshd
+logpath = %(sshd_log)s
+maxretry = 5
+```
+{% endcode %}
 
-{% content-ref url="https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/automatic-security-updates" %}
-[Automatic security updates](https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/automatic-security-updates)
-{% endcontent-ref %}
+You can change the `maxretry` setting, which is the number of attempts it will allow before locking the offending address out.
+
+Save the file and restart the service.
+
+```bash
+sudo systemctl restart fail2ban
+```
 
 ### 📱 SSH Security - 2FA
 
@@ -229,6 +344,7 @@ To avoid duplication these details can be found on the EthStaker Knowledge Base.
 
 ### 🐳 Install Docker
 
+{% code fullWidth="true" %}
 ```bash
 # Update the package index
 sudo apt-get update -y
@@ -257,6 +373,7 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 # To use Docker without sudo, add your current user to the docker group
 sudo usermod -aG docker $USER
 ```
+{% endcode %}
 
 Log out and log back in or restart your machine for the group membership to take effect. You should now be able to run Docker commands without `sudo`.
 
@@ -298,11 +415,11 @@ To clear the logs use the following command.
 
 * The `--flush` flag flushes the logs currently in memory onto the disk.
 * The `--rotate` flag archives the existing logs so they can’t be written to anymore and starts new logs for each service.
-* The `--vacuum-time` flag deletes log data that is older than `3 days`.
+* The `--vacuum-time` flag deletes log data that is older than `28 days`.
 
 ```bash
 sudo journalctl --flush --rotate
-sudo journalctl --vacuum-time=3days
+sudo journalctl --vacuum-time=28days
 ```
 
 It is recommended to check the logs are in a good state after the vacuum operation.
@@ -323,7 +440,7 @@ sudo vim /etc/systemd/journald.conf
 
 Edit the file to set the maximum disk space that can be used by the journal in persistent storage.
 
-Remove the `#` from the line `SystemMaxUse` and add a value in megabytes, say `1000M`.
+Remove the `#` from the line `SystemMaxUse` and add a value in megabytes, say `10000M`.
 
 Restart the `journald` after updating the file.
 
@@ -333,6 +450,6 @@ sudo systemctl restart systemd-journald
 
 Journal logs will now be limited to 1000MB in size.
 
+***
 
-
-Success! The staking machine is now ready to [install the validator clients](../client-software/) 🥳
+Success! The staking machine is now ready to install the [client software](../client-software/) 🥳

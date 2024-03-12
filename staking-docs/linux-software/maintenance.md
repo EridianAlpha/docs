@@ -2,24 +2,14 @@
 description: Notes on how to maintain and update a Linux system.
 ---
 
-# 🏗 Maintenance
+# 🏗️ Maintenance
 
 ### General System Updates
 
-Update system packages and [firmware](https://github.com/fwupd/fwupd).
+Full commands are found in [System Configuration](installation.md#system-configuration).
 
-{% tabs %}
-{% tab title="Command Aliases" %}
 ```bash
 update-system    # Update all system packages
 update-firmware  # Update firmware
+update-kernel    # Update kernel to the latest version for 22.04
 ```
-{% endtab %}
-
-{% tab title="Full Commands" %}
-```bash
-sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y    # Update all system packages
-fwupdmgr refresh && fwupdmgr get-updates && fwupdmgr update                          # Update firmware
-```
-{% endtab %}
-{% endtabs %}
