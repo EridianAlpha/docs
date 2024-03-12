@@ -336,11 +336,109 @@ sudo systemctl restart fail2ban
 
 ### 📱 SSH Security - 2FA
 
-To avoid duplication these details can be found on the EthStaker Knowledge Base.
+Install the Google Authenticator module on your node with this command:
 
-{% content-ref url="https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/ssh-security-2fa" %}
-[SSH security - 2FA](https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/ssh-security-2fa)
-{% endcontent-ref %}
+```bash
+sudo apt-get install -y libpam-google-authenticator
+```
+
+Now tell the `PAM` (pluggable authentication modules) to use this module.
+
+```bash
+sudo vim /etc/pam.d/sshd
+```
+
+Find `@include common-auth` (it should be at the top) and comment it out by adding a `#` in front of it, so it looks like this:
+
+```
+# Standard Un*x authentication.
+#@include common-auth
+```
+
+Next, add these lines to the top of the file:
+
+```
+# Enable Google Authenticator
+auth required pam_google_authenticator.so
+```
+
+Then save and exit.
+
+Now that `PAM` knows to use Google Authenticator, the next step is to tell `sshd` to use `PAM`.&#x20;
+
+```bash
+sudo vim /etc/ssh/sshd_config
+```
+
+Now change the line `KbdInteractiveAuthentication no` to `KbdInteractiveAuthentication yes` so it looks like this:
+
+```
+# Change to yes to enable challenge-response passwords (beware issues with
+# some PAM modules and threads)
+KbdInteractiveAuthentication yes
+```
+
+(Older versions of SSH call this option `ChallengeResponseAuthentication` instead of `KbdInteractiveAuthentication`.)
+
+Add the following line to the bottom of the file, which indicates to `sshd` that it needs both an SSH key and the Google Authenticator code:
+
+```
+AuthenticationMethods publickey,keyboard-interactive
+```
+
+Every option added to `AuthenticationMethods` will be required when you log in. So you can choose e.g. 2FA and password, or a combination of all three methods.
+
+* `publickey` (SSH key)
+* `password publickey` (password)
+* `keyboard-interactive` (2FA verification code)
+
+Then save and exit.
+
+Now that `sshd` is set up, we need to create our 2FA codes. In your terminal, run:
+
+```
+google-authenticator
+```
+
+First, it will ask you about time-based tokens. Say `y` to this question:
+
+```
+Do you want authentication tokens to be time-based: y
+```
+
+You will now see a big QR code on your screen; scan it with your Google Authenticator app to add it. You will also see your secret and a few backup codes looking like this:
+
+```
+Your new secret key is: IRG2TALMR5U2LK5VQ5AQIG3HA4
+Your verification code is 282436
+Your emergency scratch codes are:
+  29778030
+  86888537
+  50553659
+  41403052
+  82649596
+```
+
+{% hint style="info" %}
+Record the emergency scratch codes somewhere safe in case you need to log into the machine but don't have your 2FA app handy. Without the app, you will no longer be able to SSH into the machine!
+{% endhint %}
+
+Finally, it will ask you for some more parameters; the recommended defaults are as follows:
+
+```
+Do you want me to update your "/<username>/.google_authenticator" file: y
+Do you want to disallow multiple uses of the same authentication token: y
+By default... < long story about time skew > ... Do you want to do so: n
+Do you want to enable rate-limiting: y
+```
+
+Once you're done, restart `sshd` so it grabs the new settings:
+
+```bash
+sudo systemctl restart sshd
+```
+
+When you try to SSH into your server with your SSH keys, you should now also be asked for a 2FA verification code, but not for a password.
 
 ### 🐳 Install Docker
 
