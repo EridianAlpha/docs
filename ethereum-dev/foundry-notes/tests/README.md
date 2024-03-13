@@ -226,3 +226,9 @@ forge coverage --report lcov
 ```
 
 * Open the command palette in VS Code (`CMD+SHIFT+P` or `CTRL+SHIFT+P` by default) and type “Display Coverage”
+
+
+
+TODO: Exponential value display
+
+{% embed url="https://twitter.com/0xjuaan/status/1767806029570482321" %}
