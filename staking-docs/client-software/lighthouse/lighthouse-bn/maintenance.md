@@ -2,21 +2,21 @@
 description: Notes on how to maintain and update a Lighthouse Beacon Node.
 ---
 
-# 🏗 Maintenance
+# 🏗️ Maintenance
 
 ### Lighthouse - Update lighthousebeacon.service
 
 {% tabs %}
 {% tab title="Command Aliases" %}
 ```bash
-beacon-stop
-beacon-config
+lighthouse-beacon-stop
+lighthouse-beacon-config
 
 # MAKE ANY CHANGES TO THE CONFIG
 
 daemon-reload
-beacon-start
-beacon-status
+lighthouse-beacon-start
+lighthouse-beacon-status
 ```
 {% endtab %}
 

@@ -10,14 +10,14 @@ description: Lighthouse Beacon Node installation guide.
 ### Create Aliases
 
 ```bash
-echo "alias beacon-log='sudo journalctl -f -u lighthousebeacon.service -o cat | ccze -A'" >> ~/.bashrc
-echo "alias beacon-start='sudo systemctl start lighthousebeacon.service'" >> ~/.bashrc
-echo "alias beacon-stop='sudo systemctl stop lighthousebeacon.service'" >> ~/.bashrc
-echo "alias beacon-restart='sudo systemctl restart lighthousebeacon.service'" >> ~/.bashrc
-echo "alias beacon-status='sudo systemctl status lighthousebeacon.service'" >> ~/.bashrc
-echo "alias beacon-config='sudo vim /etc/systemd/system/lighthousebeacon.service'" >> ~/.bashrc
-echo "alias beacon-enable='sudo systemctl enable lighthousebeacon.service'" >> ~/.bashrc
-echo "alias beacon-disable='sudo systemctl disable lighthousebeacon.service'" >> ~/.bashrc
+echo "alias lighthouse-beacon-log='sudo journalctl -f -u lighthousebeacon.service -o cat | ccze -A'" >> ~/.bashrc
+echo "alias lighthouse-beacon-start='sudo systemctl start lighthousebeacon.service'" >> ~/.bashrc
+echo "alias lighthouse-beacon-stop='sudo systemctl stop lighthousebeacon.service'" >> ~/.bashrc
+echo "alias lighthouse-beacon-restart='sudo systemctl restart lighthousebeacon.service'" >> ~/.bashrc
+echo "alias lighthouse-beacon-status='sudo systemctl status lighthousebeacon.service'" >> ~/.bashrc
+echo "alias lighthouse-beacon-config='sudo vim /etc/systemd/system/lighthousebeacon.service'" >> ~/.bashrc
+echo "alias lighthouse-beacon-enable='sudo systemctl enable lighthousebeacon.service'" >> ~/.bashrc
+echo "alias lighthouse-beacon-disable='sudo systemctl disable lighthousebeacon.service'" >> ~/.bashrc
 
 source ~/.bashrc
 ```
@@ -133,11 +133,11 @@ Start the service and check it's working as expected.
 {% tab title="Command Aliases" %}
 ```bash
 daemon-reload     # Reload any changes made to the lighthousebeacon.service
-beacon-enable     # Enable the lighthousebeacon.service
-beacon-start      # Start the lighthousebeacon.service
-beacon-status     # View the status of the lighthousebeacon.service
+lighthouse-beacon-enable     # Enable the lighthousebeacon.service
+lighthouse-beacon-start      # Start the lighthousebeacon.service
+lighthouse-beacon-status     # View the status of the lighthousebeacon.service
 
-beacon-log        # View the lighthousebeacon.service logs
+lighthouse-beacon-log        # View the lighthousebeacon.service logs
 ```
 {% endtab %}
 

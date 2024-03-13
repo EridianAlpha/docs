@@ -15,7 +15,7 @@ description: Lighthouse client installation guide.
 echo "alias lighthouse-version-current='/usr/local/bin/lighthouse --version'" >> ~/.bashrc
 echo "alias lighthouse-build='~/lighthouse-build.sh'" >> ~/.bashrc
 echo "alias lighthouse-version-new='~/.cargo/bin/lighthouse --version'" >> ~/.bashrc
-echo "alias lighthouse-deploy='~/lighthouse-deploy-check.sh'" >> ~/.bashrc
+echo "alias lighthouse-deploy='~/lighthouse-deploy.sh'" >> ~/.bashrc
 
 source ~/.bashrc
 ```
@@ -108,6 +108,15 @@ vim ~/lighthouse-deploy.sh
 #!/bin/bash
 # set -e     # This isn't working correctly, so comment out for now
 
+while true; do
+    read -p "Are you sure you want to deploy Lighthouse? (Y/N) " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer Y or N.";;
+    esac
+done
+
 # Check if the services exist before checking their status
 if systemctl list-units --full -all | grep -Fq lighthousebeacon.service; then
     beacon_status=$(sudo systemctl is-active lighthousebeacon.service)
@@ -164,30 +173,9 @@ fi
 ```
 {% endcode %}
 
-Create `Lighthouse` deploy script checker script.
-
-```bash
-vim ~/lighthouse-deploy-check.sh
-```
-
-{% code title="~/lighthouse-deploy-check.sh" %}
-```bash
-#!/bin/bash
-while true; do
-    read -p "Are you sure you want to deploy Lighthouse? (Y/N) " yn
-    case $yn in
-        [Yy]* ) cd; ./lighthouse-deploy.sh; break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer Y or N.";;
-    esac
-done
-```
-{% endcode %}
-
 Make all scripts executable.
 
 ```bash
 chmod u+x ~/lighthouse-build.sh
 chmod u+x ~/lighthouse-deploy.sh
-chmod u+x ~/lighthouse-deploy-check.sh
 ```
