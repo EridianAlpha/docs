@@ -26,7 +26,7 @@ echo "alias geth-version='sudo /usr/local/bin/geth --version'" >> ~/.bashrc
 echo "alias geth-config='sudo vim /etc/systemd/system/geth.service'" >> ~/.bashrc
 echo "alias geth-enable='sudo systemctl enable geth.service'" >> ~/.bashrc
 echo "alias geth-disable='sudo systemctl disable geth.service'" >> ~/.bashrc
-echo "alias geth-update='~/geth-update-check.sh'" >> ~/.bashrc
+echo "alias geth-update='~/geth-update.sh'" >> ~/.bashrc
 echo "alias geth-attach='sudo geth attach --preload ~/geth-console-script.js /var/lib/goethereum/geth.ipc'" >> ~/.bashrc
 echo "alias geth-blockNumber='sudo geth --exec \"eth.blockNumber\" attach /var/lib/goethereum/geth.ipc'" >> ~/.bashrc
 echo "alias geth-peerCount='sudo geth --exec \"net.peerCount\" attach /var/lib/goethereum/geth.ipc'" >> ~/.bashrc
@@ -134,12 +134,12 @@ TimeoutStopSec=1200
 Environment=NETWORK=         # E.g. mainnet or holesky
 Environment=P2P_PORT=        # Default: 30303
 Environment=MAX_PEERS=       # Default: 50
-Environment=WS_PORT=         # Default: 8546
 Environment=WS_ADDR=         # e.g. 0.0.0.0
+Environment=WS_PORT=         # Default: 8546
 Environment=RPC_ADDR=        # e.g. 0.0.0.0
 Environment=RPC_PORT=        # Default: 8545
 Environment=METRICS_ADDR=    # e.g. 0.0.0.0
-Environment=METRICS_PORT=    # e.g. 6061
+Environment=METRICS_PORT=    # Default: 6060
 
 
 ExecStart=/usr/local/bin/geth \
@@ -215,6 +215,16 @@ vim ~/geth-update.sh
 ```bash
 #!/bin/bash
 set -e
+
+while true; do
+    read -p "Are you sure you want to update Geth? (Y/N) " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer Y or N.";;
+    esac
+done
+
 cd ~/go-ethereum
 
 read -p "Enter the commit hash you want to checkout: " commit_hash
@@ -250,31 +260,10 @@ fi
 ```
 {% endcode %}
 
-Create `Geth` update script checker script.
-
-```bash
-vim ~/geth-update-check.sh
-```
-
-{% code title="~/geth-update-check.sh" %}
-```bash
-#!/bin/bash
-while true; do
-    read -p "Are you sure you want to update Geth? (Y/N) " yn
-    case $yn in
-        [Yy]* ) ~/geth-update.sh; break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer Y or N.";;
-    esac
-done
-```
-{% endcode %}
-
-Make both scripts executable.
+Make the script executable.
 
 ```bash
 chmod u+x ~/geth-update.sh
-chmod u+x ~/geth-update-check.sh
 ```
 
 ### Geth - Configure JavaScript Console
