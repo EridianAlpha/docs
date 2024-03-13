@@ -13,7 +13,7 @@ description: MEV Boost client installation guide.
 ### Create Aliases
 
 ```bash
-echo "alias mev-log='sudo journalctl -f -u mevboost.service -o cat | ccze -A'" >> ~/.bashrc
+echo "alias mev-log='journalctl -f -u mevboost.service -o cat | ccze -A'" >> ~/.bashrc
 echo "alias mev-start='sudo systemctl start mevboost.service'" >> ~/.bashrc
 echo "alias mev-stop='sudo systemctl stop mevboost.service'" >> ~/.bashrc
 echo "alias mev-restart='sudo systemctl restart mevboost.service'" >> ~/.bashrc
