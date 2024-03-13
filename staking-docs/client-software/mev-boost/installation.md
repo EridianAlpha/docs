@@ -21,7 +21,7 @@ echo "alias mev-status='sudo systemctl status mevboost.service'" >> ~/.bashrc
 echo "alias mev-config='sudo vim /etc/systemd/system/mevboost.service'" >> ~/.bashrc
 echo "alias mev-enable='sudo systemctl enable mevboost.service'" >> ~/.bashrc
 echo "alias mev-disable='sudo systemctl disable mevboost.service'" >> ~/.bashrc
-echo "alias mev-update='~/mev-update-check.sh'" >> ~/.bashrc
+echo "alias mev-update='~/mev-update.sh'" >> ~/.bashrc
 
 source ~/.bashrc
 ```
@@ -136,7 +136,20 @@ vim ~/mev-update.sh
 ```bash
 #!/bin/bash
 set -e
-cd ~/mev-boost
+
+while true; do
+    read -p "Are you sure you want to update MEV Boost? (Y/N) " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer Y or N.";;
+    esac
+done
+
+cd ~/
+sudo rm -rf mev-boost
+git clone https://github.com/flashbots/mev-boost.git
+cd mev-boost
 
 read -p "Enter the commit hash you want to checkout: " commit_hash
 
@@ -171,29 +184,8 @@ fi
 ```
 {% endcode %}
 
-Create `MEV Boost` update script checker script.
-
-```bash
-vim ~/mev-update-check.sh
-```
-
-{% code title="~/mev-update-check.sh" %}
-```bash
-#!/bin/bash
-while true; do
-    read -p "Are you sure you want to update MEV Boost? (Y/N) " yn
-    case $yn in
-        [Yy]* ) ~/mev-update.sh; break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer Y or N.";;
-    esac
-done
-```
-{% endcode %}
-
-Make both scripts executable.
+Make the script executable.
 
 ```bash
 chmod u+x ~/mev-update.sh
-chmod u+x ~/mev-update-check.sh
 ```
