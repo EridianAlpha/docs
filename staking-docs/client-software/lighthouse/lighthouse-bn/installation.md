@@ -9,8 +9,9 @@ description: Lighthouse Beacon Node installation guide.
 
 ### Create Aliases
 
+{% code fullWidth="true" %}
 ```bash
-echo "alias lighthouse-beacon-log='sudo journalctl -f -u lighthousebeacon.service -o cat | ccze -A'" >> ~/.bashrc
+echo "alias lighthouse-beacon-log='journalctl -f -u lighthousebeacon.service -o cat | ccze -A'" >> ~/.bashrc
 echo "alias lighthouse-beacon-start='sudo systemctl start lighthousebeacon.service'" >> ~/.bashrc
 echo "alias lighthouse-beacon-stop='sudo systemctl stop lighthousebeacon.service'" >> ~/.bashrc
 echo "alias lighthouse-beacon-restart='sudo systemctl restart lighthousebeacon.service'" >> ~/.bashrc
@@ -21,6 +22,7 @@ echo "alias lighthouse-beacon-disable='sudo systemctl disable lighthousebeacon.s
 
 source ~/.bashrc
 ```
+{% endcode %}
 
 ### Firewall Configuration
 
@@ -138,17 +140,6 @@ lighthouse-beacon-start      # Start the lighthousebeacon.service
 lighthouse-beacon-status     # View the status of the lighthousebeacon.service
 
 lighthouse-beacon-log        # View the lighthousebeacon.service logs
-```
-{% endtab %}
-
-{% tab title="Full Commands" %}
-```bash
-sudo systemctl daemon-reload                                     # Reload any changes made to the lighthousebeacon.service
-sudo systemctl enable lighthousebeacon.service                   # Enable the lighthousebeacon.service
-sudo systemctl start lighthousebeacon.service                    # Start the lighthousebeacon.service
-sudo systemctl status lighthousebeacon.service                   # View the status of the lighthousebeacon.service
-
-sudo journalctl -f -u lighthousebeacon.service -o cat | ccze -A  # View the lighthousebeacon.service logs
 ```
 {% endtab %}
 {% endtabs %}

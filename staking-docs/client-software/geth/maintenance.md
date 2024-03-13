@@ -2,7 +2,7 @@
 description: Notes on how to maintain and update a Geth Client.
 ---
 
-# 🏗 Maintenance
+# 🏗️ Maintenance
 
 * [Go - Update](maintenance.md#go-update)
 * [Geth - Update Client](maintenance.md#geth-update-client)
@@ -27,18 +27,12 @@ echo 'PATH="$PATH:/usr/local/go/bin"' >> ~/.profile
 
 ### Geth - Update Client
 
-{% tabs %}
-{% tab title="Command Aliases" %}
 ```bash
 geth-update
 ```
-{% endtab %}
-{% endtabs %}
 
 ### Geth - Update geth.service
 
-{% tabs %}
-{% tab title="Command Aliases" %}
 ```bash
 geth-stop
 geth-config
@@ -49,21 +43,6 @@ daemon-reload
 geth-start
 geth-status
 ```
-{% endtab %}
-
-{% tab title="Full Commands" %}
-```bash
-sudo systemctl stop geth.service
-sudo vim /etc/systemd/system/geth.service
-
-# MAKE ANY CHANGES TO THE CONFIG
-
-sudo systemctl daemon-reload
-sudo systemctl start geth.service
-sudo systemctl status geth.service
-```
-{% endtab %}
-{% endtabs %}
 
 ### Geth - Rollback Chain to Previous Block Number
 
@@ -71,8 +50,6 @@ This was needed for a bug introduced in Geth v.1.10.22 that required a rollback 
 
 Add `debug` flag to `--http.api`
 
-{% tabs %}
-{% tab title="Command Aliases" %}
 ```bash
 geth-stop
 geth-config
@@ -84,22 +61,6 @@ daemon-reload
 geth-start
 geth-attach
 ```
-{% endtab %}
-
-{% tab title="Full Commands" %}
-```bash
-sudo systemctl stop geth.service
-sudo vim /etc/systemd/system/geth.service
-
-# Add "debug" to http.api
-# --http.api="engine,eth,web3,net,debug"
-
-sudo systemctl daemon-reload
-sudo systemctl start geth.service
-sudo geth attach --preload ~/geth-console-script.js /var/lib/goethereum/geth.ipc
-```
-{% endtab %}
-{% endtabs %}
 
 In the `Geth` console set the new block head e.g. `debug.setHead("0xEAC1A8")`.
 

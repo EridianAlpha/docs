@@ -9,18 +9,20 @@ description: Lighthouse Validator Client installation guide.
 
 ### Create Aliases
 
+{% code fullWidth="true" %}
 ```bash
-echo "alias validator-log='sudo journalctl -f -u lighthousevalidator.service -o cat | ccze -A'" >> ~/.bashrc
-echo "alias validator-start='sudo systemctl start lighthousevalidator.service'" >> ~/.bashrc
-echo "alias validator-stop='sudo systemctl stop lighthousevalidator.service'" >> ~/.bashrc
-echo "alias validator-restart='sudo systemctl restart lighthousevalidator.service'" >> ~/.bashrc
-echo "alias validator-status='sudo systemctl status lighthousevalidator.service'" >> ~/.bashrc
-echo "alias validator-config='sudo vim /etc/systemd/system/lighthousevalidator.service'" >> ~/.bashrc
-echo "alias validator-enable='sudo systemctl enable lighthousevalidator.service'" >> ~/.bashrc
-echo "alias validator-disable='sudo systemctl disable lighthousevalidator.service'" >> ~/.bashrc
+echo "alias lighthouse-validator-log='journalctl -f -u lighthousevalidator.service -o cat | ccze -A'" >> ~/.bashrc
+echo "alias lighthouse-validator-start='sudo systemctl start lighthousevalidator.service'" >> ~/.bashrc
+echo "alias lighthouse-validator-stop='sudo systemctl stop lighthousevalidator.service'" >> ~/.bashrc
+echo "alias lighthouse-validator-restart='sudo systemctl restart lighthousevalidator.service'" >> ~/.bashrc
+echo "alias lighthouse-validator-status='sudo systemctl status lighthousevalidator.service'" >> ~/.bashrc
+echo "alias lighthouse-validator-config='sudo vim /etc/systemd/system/lighthousevalidator.service'" >> ~/.bashrc
+echo "alias lighthouse-validator-enable='sudo systemctl enable lighthousevalidator.service'" >> ~/.bashrc
+echo "alias lighthouse-validator-disable='sudo systemctl disable lighthousevalidator.service'" >> ~/.bashrc
 
 source ~/.bashrc
 ```
+{% endcode %}
 
 ### Lighthouse VC - Configure Service
 

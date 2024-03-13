@@ -2,7 +2,7 @@
 description: Notes on how to use a Geth Client.
 ---
 
-# ⌨ Useful commands
+# ⌨️ Useful commands
 
 {% hint style="info" %}
 All of the alias commands have been defined as aliases in \~/`.bashrc when`[`installing Geth`](installation.md)
@@ -16,8 +16,6 @@ All of the alias commands have been defined as aliases in \~/`.bashrc when`[`ins
 
 ### geth.service
 
-{% tabs %}
-{% tab title="Command Aliases" %}
 ```bash
 geth-log        # View the geth.service logs
 geth-start      # Start the geth.service
@@ -31,24 +29,6 @@ geth-disable    # Disable the geth.service
 geth-config     # Open the /etc/systemd/system/geth.service in vim
 daemon-reload   # Reload any changes made to the geth.service
 ```
-{% endtab %}
-
-{% tab title="Full Commands" %}
-```bash
-sudo journalctl -f -u geth.service -o cat | ccze -A   # View the geth.service logs
-sudo systemctl start geth.service                     # Start the geth.service
-sudo systemctl stop geth.service                      # Stop the geth.service
-sudo systemctl restart geth.service                   # Restart the geth.service
-sudo systemctl status geth.service                    # View the status of the geth.service
-sudo /usr/local/bin/geth --version                    # Check the version of geth in use
-sudo systemctl enable geth.service                    # Enable the geth.service
-sudo systemctl disable geth.service                   # Disable the geth.service
-
-sudo vim /etc/systemd/system/geth.service             # Open the /etc/systemd/system/geth.service in vim
-sudo systemctl daemon-reload                          # Reload any changes made to the geth.service
-```
-{% endtab %}
-{% endtabs %}
 
 ### Geth Direct Queries
 
@@ -64,19 +44,9 @@ geth-nodeInfo
 
 Attach to the `Geth` JavaScript console.
 
-{% tabs %}
-{% tab title="Command Alias" %}
 ```bash
 geth-attach
 ```
-{% endtab %}
-
-{% tab title="Full Commands" %}
-```bash
-sudo geth attach --preload ~/geth-console-script.js /var/lib/goethereum/geth.ipc
-```
-{% endtab %}
-{% endtabs %}
 
 Console commands.
 

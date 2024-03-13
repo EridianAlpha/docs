@@ -11,6 +11,7 @@ description: Lighthouse client installation guide.
 
 ### Create Aliases
 
+{% code fullWidth="true" %}
 ```bash
 echo "alias lighthouse-version-current='/usr/local/bin/lighthouse --version'" >> ~/.bashrc
 echo "alias lighthouse-build='~/lighthouse-build.sh'" >> ~/.bashrc
@@ -19,6 +20,7 @@ echo "alias lighthouse-deploy='~/lighthouse-deploy.sh'" >> ~/.bashrc
 
 source ~/.bashrc
 ```
+{% endcode %}
 
 ### Rust - Install
 

@@ -16,8 +16,9 @@ description: Geth Client installation guide.
 
 These aliases make interacting with `Geth` on the command line easier.
 
+{% code fullWidth="true" %}
 ```bash
-echo "alias geth-log='sudo journalctl -f -u geth.service -o cat | ccze -A'" >> ~/.bashrc
+echo "alias geth-log='journalctl -f -u geth.service -o cat | ccze -A'" >> ~/.bashrc
 echo "alias geth-start='sudo systemctl start geth.service'" >> ~/.bashrc
 echo "alias geth-stop='sudo systemctl stop geth.service'" >> ~/.bashrc
 echo "alias geth-restart='sudo systemctl restart geth.service'" >> ~/.bashrc
@@ -34,6 +35,7 @@ echo "alias geth-nodeInfo='sudo geth --exec \"admin.nodeInfo\" attach /var/lib/g
 
 source ~/.bashrc
 ```
+{% endcode %}
 
 ### Firewall Configuration
 
