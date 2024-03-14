@@ -32,16 +32,16 @@ source ~/.bashrc
 ```
 {% endcode %}
 
-Update kernel to the latest version for 22.04.
-
-```bash
-update-kernel
-```
-
 Update system packages.
 
 ```bash
 update-system
+```
+
+Update kernel to the latest version for 22.04.
+
+```bash
+update-kernel
 ```
 
 Install useful packages.
@@ -74,12 +74,6 @@ linux-tools-generic
 sudo snap install btop
 ```
 
-Update the system again after installing all packages.
-
-```bash
-update-system
-```
-
 Update [firmware](https://github.com/fwupd/fwupd).
 
 ```bash
@@ -90,6 +84,12 @@ Restart machine.
 
 ```bash
 sudo shutdown -r now
+```
+
+Update the system again after restarting.
+
+```bash
+update-system
 ```
 
 Set up `btop`.
