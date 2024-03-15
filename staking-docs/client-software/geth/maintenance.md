@@ -85,5 +85,6 @@ tmux new -s prune-geth
 sudo /usr/local/bin/geth --datadir /var/lib/goethereum snapshot prune-state
 
 exit
+sudo chown -R goeth:goeth /var/lib/goethereum
 geth-start
 ```
