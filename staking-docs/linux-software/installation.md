@@ -102,6 +102,12 @@ btop
 * Change theme to TTY.
 * Change time interval to 1000ms.
 
+Change default editor to `vim`.
+
+```
+sudo update-alternatives --config editor
+```
+
 ### 🚪 Change Default SSH Port
 
 Useful when you have multiple machines running on the same ip address.
@@ -389,7 +395,7 @@ AuthenticationMethods publickey,keyboard-interactive
 Every option added to `AuthenticationMethods` will be required when you log in. So you can choose e.g. 2FA and password, or a combination of all three methods.
 
 * `publickey` (SSH key)
-* `password publickey` (password)
+* `password` (password)
 * `keyboard-interactive` (2FA verification code)
 
 Then save and exit.
