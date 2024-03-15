@@ -102,15 +102,15 @@ btop
 * Change theme to TTY.
 * Change time interval to 1000ms.
 
-Change default editor to `vim`.
+Change the default editor to `vim`.
 
-```
+```bash
 sudo update-alternatives --config editor
 ```
 
 ### 🚪 Change Default SSH Port
 
-Useful when you have multiple machines running on the same ip address.
+Useful when you have multiple machines running on the same IP address.
 
 ```bash
 sudo vim /etc/ssh/sshd_config
