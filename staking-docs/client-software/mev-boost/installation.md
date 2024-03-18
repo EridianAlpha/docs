@@ -31,9 +31,12 @@ source ~/.bashrc
 Build the latest version of `MEV Boost`.
 
 ```bash
+MEV_VERSION_COMMIT_HASH=        # e.g.441fc16
+
 cd ~
 git clone https://github.com/flashbots/mev-boost.git
-cd mev-boost
+cd ~/mev-boost
+git checkout ${MEV_VERSION_COMMIT_HASH}
 make build
 ```
 
