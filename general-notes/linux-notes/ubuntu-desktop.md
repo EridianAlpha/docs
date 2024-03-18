@@ -20,6 +20,15 @@ gsettings set org.gnome.shell.extensions.ding show-home false
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'firefox.desktop']"
 ```
 
+Install SSH
+
+```bash
+sudo apt-get update -y
+sudp apt-get install openssh-server -y
+sudo systemctl start ssh
+sudo systemctl enable ssh
+```
+
 * Settings
   * Wi-Fi - Airplane mode - `Check`
   * Appearance
