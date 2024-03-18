@@ -17,7 +17,7 @@ gsettings set org.gnome.desktop.background picture-uri-dark file:////home/eridia
 gsettings set org.gnome.shell.extensions.ding show-trash false
 gsettings set org.gnome.shell.extensions.ding show-home false
 
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop', 'firefox.desktop']"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Terminal.desktop']"
 ```
 
 Install SSH
@@ -89,6 +89,8 @@ sudo apt-get install -y indicator-multiload
   * Rename "Unamed" to `Profile1`
   * Colors
     * Uncheck "Use transparency from system theme" and then check `Use transparent background` (set to about `25%`)
+    * Palette
+      * Built-in schemes - `XTerm`
     * Check `Show bold text in bright colors`
 * Create a `Profile2` that's a clone of `Profile1`
   * This will be easier to work with when it's important to see everything very clearly
@@ -96,7 +98,7 @@ sudo apt-get install -y indicator-multiload
     * Uncheck "Use colors from system theme" and select `White on black`
     * Set the background transparency to None
 
-### 🖥️ 🖥️ Dual Monitor Configuration
+### 🖥️ 🖥️ Dual Monitor Configuration (with display link adapter)
 
 * Disable secure boot in the BIOS
 * [https://github.com/AdnanHodzic/displaylink-debian](https://github.com/AdnanHodzic/displaylink-debian)

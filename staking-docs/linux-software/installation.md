@@ -67,7 +67,8 @@ mosh \
 ufw \
 fwupd \
 linux-tools-common \
-linux-tools-generic
+linux-tools-generic \
+tmux
 ```
 
 ```bash
