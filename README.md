@@ -57,6 +57,6 @@ layout:
 [client-software](staking-docs/client-software/)
 {% endcontent-ref %}
 
-{% content-ref url="staking-docs/vpn-software/" %}
-[vpn-software](staking-docs/vpn-software/)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}

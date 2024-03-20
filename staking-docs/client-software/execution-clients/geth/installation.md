@@ -1,16 +1,8 @@
 ---
-description: Geth Client installation guide.
+description: Geth client installation guide.
 ---
 
 # 💾 Installation
-
-* [Create Aliases](installation.md#create-aliases)
-* [Firewall Configuration](installation.md#firewall-configuration)
-* [Go - Install](installation.md#go-install)
-* [Geth - Install](installation.md#geth-install)
-* [Geth - Configure Service](installation.md#geth-configure-service)
-* [Geth - Update Scripts](installation.md#geth-update-scripts)
-* [Geth - Configure JavaScript Console](installation.md#geth-configure-javascript-console)
 
 ### Create Aliases
 
@@ -27,7 +19,9 @@ echo "alias geth-version='sudo /usr/local/bin/geth --version'" >> ~/.bashrc
 echo "alias geth-config='sudo vim /etc/systemd/system/geth.service'" >> ~/.bashrc
 echo "alias geth-enable='sudo systemctl enable geth.service'" >> ~/.bashrc
 echo "alias geth-disable='sudo systemctl disable geth.service'" >> ~/.bashrc
+echo "alias geth-delete-data='sudo rm -rf /var/lib/goethereum/geth'" >> ~/.bashrc
 echo "alias geth-update='~/geth-update.sh'" >> ~/.bashrc
+
 echo "alias geth-attach='sudo geth attach --preload ~/geth-console-script.js /var/lib/goethereum/geth.ipc'" >> ~/.bashrc
 echo "alias geth-blockNumber='sudo geth --exec \"eth.blockNumber\" attach /var/lib/goethereum/geth.ipc'" >> ~/.bashrc
 echo "alias geth-peerCount='sudo geth --exec \"net.peerCount\" attach /var/lib/goethereum/geth.ipc'" >> ~/.bashrc
@@ -39,19 +33,7 @@ source ~/.bashrc
 
 ### Firewall Configuration
 
-Configure the firewall.
-
-```bash
-GETH_P2P_PORT=        # Default: 30303
-GETH_WS_PORT=         # Default: 8546
-GETH_METRICS_PORT=    # Default: 6060
-GETH_RPC_PORT=        # Default: 8545
-
-sudo ufw allow ${GETH_P2P_PORT} comment 'Allow Geth P2P in'
-sudo ufw allow ${GETH_WS_PORT} comment 'Allow Geth WS in'
-sudo ufw allow ${GETH_METRICS_PORT} comment 'Allow Geth Metrics in'
-sudo ufw allow ${GETH_RPC_PORT} comment 'Allow Geth RPC Port in'
-```
+Configure the firewall using generic Execution client UFW settings:[#ufw](../#ufw "mention")
 
 ### Go - Install
 
@@ -75,7 +57,7 @@ Build the latest version of `Geth`.
 GETH_VERSION_COMMIT_HASH=        # e.g.3f907d6
 
 cd ~
-git clone -b master https://github.com/ethereum/go-ethereum.git
+git clone https://github.com/ethereum/go-ethereum.git
 cd go-ethereum
 git checkout ${GETH_VERSION_COMMIT_HASH}
 make geth
@@ -94,13 +76,7 @@ sudo useradd --no-create-home --shell /bin/false goeth
 sudo mkdir -p /var/lib/goethereum
 ```
 
-Create JWT Secret.
-
-```bash
-sudo openssl rand -hex 32 | tr -d "\n" > "/tmp/jwtsecret"
-sudo mv /tmp/jwtsecret /var/lib/goethereum/
-sudo chmod +r /var/lib/goethereum/jwtsecret
-```
+JWT Secret is now shared between all clients on the same machine:[#create-jwt-secret](../#create-jwt-secret "mention")
 
 ### Geth - Configure Service
 
@@ -109,6 +85,8 @@ Set permissions.
 ```bash
 sudo chown -R goeth:goeth /var/lib/goethereum
 ```
+
+Configure [#execution-service-environment-variables](../#execution-service-environment-variables "mention").
 
 Configure `Geth` service using the command line flags.
 
@@ -133,16 +111,7 @@ Restart=always
 RestartSec=5
 TimeoutStopSec=1200
 
-Environment=NETWORK=         # E.g. mainnet or holesky
-Environment=P2P_PORT=        # Default: 30303
-Environment=MAX_PEERS=       # Default: 50
-Environment=WS_ADDR=         # e.g. 0.0.0.0
-Environment=WS_PORT=         # Default: 8546
-Environment=RPC_ADDR=        # e.g. 0.0.0.0
-Environment=RPC_PORT=        # Default: 8545
-Environment=METRICS_ADDR=    # e.g. 0.0.0.0
-Environment=METRICS_PORT=    # Default: 6060
-
+EnvironmentFile=/etc/default/execution-variables.env
 
 ExecStart=/usr/local/bin/geth \
     --${NETWORK} \
@@ -155,7 +124,7 @@ ExecStart=/usr/local/bin/geth \
     --metrics.addr ${METRICS_ADDR} \
     --metrics.port ${METRICS_PORT} \
     --pprof \
-    --authrpc.jwtsecret=/var/lib/goethereum/jwtsecret \
+    --authrpc.jwtsecret=/var/lib/jwtsecret \
     --maxpeers ${MAX_PEERS} \
     --ws \
     --ws.port ${WS_PORT} \
@@ -190,17 +159,6 @@ geth-start      # Start the geth.service
 geth-status     # View the status of the geth.service
 
 geth-log        # View the geth.service logs
-```
-{% endtab %}
-
-{% tab title="Full Commands" %}
-```bash
-sudo systemctl daemon-reload                          # Reload any changes made to the geth.service
-sudo systemctl enable geth.service                    # Enable the geth.service
-sudo systemctl start geth.service                     # Start the geth.service
-sudo systemctl status geth.service                    # View the status of the geth.service
-
-sudo journalctl -f -u geth.service -o cat | ccze -A   # View the geth.service logs
 ```
 {% endtab %}
 {% endtabs %}
@@ -292,12 +250,6 @@ Check `Geth` details by attaching to the JavaScript console
 {% tab title="Command Alias" %}
 ```bash
 geth-attach
-```
-{% endtab %}
-
-{% tab title="Full Commands" %}
-```bash
-sudo geth attach --preload ~/geth-console-script.js /var/lib/goethereum/geth.ipc
 ```
 {% endtab %}
 {% endtabs %}

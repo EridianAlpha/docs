@@ -1,5 +1,5 @@
 ---
-description: Lighthouse Beacon Node installation guide.
+description: Lighthouse Beacon Node client installation guide.
 ---
 
 # 💾 Installation
@@ -19,6 +19,7 @@ echo "alias lighthouse-beacon-status='sudo systemctl status lighthousebeacon.ser
 echo "alias lighthouse-beacon-config='sudo vim /etc/systemd/system/lighthousebeacon.service'" >> ~/.bashrc
 echo "alias lighthouse-beacon-enable='sudo systemctl enable lighthousebeacon.service'" >> ~/.bashrc
 echo "alias lighthouse-beacon-disable='sudo systemctl disable lighthousebeacon.service'" >> ~/.bashrc
+echo "alias lighthouse-beacon-delete-data='sudo rm -rf /var/lib/lighthouse/beacon'" >> ~/.bashrc
 
 source ~/.bashrc
 ```
@@ -26,17 +27,7 @@ source ~/.bashrc
 
 ### Firewall Configuration
 
-Configure the firewall.
-
-```bash
-LIGHTHOUSE_P2P_PORT=              # Default: 9000
-LIGHTHOUSE_HTTP_PORT=             # Default: 5052
-LIGHTHOUSE_METRICS_PORT=          # Default: 5054
-
-sudo ufw allow ${LIGHTHOUSE_P2P_PORT} comment 'Allow Lighthouse P2P in'
-sudo ufw allow ${LIGHTHOUSE_HTTP_PORT} comment 'Allow Lighthouse http in'
-sudo ufw allow ${LIGHTHOUSE_METRICS_PORT} comment 'Allow Lighthouse Metrics in'
-```
+Configure the firewall using generic Beacon client UFW settings: TODO
 
 ### Lighthouse BN - Configure Service
 
@@ -95,7 +86,7 @@ ExecStart=/usr/local/bin/lighthouse bn \
     --metrics-allow-origin "*" \
     --validator-monitor-auto \
     --execution-endpoints ${EXECUTION_ENDPOINTS} \
-    --jwt-secrets="/var/lib/goethereum/jwtsecret" \
+    --jwt-secrets="/var/lib/jwtsecret" \
     --suggested-fee-recipient ${SUGGESTED_FEE_RECIPIENT} \
     --checkpoint-sync-url ${CHECKPOINT_SYNC_URL} \
     --builder ${BUILDER} \

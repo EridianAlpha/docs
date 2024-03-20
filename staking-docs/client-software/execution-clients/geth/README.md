@@ -1,8 +1,8 @@
 ---
-description: Notes on how to install and maintain a Lighthouse Validator Client.
+description: Notes on how to install, use and maintain a Geth client.
 ---
 
-# Lighthouse VC
+# ⛏️ Geth
 
 {% content-ref url="installation.md" %}
 [installation.md](installation.md)

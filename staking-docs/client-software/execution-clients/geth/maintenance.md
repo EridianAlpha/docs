@@ -4,13 +4,6 @@ description: Notes on how to maintain and update a Geth Client.
 
 # 🏗️ Maintenance
 
-* [Go - Update](maintenance.md#go-update)
-* [Geth - Update Client](maintenance.md#geth-update-client)
-* [Geth - Update geth.service](maintenance.md#geth-update-geth.service)
-* [Geth - Rollback Chain to Previous Block Number](maintenance.md#geth-rollback-chain-to-previous-block-number)
-* [Geth - Resync after an Unexpected Shutdown](maintenance.md#geth-resync-after-an-unexpected-shutdown)
-* [Geth - Pruning](maintenance.md#geth-pruning)
-
 ### Go - Update
 
 Find the latest version of `Go` here: [https://go.dev/doc/install](https://go.dev/doc/install)

@@ -1,5 +1,5 @@
 ---
-description: Lighthouse Validator Client installation guide.
+description: Lighthouse Validator client installation guide.
 ---
 
 # 💾 Installation

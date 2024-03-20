@@ -2,32 +2,27 @@
 description: Notes on how to use a Geth Client.
 ---
 
-# ⌨️ Useful commands
+# ⌨️ Useful Commands
 
 {% hint style="info" %}
-All of the alias commands have been defined as aliases in \~/`.bashrc when`[`installing Geth`](installation.md)
+All of the alias commands have been defined as aliases in \~/`.bashrc when`installing Geth.
 {% endhint %}
-
-* [geth.service](useful-commands.md#geth.service)
-* [Geth Direct Queries](useful-commands.md#geth-direct-queries)
-* [Geth JavaScript Console](useful-commands.md#geth-javascript-console)
-* [Other Useful Commands](useful-commands.md#other-useful-commands)
-* [Data Locations](useful-commands.md#data-locations)
 
 ### geth.service
 
 ```bash
-geth-log        # View the geth.service logs
-geth-start      # Start the geth.service
-geth-stop       # Stop the geth.service
-geth-restart    # Restart the geth.service
-geth-status     # View the status of the geth.service
-geth-version    # Check the version of geth in use
-geth-enable     # Enable the geth.service
-geth-disable    # Disable the geth.service
+geth-log            # View the geth.service logs
+geth-start          # Start the geth.service
+geth-stop           # Stop the geth.service
+geth-restart        # Restart the geth.service
+geth-status         # View the status of the geth.service
+geth-version        # Check the version of Geth in use
+geth-enable         # Enable the geth.service
+geth-disable        # Disable the geth.service
+geth-delete-data    # Delete all Geth chain data
 
-geth-config     # Open the /etc/systemd/system/geth.service in vim
-daemon-reload   # Reload any changes made to the geth.service
+geth-config         # Open the /etc/systemd/system/geth.service in vim
+daemon-reload       # Reload any changes made to the geth.service
 ```
 
 ### Geth Direct Queries
