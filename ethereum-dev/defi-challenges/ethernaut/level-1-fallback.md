@@ -87,7 +87,7 @@ await contract.contribute({
 ```
 {% endcode %}
 
-2. Become the owner by sending an amount of ETH directly to the contract which will [get picked up by](../../solidity-notes/fallback.md) the `receive()` function (`line 38`).
+2. Become the owner by sending an amount of ETH directly to the contract which will [get picked up by](../../solidity-notes/receive-and-fallback.md) the `receive()` function (`line 38`).
 
 {% code title="Paste into Chrome JavaScript console" %}
 ```javascript

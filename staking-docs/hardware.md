@@ -10,4 +10,4 @@ To avoid duplication these details can be found on the EthStaker Knowledge Base.
 [NUC - Eridian](https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/hardware/hardware-examples/nuc-eridian)
 {% endcontent-ref %}
 
-<figure><img src="../.gitbook/assets/image (66).png" alt="Eridian NUC"><figcaption><p>Eridian Hardware - NUC</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (73).png" alt="Eridian NUC"><figcaption><p>Eridian Hardware - NUC</p></figcaption></figure>
