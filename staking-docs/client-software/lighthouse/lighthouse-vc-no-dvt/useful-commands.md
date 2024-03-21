@@ -2,7 +2,7 @@
 description: Notes on how to use a Lighthouse Validator Client.
 ---
 
-# ⌨️ Useful commands
+# ⌨️ Useful Commands
 
 ### lighthousevalidator.service
 

@@ -33,7 +33,7 @@ source ~/.bashrc
 
 ### Firewall Configuration
 
-Configure the firewall using generic Execution client UFW settings:[#ufw](../#ufw "mention")
+Configure the firewall using generic Execution client UFW settings:[#ufw](../execution-clients/#ufw "mention")
 
 ### Go - Install
 
@@ -76,7 +76,7 @@ sudo useradd --no-create-home --shell /bin/false goeth
 sudo mkdir -p /var/lib/goethereum
 ```
 
-JWT Secret is now shared between all clients on the same machine:[#create-jwt-secret](../#create-jwt-secret "mention")
+JWT Secret is now shared between all clients on the same machine:[#create-jwt-secret](../execution-clients/#create-jwt-secret "mention")
 
 ### Geth - Configure Service
 
@@ -86,7 +86,7 @@ Set permissions.
 sudo chown -R goeth:goeth /var/lib/goethereum
 ```
 
-Configure [#execution-service-environment-variables](../#execution-service-environment-variables "mention").
+Configure [#execution-service-environment-variables](../execution-clients/#execution-service-environment-variables "mention").
 
 Configure `Geth` service using the command line flags.
 

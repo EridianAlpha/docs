@@ -19,8 +19,7 @@ echo "alias besu-version='sudo /usr/local/bin/besu --version'" >> ~/.bashrc
 echo "alias besu-config='sudo vim /etc/systemd/system/besu.service'" >> ~/.bashrc
 echo "alias besu-enable='sudo systemctl enable besu.service'" >> ~/.bashrc
 echo "alias besu-disable='sudo systemctl disable besu.service'" >> ~/.bashrc
-
-echo "alias besu-delete-data='sudo rm -rf /var/lib/??'" >> ~/.bashrc
+echo "alias besu-delete-data='sudo rm -rf /var/lib/besu; sudo mkdir -p /var/lib/besu; sudo chown -R besu:besu /var/lib/besu'" >> ~/.bashrc
 echo "alias besu-update='~/besu-update.sh'" >> ~/.bashrc
 
 source ~/.bashrc
@@ -53,23 +52,14 @@ cd ~
 git clone --recursive https://github.com/hyperledger/besu
 cd ~/besu
 git checkout ${BESU_VERSION_COMMIT_HASH}
-tmux new -s besu-build
-./gradlew build
-```
-
-Wait for the build to finish (\~20 minutes).
-
-Create the binary and exit the `tmux` session.
-
-```bash
-./gradlew installDist
-exit
+./gradlew build -x test
+./gradlew clean installDist
 ```
 
 Move the compiled `Besu` build to a new directory.
 
 ```bash
-sudo cp ~/besu/build/install/besu/bin/besu /usr/local/bin
+sudo cp -R ~/besu/build/install/besu /usr/local/bin
 ```
 
 Create `Besu` user and directory.
@@ -116,7 +106,7 @@ TimeoutStopSec=1200
 
 EnvironmentFile=/etc/default/execution-variables.env
 
-ExecStart=/usr/local/bin/besu \
+ExecStart=/usr/local/bin/besu/bin/besu \
     --network=${NETWORK} \
     --sync-mode=SNAP \
     --engine-jwt-secret=/var/lib/jwtsecret \
@@ -129,7 +119,7 @@ ExecStart=/usr/local/bin/besu \
     \
     --metrics-enabled=true \
     --metrics-host=${METRICS_ADDR} \
-    --metrics-port=${METRICS_PORT}
+    --metrics-port=${METRICS_PORT} \
     \
     --rpc-ws-enabled=true \
     --rpc-ws-api=ETH,NET,WEB3 \
@@ -203,8 +193,8 @@ echo
 echo "**************"
 echo "Making Besu..."
 echo "**************"
-./gradlew build
-./gradlew installDist
+./gradlew build -x test
+./gradlew clean installDist
 
 # Check if besu.service is running
 service_was_running=0
@@ -217,7 +207,7 @@ fi
 
 echo "Replacing previous version..."
 sudo rm /usr/local/bin/besu
-sudo cp ~/besu/build/install/besu/bin/besu /usr/local/bin
+sudo cp -R ~/besu/build/install/besu /usr/local/bin
 
 # Only start besu.service if it was running originally
 if [ $service_was_running -eq 1 ]; then

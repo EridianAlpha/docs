@@ -63,5 +63,5 @@ https://beaconstate.info/eth/v1/beacon/states/head/validators/<VALIDATOR_PUBLIC_
 `Besu` `chaindata` location.
 
 ```
-/var/lib/besu/??
+/var/lib/besu/
 ```

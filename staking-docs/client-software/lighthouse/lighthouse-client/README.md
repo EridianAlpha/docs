@@ -2,7 +2,7 @@
 description: Notes on how to install and maintain a Lighthouse client.
 ---
 
-# Lighthouse client
+# Lighthouse Client
 
 {% content-ref url="installation.md" %}
 [installation.md](installation.md)

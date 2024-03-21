@@ -14,10 +14,10 @@ Configure the firewall.
 
 {% code title="Execution clients" %}
 ```bash
-EXECUTION_P2P_PORT=        # Geth default: 30303
-EXECUTION_WS_PORT=         # Geth default: 8546
-EXECUTION_METRICS_PORT=    # Geth default: 6060
-EXECUTION_RPC_PORT=        # Geth default: 8545
+EXECUTION_P2P_PORT=        # Default: 30303
+EXECUTION_WS_PORT=         # Default: 8546
+EXECUTION_METRICS_PORT=    # Default: 6060
+EXECUTION_RPC_PORT=        # Default: 8545
 
 sudo ufw allow ${EXECUTION_P2P_PORT} comment 'Allow Execution P2P in'
 sudo ufw allow ${EXECUTION_WS_PORT} comment 'Allow Execution WS in'
