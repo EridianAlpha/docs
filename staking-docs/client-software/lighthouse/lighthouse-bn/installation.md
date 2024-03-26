@@ -19,7 +19,7 @@ echo "alias lighthouse-beacon-status='sudo systemctl status lighthousebeacon.ser
 echo "alias lighthouse-beacon-config='sudo vim /etc/systemd/system/lighthousebeacon.service'" >> ~/.bashrc
 echo "alias lighthouse-beacon-enable='sudo systemctl enable lighthousebeacon.service'" >> ~/.bashrc
 echo "alias lighthouse-beacon-disable='sudo systemctl disable lighthousebeacon.service'" >> ~/.bashrc
-echo "alias lighthouse-beacon-delete-data='sudo rm -rf /var/lib/lighthouse/beacon'" >> ~/.bashrc
+echo "alias lighthouse-beacon-delete-data='sudo rm -rf /var/lib/lighthouse/beacon; sudo mkdir -p /var/lib/lighthouse/beacon; sudo chown -R lighthousebeacon:lighthousebeacon /var/lib/lighthouse/beacon'" >> ~/.bashrc
 
 source ~/.bashrc
 ```
