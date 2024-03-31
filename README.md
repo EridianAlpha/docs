@@ -43,6 +43,10 @@ layout:
 [defi-challenges](ethereum-dev/defi-challenges/)
 {% endcontent-ref %}
 
+{% content-ref url="ethereum-dev/mev.md" %}
+[mev.md](ethereum-dev/mev.md)
+{% endcontent-ref %}
+
 ### Staking Docs
 
 {% content-ref url="staking-docs/hardware.md" %}
@@ -55,8 +59,4 @@ layout:
 
 {% content-ref url="staking-docs/client-software/" %}
 [client-software](staking-docs/client-software/)
-{% endcontent-ref %}
-
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
 {% endcontent-ref %}
