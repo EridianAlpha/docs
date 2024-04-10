@@ -1,4 +1,4 @@
-# Ubuntu Desktop
+# 🖥️ Ubuntu Desktop
 
 ### Settings - Desktop
 

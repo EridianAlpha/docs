@@ -47,16 +47,16 @@ layout:
 [mev.md](ethereum-dev/mev.md)
 {% endcontent-ref %}
 
-### Staking Docs
+### Infrastructure Docs
 
-{% content-ref url="staking-docs/hardware.md" %}
-[hardware.md](staking-docs/hardware.md)
+{% content-ref url="infrastructure-docs/hardware.md" %}
+[hardware.md](infrastructure-docs/hardware.md)
 {% endcontent-ref %}
 
-{% content-ref url="staking-docs/linux-software/" %}
-[linux-software](staking-docs/linux-software/)
+{% content-ref url="infrastructure-docs/linux-software/" %}
+[linux-software](infrastructure-docs/linux-software/)
 {% endcontent-ref %}
 
-{% content-ref url="staking-docs/client-software/" %}
-[client-software](staking-docs/client-software/)
+{% content-ref url="infrastructure-docs/client-software/" %}
+[client-software](infrastructure-docs/client-software/)
 {% endcontent-ref %}

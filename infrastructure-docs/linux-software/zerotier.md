@@ -1,6 +1,6 @@
-# ZeroTier One
+# 🛜 ZeroTier
 
-{% code title="Install ZeroTier One" %}
+{% code title="Install ZeroTier" %}
 ```bash
 sudo apt-get install curl -y
 curl -s https://install.zerotier.com | sudo bash

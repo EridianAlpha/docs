@@ -1,4 +1,4 @@
-# TMUX
+# 🎞️ TMUX
 
 ### TMUX Commands
 
