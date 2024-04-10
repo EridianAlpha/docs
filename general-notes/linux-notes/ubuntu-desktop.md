@@ -38,8 +38,11 @@ sudo systemctl enable ssh
         * Show Volumes and Devices - `Uncheck`
         * Show Trash - `Uncheck`
   * Power - Screen Blank - `Never`
+* Install Chromium
 
-
+```bash
+sudo apt-get install -y chromium-browser
+```
 
 * Onscreen keyboard with arrow keys
 
