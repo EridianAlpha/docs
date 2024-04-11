@@ -113,6 +113,7 @@
   * [🖥️ Ubuntu Desktop](infrastructure-docs/linux-software/ubuntu-desktop.md)
   * [🛜 ZeroTier](infrastructure-docs/linux-software/zerotier.md)
   * [🎞️ TMUX](infrastructure-docs/linux-software/tmux.md)
+  * [Bluetooth](infrastructure-docs/linux-software/bluetooth.md)
 * [⛓️ Client Software](infrastructure-docs/client-software/README.md)
   * [⚙️ Execution Clients](infrastructure-docs/client-software/execution-clients/README.md)
     * [⛏️ Geth](infrastructure-docs/client-software/execution-clients/geth/README.md)
