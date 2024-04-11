@@ -8,10 +8,11 @@
 | See any existing sessions        | <p><code>tmux list-sessions</code></p><p><code>tmux ls</code></p> |
 | Attach to existing session       | `tmux attach -t <SESSION_NAME>`                                   |
 | Make all windows the same size   | `Ctrl+b` THEN `Alt+2`                                             |
-| Add new tmux window vertically   | `Ctrl + b` THEN `Shift + @`                                       |
-| Add new tmux window horizontally | `Ctrl + b` THEN `%`                                               |
+| Add new tmux window vertically   | `Ctrl+b` THEN `Shift + @`                                         |
+| Add new tmux window horizontally | `Ctrl+b` THEN `%`                                                 |
 | Detach from current session      | `Ctrl+b` THEN `d`                                                 |
 | Kill current session             | `Ctrl+c`                                                          |
+| Highlight text to copy           | `Option + click and drag`                                         |
 
 ### Install and configure TMUX
 
@@ -36,7 +37,7 @@ vim .tmux.conf
 ```
 {% endcode %}
 
-* Change `mouse` to `on`
+* Change `mouse` to `on` globally
 
 {% code title=".tmux.conf" %}
 ```bash
@@ -45,5 +46,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 {% endcode %}
 
+* Change `mouse` to `on` for current session
 
-
+```bash
+tmux set -g mouse on
+```

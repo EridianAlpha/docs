@@ -101,12 +101,19 @@ btop
 
 * Press `ESC` key to see menu and select `OPTIONS`.
 * Change theme to TTY.
+* Change Theme Background to `False`.
 * Change time interval to 1000ms.
 
 Change the default editor to `vim`.
 
 ```bash
 sudo update-alternatives --config editor
+```
+
+Change `vim` to be mouse interactive.
+
+```bash
+echo "set mouse=a" > ~/.vimrc
 ```
 
 ### 🚪 Change Default SSH Port
