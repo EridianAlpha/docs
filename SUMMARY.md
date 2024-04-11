@@ -2,16 +2,13 @@
 
 * [📖 Eridian Docs](README.md)
 
-## General Notes
+## General Dev
 
-* [🐧 Linux Notes](general-notes/linux-notes/README.md)
-  * [Linux Glossary](general-notes/linux-notes/linux-glossary.md)
-  * [Linux Commands](general-notes/linux-notes/linux-commands.md)
-* [💾 Git Notes](general-notes/git-notes/README.md)
-  * [Repos](general-notes/git-notes/repos.md)
-  * [Committing changes](general-notes/git-notes/committing-changes.md)
-  * [Branches](general-notes/git-notes/branches.md)
-  * [Merging & Rebasing](general-notes/git-notes/merging-and-rebasing.md)
+* [💾 Git Notes](general-dev/git-notes/README.md)
+  * [Repos](general-dev/git-notes/repos.md)
+  * [Committing changes](general-dev/git-notes/committing-changes.md)
+  * [Branches](general-dev/git-notes/branches.md)
+  * [Merging & Rebasing](general-dev/git-notes/merging-and-rebasing.md)
 
 ## Ethereum Dev
 
@@ -107,14 +104,16 @@
 ## Infrastructure Docs
 
 * [💻 Hardware](infrastructure-docs/hardware.md)
-* [🐧 Linux Software](infrastructure-docs/linux-software/README.md)
+* [🐧 Linux](infrastructure-docs/linux-software/README.md)
+  * [📖 Linux Glossary](infrastructure-docs/linux-software/linux-glossary.md)
+  * [⌨️ Linux Commands](infrastructure-docs/linux-software/linux-commands.md)
   * [💾 Installation](infrastructure-docs/linux-software/installation.md)
   * [🏗️ Maintenance](infrastructure-docs/linux-software/maintenance.md)
   * [🖥️ Ubuntu Desktop](infrastructure-docs/linux-software/ubuntu-desktop.md)
   * [🛜 ZeroTier](infrastructure-docs/linux-software/zerotier.md)
   * [🎞️ TMUX](infrastructure-docs/linux-software/tmux.md)
-  * [Bluetooth](infrastructure-docs/linux-software/bluetooth.md)
-* [⛓️ Client Software](infrastructure-docs/client-software/README.md)
+  * [🔵 Bluetooth](infrastructure-docs/linux-software/bluetooth.md)
+* [⛓️ Ethereum Clients](infrastructure-docs/client-software/README.md)
   * [⚙️ Execution Clients](infrastructure-docs/client-software/execution-clients/README.md)
     * [⛏️ Geth](infrastructure-docs/client-software/execution-clients/geth/README.md)
       * [💾 Installation](infrastructure-docs/client-software/execution-clients/geth/installation.md)
@@ -140,6 +139,3 @@
   * [💰 MEV Boost](infrastructure-docs/client-software/mev-boost/README.md)
     * [💾 Installation](infrastructure-docs/client-software/mev-boost/installation.md)
     * [🏗️ Maintenance](infrastructure-docs/client-software/mev-boost/maintenance.md)
-* [\_Archive](infrastructure-docs/\_archive/README.md)
-  * [📱 Dappnode](infrastructure-docs/\_archive/dappnode.md)
-  * [🚧 Failovers](infrastructure-docs/\_archive/failovers.md)

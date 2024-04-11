@@ -1,4 +1,4 @@
-# Bluetooth
+# 🔵 Bluetooth
 
 1. **Launch bluetoothctl**: Type `bluetoothctl` and press Enter. This will open the Bluetooth control prompt, indicated by `[bluetooth]#`.
 2.  **Turn on Bluetooth**: To ensure Bluetooth is powered on, type:

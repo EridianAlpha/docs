@@ -1,6 +1,6 @@
 ---
-description: Notes on how to install, use and maintain multiple validator clients.
+description: Notes on how to install, use and maintain multiple Ethereum validator clients.
 ---
 
-# ⛓️ Client Software
+# ⛓️ Ethereum Clients
 

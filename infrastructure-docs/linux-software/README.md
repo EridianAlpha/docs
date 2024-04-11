@@ -1,6 +1,6 @@
 ---
-description: Notes on how to install and maintain Linux software.
+description: Notes on how to install and maintain Linux Ubuntu.
 ---
 
-# 🐧 Linux Software
+# 🐧 Linux
 

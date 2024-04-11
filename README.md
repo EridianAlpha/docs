@@ -15,14 +15,10 @@ layout:
 
 # 📖 Eridian Docs
 
-### General Notes
+### General Dev
 
-{% content-ref url="general-notes/linux-notes/" %}
-[linux-notes](general-notes/linux-notes/)
-{% endcontent-ref %}
-
-{% content-ref url="general-notes/git-notes/" %}
-[git-notes](general-notes/git-notes/)
+{% content-ref url="general-dev/git-notes/" %}
+[git-notes](general-dev/git-notes/)
 {% endcontent-ref %}
 
 ### Ethereum Dev
