@@ -119,23 +119,27 @@ ExecStart=/usr/local/bin/geth \
     --port ${P2P_PORT} \
     --discovery.port ${P2P_PORT} \
     --datadir /var/lib/goethereum \
+    \
+    --pprof \
     --metrics \
     --metrics.expensive \
     --metrics.addr ${METRICS_ADDR} \
     --metrics.port ${METRICS_PORT} \
-    --pprof \
+    \
     --authrpc.jwtsecret=/var/lib/jwtsecret \
     --maxpeers ${MAX_PEERS} \
+    \
     --ws \
+    --ws.origins '*' \
     --ws.port ${WS_PORT} \
     --ws.addr ${WS_ADDR} \
-    --ws.origins '*' \
+    \
     --http \
     --http.api "db,eth,net,engine,rpc,web3" \
-    --http.addr ${RPC_ADDR} \
-    --http.port ${RPC_PORT} \
     --http.vhosts "*" \
-    --http.corsdomain "*"
+    --http.corsdomain "*" \
+    --http.addr ${RPC_ADDR} \
+    --http.port ${RPC_PORT}
 
 [Install]
 WantedBy=default.target
@@ -144,14 +148,14 @@ WantedBy=default.target
 {% endtab %}
 
 {% tab title="Geth Flags Explained" %}
-<table data-header-hidden><thead><tr><th width="294">Flag</th><th>Description</th></tr></thead><tbody><tr><td><code>/usr/local/bin/geth</code></td><td>Starts Geth.</td></tr><tr><td><code>--mainnet</code></td><td>Specifies mainnet as the target network.</td></tr><tr><td><code>--syncmode</code></td><td><ul><li><code>full</code> very/impossibly slow on Mainnet due to Shanghai DDOS attacks.</li><li><code>fast</code> used to be the best option, but is now slower than snap.</li><li><code>snap</code> the current fastest way to sync.</li></ul></td></tr><tr><td><code>--port</code></td><td>Network listening port (TCP).</td></tr><tr><td><code>--discovery.port</code></td><td>UDP port for P2P discovery.</td></tr><tr><td><code>--http</code></td><td>Enable the HTTP-RPC server.</td></tr><tr><td><code>--datadir</code></td><td>Data directory for the databases and keystore.</td></tr><tr><td><code>--metrics</code></td><td>Enable metrics collection and reporting.</td></tr><tr><td><code>--metrics.expensive</code></td><td>Enable expensive metrics collection and reporting.</td></tr><tr><td><code>--pprof</code></td><td><p>Enable the pprof HTTP server.</p><p>Required for metrics to work properly.</p></td></tr><tr><td><code>--http.api</code></td><td>API's offered over the HTTP-RPC interface.</td></tr><tr><td><code>--authrpc.jwtsecret</code></td><td><p>The JWT secret is automatically generated when <code>Geth</code> is first run and added to <code>/var/lib/goethereum/</code></p><p></p><p>This is same location that is pointed to in both the <code>Geth</code> and <code>Lighthouse</code> configuration so that they use the same JWT secret and can talk to each other.</p></td></tr><tr><td><code>--maxpeers</code></td><td><p>Maximum number of network peers.</p><ul><li>Network disabled if set to 0.</li><li>Default: 50.</li></ul></td></tr><tr><td><code>--cache</code></td><td><p>Megabytes of memory allocated to internal caching.</p><ul><li>Default = 4096 mainnet full node and 128 light mode.</li></ul></td></tr><tr><td><code>--bootnodes</code></td><td><p>Comma separated enode URLs for P2P discovery bootstrap.</p><ul><li><a href="https://github.com/ethereum/go-ethereum/blob/master/params/bootnodes.go">https://github.com/ethereum/go-ethereum/blob/master/params/bootnodes.go</a></li></ul></td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="294">Flag</th><th>Description</th></tr></thead><tbody><tr><td><code>/usr/local/bin/geth</code></td><td>Starts Geth.</td></tr><tr><td><code>--mainnet</code></td><td>Specifies mainnet as the target network.</td></tr><tr><td><code>--syncmode</code></td><td><ul><li><code>full</code> very/impossibly slow on Mainnet due to Shanghai DDOS attacks.</li><li><code>fast</code> used to be the best option, but is now slower than snap.</li><li><code>snap</code> the current fastest way to sync.</li></ul></td></tr><tr><td><code>--port</code></td><td>Network listening port (TCP).</td></tr><tr><td><code>--discovery.port</code></td><td>UDP port for P2P discovery.</td></tr><tr><td><code>--http</code></td><td>Enable the HTTP-RPC server.</td></tr><tr><td><code>--datadir</code></td><td>Data directory for the databases and keystore.</td></tr><tr><td><code>--metrics</code></td><td>Enable metrics collection and reporting.</td></tr><tr><td><code>--metrics.expensive</code></td><td>Enable expensive metrics collection and reporting.</td></tr><tr><td><code>--pprof</code></td><td><p>Enable the pprof HTTP server.</p><p>Required for metrics to work properly.</p></td></tr><tr><td><code>--http.api</code></td><td>API's offered over the HTTP-RPC interface.</td></tr><tr><td><code>--authrpc.jwtsecret</code></td><td></td></tr><tr><td><code>--maxpeers</code></td><td><p>Maximum number of network peers.</p><ul><li>Network disabled if set to 0.</li><li>Default: 50.</li></ul></td></tr><tr><td><code>--cache</code></td><td><p>Megabytes of memory allocated to internal caching.</p><ul><li>Default = 4096 mainnet full node and 128 light mode.</li></ul></td></tr><tr><td><code>--bootnodes</code></td><td><p>Comma separated enode URLs for P2P discovery bootstrap.</p><ul><li><a href="https://github.com/ethereum/go-ethereum/blob/master/params/bootnodes.go">https://github.com/ethereum/go-ethereum/blob/master/params/bootnodes.go</a></li></ul></td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
 
 Start the service and check it's working as expected.
 
-{% tabs %}
-{% tab title="Command Aliases" %}
+### Geth - Command Aliases
+
 ```bash
 daemon-reload   # Reload any changes made to the geth.service
 geth-enable     # Enable the geth.service
@@ -160,8 +164,6 @@ geth-status     # View the status of the geth.service
 
 geth-log        # View the geth.service logs
 ```
-{% endtab %}
-{% endtabs %}
 
 ### Geth - Update Scripts
 
