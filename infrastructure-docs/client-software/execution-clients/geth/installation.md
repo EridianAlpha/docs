@@ -248,13 +248,9 @@ function blockInfo() {
 
 Check `Geth` details by attaching to the JavaScript console
 
-{% tabs %}
-{% tab title="Command Alias" %}
 ```bash
 geth-attach
 ```
-{% endtab %}
-{% endtabs %}
 
 `Geth` JavaScript console commands.
 
