@@ -2,7 +2,7 @@
 description: Notes on how to install and maintain a Lighthouse Validator client.
 ---
 
-# Lighthouse VC
+# 💡 Lighthouse
 
 {% content-ref url="installation.md" %}
 [installation.md](installation.md)

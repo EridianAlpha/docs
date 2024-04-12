@@ -1,17 +1,17 @@
 ---
-description: Notes on how to install, use and maintain Lighthouse.
+description: Notes on how to install, use and maintain Lighthouse BN.
 ---
 
 # 💡 Lighthouse
 
-{% content-ref url="lighthouse-client/" %}
-[lighthouse-client](lighthouse-client/)
+{% content-ref url="installation.md" %}
+[installation.md](installation.md)
 {% endcontent-ref %}
 
-{% content-ref url="lighthouse-bn/" %}
-[lighthouse-bn](lighthouse-bn/)
+{% content-ref url="useful-commands.md" %}
+[useful-commands.md](useful-commands.md)
 {% endcontent-ref %}
 
-{% content-ref url="lighthouse-vc-no-dvt/" %}
-[lighthouse-vc-no-dvt](lighthouse-vc-no-dvt/)
+{% content-ref url="maintenance.md" %}
+[maintenance.md](maintenance.md)
 {% endcontent-ref %}

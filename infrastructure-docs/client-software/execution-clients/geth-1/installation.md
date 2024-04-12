@@ -15,7 +15,7 @@ echo "alias besu-start='sudo systemctl start besu.service'" >> ~/.bashrc
 echo "alias besu-stop='sudo systemctl stop besu.service'" >> ~/.bashrc
 echo "alias besu-restart='sudo systemctl restart besu.service'" >> ~/.bashrc
 echo "alias besu-status='sudo systemctl status besu.service'" >> ~/.bashrc
-echo "alias besu-version='sudo /usr/local/bin/besu --version'" >> ~/.bashrc
+echo "alias besu-version='sudo /usr/local/bin/besu/bin/besu --version'" >> ~/.bashrc
 echo "alias besu-config='sudo vim /etc/systemd/system/besu.service'" >> ~/.bashrc
 echo "alias besu-enable='sudo systemctl enable besu.service'" >> ~/.bashrc
 echo "alias besu-disable='sudo systemctl disable besu.service'" >> ~/.bashrc
@@ -30,7 +30,7 @@ source ~/.bashrc
 
 Configure the firewall using generic Execution client UFW settings:[#ufw](../#ufw "mention")
 
-### Dependency - Install
+### Dependency - Install Java
 
 `Besu` requires version 17+ of Java: [https://besu.hyperledger.org/public-networks/get-started/install/binary-distribution#prerequisites-1](https://besu.hyperledger.org/public-networks/get-started/install/binary-distribution#prerequisites-1)
 
@@ -60,6 +60,12 @@ Move the compiled `Besu` build to a new directory.
 
 ```bash
 sudo cp -R ~/besu/build/install/besu /usr/local/bin
+```
+
+Check version.
+
+```bash
+/usr/local/bin/besu/bin/besu --version
 ```
 
 Create `Besu` user and directory.

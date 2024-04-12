@@ -8,11 +8,11 @@
 4. Enable new client.
 5. Start new client.
 
-## UFW
+## UFW Config
 
 Configure the firewall.
 
-{% code title="Execution clients" %}
+{% code title="Execution Clients" %}
 ```bash
 EXECUTION_P2P_PORT=        # Default: 30303
 EXECUTION_WS_PORT=         # Default: 8546
@@ -26,7 +26,7 @@ sudo ufw allow ${EXECUTION_RPC_PORT} comment 'Allow Execution RPC Port in'
 ```
 {% endcode %}
 
-## Create JWT Secret.
+## Create JWT Secret
 
 This is now shared between all clients on the same machine.
 

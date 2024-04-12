@@ -1,16 +1,18 @@
 ---
-description: Lighthouse Beacon Node client installation guide.
+description: Lighthouse client installation guide.
 ---
 
 # 💾 Installation
 
-* [Create Aliases](installation.md#create-aliases)
-* [Lighthouse BN - Configure Service](installation.md#lighthouse-bn-configure-service)
-
-### Create Aliases
+## Create Aliases
 
 {% code fullWidth="true" %}
 ```bash
+echo "alias lighthouse-version-current='/usr/local/bin/lighthouse --version'" >> ~/.bashrc
+echo "alias lighthouse-build='~/lighthouse-build.sh'" >> ~/.bashrc
+echo "alias lighthouse-version-new='~/.cargo/bin/lighthouse --version'" >> ~/.bashrc
+echo "alias lighthouse-deploy='~/lighthouse-deploy.sh'" >> ~/.bashrc
+
 echo "alias lighthouse-beacon-log='journalctl -f -u lighthousebeacon.service -o cat | ccze -A'" >> ~/.bashrc
 echo "alias lighthouse-beacon-start='sudo systemctl start lighthousebeacon.service'" >> ~/.bashrc
 echo "alias lighthouse-beacon-stop='sudo systemctl stop lighthousebeacon.service'" >> ~/.bashrc
@@ -25,13 +27,63 @@ source ~/.bashrc
 ```
 {% endcode %}
 
-### Firewall Configuration
+## Dependency - Install Rust
 
-Configure the firewall using generic Beacon client UFW settings: TODO
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-### Lighthouse BN - Configure Service
+<1>
+<ENTER>
 
-Create `Lighthouse Beacon` user and set permissions.
+source $HOME/.cargo/env
+```
+
+Make sure `protoc` is installed otherwise the build will fail.
+
+```bash
+sudo apt-get install -y protobuf-compiler
+protoc --version
+```
+
+## Lighthouse - Install
+
+Build the latest version of `Lighthouse`.
+
+```bash
+LIGHTHOUSE_VERSION_COMMIT_HASH=        # e.g.441fc16 
+
+cd ~
+git clone https://github.com/sigp/lighthouse.git
+cd ~/lighthouse
+git checkout ${LIGHTHOUSE_VERSION_COMMIT_HASH}
+make
+```
+
+Move the compiled `Lighthouse` build to a new directory.
+
+```bash
+sudo cp ~/.cargo/bin/lighthouse /usr/local/bin
+```
+
+Check version.
+
+```bash
+/usr/local/bin/lighthouse --version
+```
+
+Create `Lighthouse` directory.
+
+```bash
+sudo mkdir -p /var/lib/lighthouse
+```
+
+## Firewall Configuration
+
+Configure the firewall using generic Beacon client UFW settings: [#ufw-config](../#ufw-config "mention")
+
+## Lighthouse BN - Configure Service
+
+Create `lighthousebeacon` user and set permissions.
 
 ```bash
 sudo useradd --no-create-home --shell /bin/false lighthousebeacon
@@ -39,7 +91,9 @@ sudo mkdir -p /var/lib/lighthouse/beacon
 sudo chown -R lighthousebeacon:lighthousebeacon /var/lib/lighthouse/beacon
 ```
 
-Configure `Lighthouse` service using the command line flags.
+Configure [#beacon-service-environment-variables](../#beacon-service-environment-variables "mention").
+
+Configure `lighthousebeacon` service using the command line flags.
 
 ```bash
 sudo vim /etc/systemd/system/lighthousebeacon.service
@@ -61,32 +115,26 @@ Group=lighthousebeacon
 Restart=always
 RestartSec=5
 
-Environment=NETWORK=                     # E.g. mainnet or holesky
-Environment=P2P_PORT=                    # Default: 9000
-Environment=HTTP_ADDRESS=                # E.g. 0.0.0.0
-Environment=HTTP_PORT=                   # Default: 5052
-Environment=EXECUTION_ENDPOINTS=         # E.g. http://127.0.0.1:8551
-Environment=SUGGESTED_FEE_RECIPIENT=     # E.g. 0x0000...
-Environment=CHECKPOINT_SYNC_URL=         # E.g. https://beaconstate.ethstaker.cc
-Environment=BUILDER=                     # E.g. http://127.0.0.1:18550
-Environment=METRICS_ADDR=                # E.g. 0.0.0.0
-Environment=METRICS_PORT=                # E.g. 5054
+EnvironmentFile=/etc/default/beacon-variables.env
 
 ExecStart=/usr/local/bin/lighthouse bn \
     --network ${NETWORK} \
     --datadir /var/lib/lighthouse \
+    --jwt-secrets="/var/lib/jwtsecret" \
+    --execution-endpoints ${EXECUTION_ENDPOINTS} \
     --port ${P2P_PORT} \
+    \
     --http \
     --http-address=${HTTP_ADDRESS} \
     --http-port=${HTTP_PORT} \
     --http-allow-origin "*" \
+    \
     --metrics \
     --metrics-address ${METRICS_ADDR} \
     --metrics-port ${METRICS_PORT} \
     --metrics-allow-origin "*" \
     --validator-monitor-auto \
-    --execution-endpoints ${EXECUTION_ENDPOINTS} \
-    --jwt-secrets="/var/lib/jwtsecret" \
+    \
     --suggested-fee-recipient ${SUGGESTED_FEE_RECIPIENT} \
     --checkpoint-sync-url ${CHECKPOINT_SYNC_URL} \
     --builder ${BUILDER} \
@@ -122,8 +170,8 @@ WantedBy=multi-user.target
 
 Start the service and check it's working as expected.
 
-{% tabs %}
-{% tab title="Command Aliases" %}
+## Command Aliases
+
 ```bash
 daemon-reload     # Reload any changes made to the lighthousebeacon.service
 lighthouse-beacon-enable     # Enable the lighthousebeacon.service
@@ -132,5 +180,113 @@ lighthouse-beacon-status     # View the status of the lighthousebeacon.service
 
 lighthouse-beacon-log        # View the lighthousebeacon.service logs
 ```
-{% endtab %}
-{% endtabs %}
+
+## Lighthouse - Update Scripts
+
+Create `Lighthouse` build script.
+
+```bash
+vim ~/lighthouse-build.sh
+```
+
+{% code title="~/lighthouse-build.sh" %}
+```bash
+#!/bin/bash
+set -e
+cd ~/lighthouse
+
+read -p "Enter the commit hash you want to checkout: " commit_hash
+
+git fetch
+git checkout $commit_hash
+
+echo
+echo "********************"
+echo "Making Lighthouse..."
+echo "********************"
+make
+```
+{% endcode %}
+
+Create `Lighthouse` deploy script.
+
+```bash
+vim ~/lighthouse-deploy.sh
+```
+
+{% code title="~/lighthouse-deploy.sh" %}
+```bash
+#!/bin/bash
+# set -e     # This isn't working correctly, so comment out for now
+
+while true; do
+    read -p "Are you sure you want to deploy Lighthouse? (Y/N) " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer Y or N.";;
+    esac
+done
+
+# Check if the services exist before checking their status
+if systemctl list-units --full -all | grep -Fq lighthousebeacon.service; then
+    beacon_status=$(sudo systemctl is-active lighthousebeacon.service)
+else
+    beacon_status="not_installed"
+fi
+
+if systemctl list-units --full -all | grep -Fq lighthousevalidator.service; then
+    validator_status=$(sudo systemctl is-active lighthousevalidator.service)
+else
+    validator_status="not_installed"
+fi
+
+echo "**********************"
+
+if [ "$beacon_status" = "active" ]; then
+    echo "Stopping Lighthouse Beacon..."
+    sudo systemctl stop lighthousebeacon.service
+elif [ "$beacon_status" = "not_installed" ]; then
+    echo "Warning: Lighthouse Beacon service is not installed."
+fi
+
+if [ "$validator_status" = "active" ]; then
+    echo "Stopping Lighthouse Validator..."
+    sudo systemctl stop lighthousevalidator.service
+elif [ "$validator_status" = "not_installed" ]; then
+    echo "Warning: Lighthouse Validator service is not installed."
+fi
+
+echo "Replacing previous version..."
+
+# Check if the file exists before trying to remove it
+if [ -f /usr/local/bin/lighthouse ]; then
+    sudo rm /usr/local/bin/lighthouse
+fi
+
+# Check if the source file exists before copying
+if [ -f ~/.cargo/bin/lighthouse ]; then
+    sudo cp ~/.cargo/bin/lighthouse /usr/local/bin
+else
+    echo "Error: Source file does not exist. Installation aborted."
+    exit 1
+fi
+
+if [ "$beacon_status" = "active" ]; then
+    echo "Restarting Lighthouse Beacon..."
+    sudo systemctl start lighthousebeacon.service
+fi
+
+if [ "$validator_status" = "active" ]; then
+    echo "Restarting Lighthouse Validator..."
+    sudo systemctl start lighthousevalidator.service
+fi
+```
+{% endcode %}
+
+Make all scripts executable.
+
+```bash
+chmod u+x ~/lighthouse-build.sh
+chmod u+x ~/lighthouse-deploy.sh
+```
