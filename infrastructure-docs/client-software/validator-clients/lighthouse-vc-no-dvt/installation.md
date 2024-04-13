@@ -24,9 +24,9 @@ source ~/.bashrc
 ```
 {% endcode %}
 
-### Lighthouse VC - Configure Service
+## Lighthouse VC - Configure Service
 
-Create `Lighthous Validator` user and set permissions.
+Create `lighthousevalidator` user and set permissions.
 
 ```bash
 sudo useradd --no-create-home --shell /bin/false lighthousevalidator
@@ -37,7 +37,7 @@ sudo chown -R lighthousevalidator:lighthousevalidator /var/lib/lighthouse/valida
 sudo chmod 700 /var/lib/lighthouse/validators
 ```
 
-Configure `Lighthouse Validator` service using the command line flags.
+Configure `lighthousevalidator` service using the command line flags.
 
 ```bash
 sudo vim /etc/systemd/system/lighthousevalidator.service
@@ -61,7 +61,7 @@ RestartSec=5
 
 Environment=NETWORK=                    # E.g. mainnet or holesky
 Environment=DATADIR=                    # Default: /var/lib/lighthouse
-Environment=GRAFFITI=                   # E.g. DVStakers
+Environment=GRAFFITI=                   # E.g. For the merge!
 Environment=METRICS_PORT=               # Default: 5064
 Environment=MONITORING_ENDPOINTS=
 Environment=SUGGESTED_FEE_RECIPIENT=
@@ -100,29 +100,16 @@ WantedBy=multi-user.target
 
 Start the service and check it's working as expected.
 
-{% tabs %}
-{% tab title="Command Aliases" %}
+## Command Aliases
+
 ```bash
 daemon-reload        # Reload any changes made to the lighthousevalidator.service
-validator-enable     # Enable the lighthousevalidator.service
-validator-start      # Start the lighthousevalidator.service
-validator-status     # View the status of the lighthousevalidator.service
+lighthouse-validator-enable     # Enable the lighthousevalidator.service
+lighthouse-validator-start      # Start the lighthousevalidator.service
+lighthouse-validator-status     # View the status of the lighthousevalidator.service
 
-validator-log        # View the lighthousevalidator.service logs
+lighthouse-validator-log        # View the lighthousevalidator.service logs
 ```
-{% endtab %}
-
-{% tab title="Full Commands" %}
-```bash
-sudo systemctl daemon-reload                                        # Reload any changes made to the lighthousevalidator.service
-sudo systemctl enable lighthousevalidator.service                   # Enable the lighthousevalidator.service
-sudo systemctl start lighthousevalidator.service                    # Start the lighthousevalidator.service
-sudo systemctl status lighthousevalidator.service                   # View the status of the lighthousevalidator.service
-
-sudo journalctl -f -u lighthousevalidator.service -o cat | ccze -A  # View the lighthousevalidator.service logs
-```
-{% endtab %}
-{% endtabs %}
 
 At this point, the `lighthousevalidator.service` is running with no keystores.
 
