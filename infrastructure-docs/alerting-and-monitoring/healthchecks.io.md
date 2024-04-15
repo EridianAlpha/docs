@@ -8,15 +8,17 @@ Used to monitor if Prometheus and Alertmanager are running, and if the entire ma
 vim ~/healthchecks.sh
 ```
 
+* Edit `UNIQUE_ID`
+
 ```bash
 #!/bin/bash
+
+# Healthchecks.io URL
+healthchecks_io_url="https://hc-ping.com/<UNIQUE_ID>"
 
 # URLs for the health endpoints of Prometheus and Alertmanager
 prometheus_health_url="http://localhost:9090/-/healthy"
 alertmanager_health_url="http://localhost:9093/-/healthy"
-
-# Healthchecks.io URL
-healthchecks_io_url="https://hc-ping.com/your-unique-uuid"
 
 # Check health of Prometheus
 if curl -f ${prometheus_health_url}; then

@@ -62,6 +62,7 @@ exec /bin/prometheus "$@"
 ```
 
 ```bash
+# Make the scrip executable by everyone, not just the current user
 chmod +x ~/alerting/prometheus/entrypoint.sh
 ```
 
@@ -79,6 +80,7 @@ services:
     network_mode: host
     volumes:
       - ./prometheus:/etc/prometheus
+      - ./prometheus/alert.rules.yml:/etc/prometheus/alert.rules.yml
       - /etc/default/execution-variables.env:/etc/default/execution-variables.env
       - /etc/default/beacon-variables.env:/etc/default/beacon-variables.env
     entrypoint: ["/etc/prometheus/entrypoint.sh"]
@@ -112,7 +114,13 @@ global:
   evaluation_interval: 30s
 
 rule_files:
-  - "alert.rules.yml"
+  - "/etc/prometheus/alert.rules.yml"
+
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - 'localhost:9093'
 
 scrape_configs:
   - job_name: "execution"
@@ -131,7 +139,7 @@ scrape_configs:
 vim ~/alerting/prometheus/alert.rules.yml
 ```
 
-{% code fullWidth="true" %}
+{% code fullWidth="false" %}
 ```yaml
 groups:
 - name: ServiceDownAlerts
@@ -142,8 +150,8 @@ groups:
     labels:
       severity: critical
     annotations:
-      summary: "Instance {{ $labels.instance }} down"
-      description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes."
+      summary: "Service {{ $labels.job }} down"
+      description: "{{ $labels.job }} has been down for more than 5 minutes."
 ```
 {% endcode %}
 
@@ -153,11 +161,13 @@ groups:
 vim ~/alerting/alertmanager/alertmanager.yml
 ```
 
+* Edit `PAGERDUTY_SERVICE_API_KEY`
+
 ```yaml
 receivers:
 - name: 'pagerduty'
   pagerduty_configs:
-  - service_key: '<PAGEDUTY_SERVICE_API_KEY>'
+  - service_key: '<PAGERDUTY_SERVICE_API_KEY>'
     severity: 'critical'
     send_resolved: true
 
@@ -172,4 +182,3 @@ route:
       severity: critical
     receiver: 'pagerduty'
 ```
-
