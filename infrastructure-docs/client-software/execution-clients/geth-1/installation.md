@@ -116,25 +116,25 @@ ExecStart=/usr/local/bin/besu/bin/besu \
     --engine-jwt-secret=/var/lib/jwtsecret \
     --data-path=/var/lib/besu \
     --data-storage-format=BONSAI \
-    --p2p-port=${P2P_PORT} \
-    --max-peers=${MAX_PEERS} \
+    --p2p-port=${EXECUTION_P2P_PORT} \
+    --max-peers=${EXECUTION_MAX_PEERS} \
     --engine-host-allowlist="*" \
     --host-allowlist="*" \
     \
     --metrics-enabled=true \
-    --metrics-host=${METRICS_ADDR} \
-    --metrics-port=${METRICS_PORT} \
+    --metrics-host=${EXECUTION_METRICS_ADDR} \
+    --metrics-port=${EXECUTION_METRICS_PORT} \
     \
     --rpc-ws-enabled=true \
     --rpc-ws-api=ETH,NET,WEB3 \
-    --rpc-ws-host=${WS_ADDR} \
-    --rpc-ws-port=${WS_PORT} \
+    --rpc-ws-host=${EXECUTION_WS_ADDR} \
+    --rpc-ws-port=${EXECUTION_WS_PORT} \
     \
     --rpc-http-enabled=true \
     --rpc-http-api=ETH,NET,WEB3 \
     --rpc-http-cors-origins="*" \
-    --rpc-http-host=${RPC_ADDR} \
-    --rpc-http-port=${RPC_PORT} \
+    --rpc-http-host=${EXECUTION_RPC_ADDR} \
+    --rpc-http-port=${EXECUTION_RPC_PORT} \
     \
     --Xplugin-rocksdb-high-spec-enabled
 
