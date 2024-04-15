@@ -43,13 +43,13 @@ sudo vim /etc/default/execution-variables.env
 ```
 
 ```ini
-NETWORK=         # E.g. mainnet or holesky
-P2P_PORT=        # Default: 30303
-MAX_PEERS=       # Default: 50
-WS_ADDR=         # e.g. 0.0.0.0
-WS_PORT=         # Default: 8546
-RPC_ADDR=        # e.g. 0.0.0.0
-RPC_PORT=        # Default: 8545
-METRICS_ADDR=    # e.g. 0.0.0.0
-METRICS_PORT=    # Default: 6060
+NETWORK=                   # E.g. mainnet or holesky
+EXECUTION_P2P_PORT=        # Default: 30303
+EXECUTION_MAX_PEERS=       # Default: 50
+EXECUTION_WS_ADDR=         # e.g. 0.0.0.0
+EXECUTION_WS_PORT=         # Default: 8546
+EXECUTION_RPC_ADDR=        # e.g. 0.0.0.0
+EXECUTION_RPC_PORT=        # Default: 8545
+EXECUTION_METRICS_ADDR=    # e.g. 0.0.0.0
+EXECUTION_METRICS_PORT=    # Change required to avoid 6060 clash with pprof: 6061
 ```

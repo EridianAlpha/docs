@@ -112,24 +112,24 @@ ExecStart=/usr/local/bin/teku/bin/teku \
     --network ${NETWORK} \
     --data-path /var/lib/teku/ \
     --ee-jwt-secret-file="/var/lib/jwtsecret" \
-    --ee-endpoint ${EXECUTION_ENDPOINTS} \
-    --p2p-port ${P2P_PORT} \
+    --ee-endpoint ${BEACON_EXECUTION_ENDPOINTS} \
+    --p2p-port ${BEACON_P2P_PORT} \
     --p2p-peer-lower-bound=150 \
     --p2p-peer-upper-bound=175 \
     \
     --rest-api-enabled=true \
-    --rest-api-interface=${HTTP_ADDRESS} \
-    --rest-api-port=${HTTP_PORT} \
+    --rest-api-interface=${BEACON_HTTP_ADDRESS} \
+    --rest-api-port=${BEACON_HTTP_PORT} \
     --rest-api-host-allowlist "*" \
     \
     --metrics-enabled=true \
-    --metrics-interface ${METRICS_ADDR} \
-    --metrics-port ${METRICS_PORT} \
+    --metrics-interface ${BEACON_METRICS_ADDR} \
+    --metrics-port ${BEACON_METRICS_PORT} \
     --metrics-host-allowlist "*" \
     \
-    --validators-proposer-default-fee-recipient ${SUGGESTED_FEE_RECIPIENT} \
-    --initial-state ${CHECKPOINT_SYNC_URL} \
-    --builder-endpoint ${BUILDER} \
+    --validators-proposer-default-fee-recipient ${BEACON_SUGGESTED_FEE_RECIPIENT} \
+    --initial-state ${BEACON_CHECKPOINT_SYNC_URL} \
+    --builder-endpoint ${BEACON_BUILDER} \
     --validators-builder-registration-default-enabled=true
 
 [Install]

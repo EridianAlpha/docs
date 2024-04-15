@@ -121,23 +121,23 @@ ExecStart=/usr/local/bin/lighthouse bn \
     --network ${NETWORK} \
     --datadir /var/lib/lighthouse \
     --jwt-secrets="/var/lib/jwtsecret" \
-    --execution-endpoints ${EXECUTION_ENDPOINTS} \
-    --port ${P2P_PORT} \
+    --execution-endpoints ${BEACON_EXECUTION_ENDPOINTS} \
+    --port ${BEACON_P2P_PORT} \
     \
     --http \
-    --http-address=${HTTP_ADDRESS} \
-    --http-port=${HTTP_PORT} \
+    --http-address=${BEACON_HTTP_ADDRESS} \
+    --http-port=${BEACON_HTTP_PORT} \
     --http-allow-origin "*" \
     \
     --metrics \
-    --metrics-address ${METRICS_ADDR} \
-    --metrics-port ${METRICS_PORT} \
+    --metrics-address ${BEACON_METRICS_ADDR} \
+    --metrics-port ${BEACON_METRICS_PORT} \
     --metrics-allow-origin "*" \
     --validator-monitor-auto \
     \
-    --suggested-fee-recipient ${SUGGESTED_FEE_RECIPIENT} \
-    --checkpoint-sync-url ${CHECKPOINT_SYNC_URL} \
-    --builder ${BUILDER} \
+    --suggested-fee-recipient ${BEACON_SUGGESTED_FEE_RECIPIENT} \
+    --checkpoint-sync-url ${BEACON_CHECKPOINT_SYNC_URL} \
+    --builder ${BEACON_BUILDER} \
     --reconstruct-historic-states
 
 [Install]

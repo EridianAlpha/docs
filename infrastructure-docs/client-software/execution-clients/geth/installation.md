@@ -116,30 +116,30 @@ EnvironmentFile=/etc/default/execution-variables.env
 ExecStart=/usr/local/bin/geth \
     --${NETWORK} \
     --syncmode=snap \
-    --port ${P2P_PORT} \
-    --discovery.port ${P2P_PORT} \
+    --port ${EXECUTION_P2P_PORT} \
+    --discovery.port ${EXECUTION_P2P_PORT} \
     --datadir /var/lib/goethereum \
     \
     --pprof \
     --metrics \
     --metrics.expensive \
-    --metrics.addr ${METRICS_ADDR} \
-    --metrics.port ${METRICS_PORT} \
+    --metrics.addr ${EXECUTION_METRICS_ADDR} \
+    --metrics.port ${EXECUTION_METRICS_PORT} \
     \
     --authrpc.jwtsecret=/var/lib/jwtsecret \
-    --maxpeers ${MAX_PEERS} \
+    --maxpeers ${EXECUTION_MAX_PEERS} \
     \
     --ws \
     --ws.origins '*' \
-    --ws.port ${WS_PORT} \
-    --ws.addr ${WS_ADDR} \
+    --ws.port ${EXECUTION_WS_PORT} \
+    --ws.addr ${EXECUTION_WS_ADDR} \
     \
     --http \
     --http.api "db,eth,net,engine,rpc,web3" \
     --http.vhosts "*" \
     --http.corsdomain "*" \
-    --http.addr ${RPC_ADDR} \
-    --http.port ${RPC_PORT}
+    --http.addr ${EXECUTION_RPC_ADDR} \
+    --http.port ${EXECUTION_RPC_PORT}
 
 [Install]
 WantedBy=default.target

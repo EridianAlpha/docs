@@ -145,3 +145,6 @@
   * [💰 MEV Boost](infrastructure-docs/client-software/mev-boost/README.md)
     * [💾 Installation](infrastructure-docs/client-software/mev-boost/installation.md)
     * [🏗️ Maintenance](infrastructure-docs/client-software/mev-boost/maintenance.md)
+* [🚨 Alerting and Monitoring](infrastructure-docs/alerting-and-monitoring/README.md)
+  * [🔥 Prometheus](infrastructure-docs/alerting-and-monitoring/prometheus.md)
+  * [📟 PagerDuty](infrastructure-docs/alerting-and-monitoring/pagerduty.md)
