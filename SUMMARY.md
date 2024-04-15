@@ -147,4 +147,5 @@
     * [🏗️ Maintenance](infrastructure-docs/client-software/mev-boost/maintenance.md)
 * [🚨 Alerting and Monitoring](infrastructure-docs/alerting-and-monitoring/README.md)
   * [🔥 Prometheus](infrastructure-docs/alerting-and-monitoring/prometheus.md)
+  * [🌡️ HealthChecks.io](infrastructure-docs/alerting-and-monitoring/healthchecks.io.md)
   * [📟 PagerDuty](infrastructure-docs/alerting-and-monitoring/pagerduty.md)
