@@ -8,9 +8,37 @@ description: Base Client installation guide.
 🏗️ Under Construction 🏗️
 {% endhint %}
 
+## Create Aliases
+
+{% code fullWidth="true" %}
+```bash
+echo "alias base-log='cd ~/node; docker compose logs -f --tail 100'" >> ~/.bashrc
+echo "alias base-start='cd ~/node; docker compose up -d'" >> ~/.bashrc
+echo "alias base-stop='cd ~/node; docker compose down'" >> ~/.bashrc
+echo "alias base-restart='cd ~/node; docker compose down; docker compose up -d'" >> ~/.bashrc
+echo "alias base-config='cd ~/node; vim docker-compose.yml'" >> ~/.bashrc
+
+source ~/.bashrc
+```
+{% endcode %}
+
 ## Dependency - Install Docker
 
 [#install-docker](../../../linux-software/installation.md#install-docker "mention")
+
+## UFW Config
+
+Configure the firewall.
+
+{% code title="Execution Clients" %}
+```bash
+BASE_GETH_P2P_PORT=        # Default: 30303
+BASE_NODE_P2P_PORT=        # Default: 9222
+
+sudo ufw allow ${BASE_GETH_P2P_PORT} comment 'Allow Base Geth P2P in'
+sudo ufw allow ${BASE_NODE_P2P_PORT} comment 'Allow Base Node P2P in'
+```
+{% endcode %}
 
 ## Base - Install
 
@@ -36,17 +64,26 @@ vim .env.mainnet
 vim docker-compose.yml
 ```
 
-* Set
+* Set to mainnet
   * `env_file:`
+* Add `restart: unless-stopped` to all services
 * Modify host port mappings as required
 
 ## Snapshot Download
 
 ```bash
+mkdir ~/base-snapshot-download
+cd ~/base-snapshot-download
+tmux new -s base-snapshot-download
+
 wget https://mainnet-full-snapshots.base.org/$(curl https://mainnet-full-snapshots.base.org/latest)
 ```
 
-<mark style="color:yellow;">**TODO: What to do with the download?**</mark>
+```bash
+base-stop
+sudo rm -rf ~/node/geth-data/geth
+sudo mv ~/base-snapshot-download/snapshots/mainnet/download/geth ~/node/geth-data/geth
+```
 
 ## Docker Commands
 
@@ -76,4 +113,3 @@ else
 fi
 ```
 {% endcode %}
-
