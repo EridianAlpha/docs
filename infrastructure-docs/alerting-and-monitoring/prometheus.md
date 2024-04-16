@@ -104,6 +104,120 @@ services:
 
 ## Prometheus Config
 
+{% hint style="info" %}
+Since each client has a different URL path for metrics, and I want a unified endpoint for Prometheus to use, configure an NGINX server to redirect requests to a single endpoint.
+
+It will try each possible endpoint until it finds the actively running client, and if it doesn't find any, it will assume that it is down.
+{% endhint %}
+
+### Install NGINX
+
+```bash
+sudo apt-get update
+sudo apt-get install -y nginx
+```
+
+### NGINX Config Script
+
+{% hint style="info" %}
+Edit this script to add additional clients metrics paths.
+{% endhint %}
+
+```bash
+vim ~/nginx_config_script.sh
+```
+
+{% code fullWidth="true" %}
+```bash
+#!/bin/bash
+
+source /etc/default/execution-variables.env
+source /etc/default/beacon-variables.env
+
+EXECUTION_METRICS_FULL_URL=""
+
+# Check if Geth service is running
+status_code=$(curl -o /dev/null -s -w "%{http_code}" http://localhost:${EXECUTION_METRICS_PORT}/debug/metrics/prometheus)
+if [ "$status_code" = "200" ]; then
+  EXECUTION_METRICS_FULL_URL=http://localhost:${EXECUTION_METRICS_PORT}/debug/metrics/prometheus
+fi
+
+# Check if Besu service is running
+status_code=$(curl -o /dev/null -s -w "%{http_code}" http://localhost:${EXECUTION_METRICS_PORT}/metrics)
+if [ "$status_code" = "200" ]; then
+  EXECUTION_METRICS_FULL_URL=http://localhost:${EXECUTION_METRICS_PORT}/metrics
+fi
+
+export $(cut -d= -f1 /etc/default/execution-variables.env)
+export $(cut -d= -f1 /etc/default/beacon-variables.env)
+export EXECUTION_METRICS_FULL_URL
+
+envsubst '${NGINX_PROXY_EXECUTION_METRICS_PORT},${EXECUTION_METRICS_FULL_URL}' < /etc/nginx/sites-available/default.template > /etc/nginx/sites-available/default
+
+echo "Configuration for NGINX has been updated."
+```
+{% endcode %}
+
+```bash
+sudo chmod +x ~/nginx_config_script.sh
+```
+
+* Edit the service file to run the `~/nginx_config_script.sh` script before every start.
+
+```bash
+sudo vim /lib/systemd/system/nginx.service
+```
+
+* Edit `USER`
+
+```ini
+[Unit]
+Description=A high performance web server and a reverse proxy server
+Documentation=man:nginx(8)
+After=network.target nss-lookup.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+ExecStartPre=/usr/bin/sudo /home/<USER>/nginx_config_script.sh
+ExecStartPre=/usr/sbin/nginx -t -q -g 'daemon on; master_process on;'
+ExecStart=/usr/sbin/nginx -g 'daemon on; master_process on;'
+ExecReload=/usr/sbin/nginx -g 'daemon on; master_process on;' -s reload
+ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid
+TimeoutStopSec=5
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+sudo vim /etc/nginx/sites-available/default.template
+```
+
+```nginx
+server {
+    listen ${NGINX_PROXY_EXECUTION_METRICS_PORT};
+    server_name localhost;
+
+    location / {
+        proxy_pass ${EXECUTION_METRICS_FULL_URL};
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_cache_bypass $http_upgrade;
+        proxy_hide_header Access-Control-Allow-Origin;
+    }
+}
+```
+
+```bash
+sudo nginx -t
+sudo systemctl restart nginx
+```
+
+### Prometheus.yml Template
+
 ```bash
 vim ~/alerting/prometheus/prometheus.yml.template
 ```
@@ -124,13 +238,13 @@ alerting:
 
 scrape_configs:
   - job_name: "execution"
-    metrics_path: /debug/metrics/prometheus
+    metrics_path: /
     static_configs:
-      - targets: ["localhost:${EXECUTION_METRICS_PORT}"]
+      - targets: ["localhost:${NGINX_PROXY_EXECUTION_METRICS_PORT}"]
   - job_name: "beacon"
-    metrics_path: /metrics
+    metrics_path: /
     static_configs:
-      - targets: ["localhost:${BEACON_METRICS_PORT}"]
+      - targets: ["localhost:${NGINX_PROXY_BEACON_METRICS_PORT}"]
 ```
 
 ## Alerts Config

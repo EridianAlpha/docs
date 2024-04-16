@@ -42,14 +42,17 @@ sudo chmod +r /var/lib/jwtsecret
 sudo vim /etc/default/execution-variables.env
 ```
 
+{% code fullWidth="false" %}
 ```ini
-NETWORK=                   # E.g. mainnet or holesky
-EXECUTION_P2P_PORT=        # Default: 30303
-EXECUTION_MAX_PEERS=       # Default: 50
-EXECUTION_WS_ADDR=         # e.g. 0.0.0.0
-EXECUTION_WS_PORT=         # Default: 8546
-EXECUTION_RPC_ADDR=        # e.g. 0.0.0.0
-EXECUTION_RPC_PORT=        # Default: 8545
-EXECUTION_METRICS_ADDR=    # e.g. 0.0.0.0
-EXECUTION_METRICS_PORT=    # Change required to avoid 6060 clash with pprof: 6061
+NETWORK=                               # E.g. mainnet or holesky
+EXECUTION_P2P_PORT=                    # Default: 30303
+EXECUTION_MAX_PEERS=                   # Default: 50
+EXECUTION_WS_ADDR=                     # e.g. 0.0.0.0
+EXECUTION_WS_PORT=                     # Default: 8546
+EXECUTION_RPC_ADDR=                    # e.g. 0.0.0.0
+EXECUTION_RPC_PORT=                    # Default: 8545
+EXECUTION_METRICS_ADDR=                # e.g. 0.0.0.0
+EXECUTION_METRICS_PORT=                # Avoid 6060 clash with pprof: 6061
+NGINX_PROXY_EXECUTION_METRICS_PORT=    # Unified metrics port e.g. 6062
 ```
+{% endcode %}

@@ -41,4 +41,5 @@ BEACON_METRICS_PORT=                # E.g. 5054
 BEACON_SUGGESTED_FEE_RECIPIENT=     # E.g. 0x0000...
 BEACON_CHECKPOINT_SYNC_URL=         # E.g. https://beaconstate.ethstaker.cc
 BEACON_BUILDER=                     # E.g. http://127.0.0.1:18550
+NGINX_PROXY_BEACON_METRICS_PORT=    # Unified metrics port e.g. 5055
 ```
