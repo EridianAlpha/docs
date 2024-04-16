@@ -14,6 +14,9 @@ vim ~/healthchecks.sh
 #!/bin/bash
 
 # Healthchecks.io URL
+# ***********
+# CHANGE HERE
+# ↓↓↓↓↓↓↓↓↓↓↓
 healthchecks_io_url="https://hc-ping.com/<UNIQUE_ID>"
 
 # URLs for the health endpoints of Prometheus and Alertmanager

@@ -120,7 +120,7 @@ sudo apt-get install -y nginx
 ### NGINX Config Script
 
 {% hint style="info" %}
-Edit this script to add additional clients metrics paths.
+Edit this script to add additional client metrics paths.
 {% endhint %}
 
 ```bash
@@ -135,7 +135,11 @@ source /etc/default/execution-variables.env
 source /etc/default/beacon-variables.env
 
 EXECUTION_METRICS_FULL_URL=""
+BEACON_METRICS_FULL_URL=""
 
+# ******************
+# EXECUTION CLIENTS
+# ******************
 # Check if Geth service is running
 status_code=$(curl -o /dev/null -s -w "%{http_code}" http://localhost:${EXECUTION_METRICS_PORT}/debug/metrics/prometheus)
 if [ "$status_code" = "200" ]; then
@@ -148,11 +152,25 @@ if [ "$status_code" = "200" ]; then
   EXECUTION_METRICS_FULL_URL=http://localhost:${EXECUTION_METRICS_PORT}/metrics
 fi
 
+# ***************
+# BEACON CLIENTS
+# ***************
+# Check if LH or Teku service is running (they both use /metrics)
+status_code=$(curl -o /dev/null -s -w "%{http_code}" http://localhost:${BEACON_METRICS_PORT}/metrics)
+if [ "$status_code" = "200" ]; then
+  BEACON_METRICS_FULL_URL=http://localhost:${BEACON_METRICS_PORT}/metrics
+fi
+
 export $(cut -d= -f1 /etc/default/execution-variables.env)
 export $(cut -d= -f1 /etc/default/beacon-variables.env)
 export EXECUTION_METRICS_FULL_URL
+export BEACON_METRICS_FULL_URL
 
-envsubst '${NGINX_PROXY_EXECUTION_METRICS_PORT},${EXECUTION_METRICS_FULL_URL}' < /etc/nginx/sites-available/default.template > /etc/nginx/sites-available/default
+VARS='${NGINX_PROXY_EXECUTION_METRICS_PORT},\
+${EXECUTION_METRICS_FULL_URL},\
+${NGINX_PROXY_BEACON_METRICS_PORT},\
+${BEACON_METRICS_FULL_URL}'
+envsubst "$VARS" < /etc/nginx/sites-available/default.template > /etc/nginx/sites-available/default
 
 echo "Configuration for NGINX has been updated."
 ```
@@ -162,12 +180,15 @@ echo "Configuration for NGINX has been updated."
 sudo chmod +x ~/nginx_config_script.sh
 ```
 
-* Edit the service file to run the `~/nginx_config_script.sh` script before every start.
+### NGINX Service Config
+
+* Edit the NGINX service file to run the `~/nginx_config_script.sh` script before every start.
 
 ```bash
 sudo vim /lib/systemd/system/nginx.service
 ```
 
+* Add `Restart=always`
 * Edit `USER`
 
 ```ini
@@ -179,7 +200,13 @@ After=network.target nss-lookup.target
 [Service]
 Type=forking
 PIDFile=/run/nginx.pid
+
+# ***********
+# CHANGE HERE
+# ↓↓↓↓↓↓↓↓↓↓↓
 ExecStartPre=/usr/bin/sudo /home/<USER>/nginx_config_script.sh
+Restart=always
+
 ExecStartPre=/usr/sbin/nginx -t -q -g 'daemon on; master_process on;'
 ExecStart=/usr/sbin/nginx -g 'daemon on; master_process on;'
 ExecReload=/usr/sbin/nginx -g 'daemon on; master_process on;' -s reload
@@ -190,6 +217,46 @@ KillMode=mixed
 [Install]
 WantedBy=multi-user.target
 ```
+
+### NGINX Service - Restart CRON
+
+* I couldn't get the service to reliably wait for the EL/BN to start, so as a workaround, run this script with CRON every minute, and if NGINX isn't running, manually restart the service.
+
+```bash
+vim ~/nginx-service-restart-cron-script.sh
+```
+
+```bash
+#!/bin/bash
+
+# Check if NGINX is active (running)
+if ! systemctl is-active --quiet nginx; then
+    echo "NGINX is not running. Attempting to restart..."
+    # Reset the systemd state for NGINX to clear any failure states
+    sudo systemctl reset-failed nginx
+    # Attempt to restart NGINX
+    sudo systemctl restart nginx
+    echo "NGINX restart attempted."
+else
+    echo "NGINX is running."
+fi
+```
+
+```bash
+chmod u+x ~/nginx-service-restart-cron-script.sh
+```
+
+```bash
+sudo crontab -e
+```
+
+* Edit `USERNAME`
+
+```
+* * * * * /home/<USERNAME>/nginx-service-restart-cron-script.sh
+```
+
+### NGINX Template
 
 ```bash
 sudo vim /etc/nginx/sites-available/default.template
@@ -202,6 +269,20 @@ server {
 
     location / {
         proxy_pass ${EXECUTION_METRICS_FULL_URL};
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_cache_bypass $http_upgrade;
+        proxy_hide_header Access-Control-Allow-Origin;
+    }
+}
+
+server {
+    listen ${NGINX_PROXY_BEACON_METRICS_PORT};
+    server_name localhost;
+
+    location / {
+        proxy_pass ${BEACON_METRICS_FULL_URL};
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -281,6 +362,9 @@ vim ~/alerting/alertmanager/alertmanager.yml
 receivers:
 - name: 'pagerduty'
   pagerduty_configs:
+  # ***********
+  # CHANGE HERE
+  # ↓↓↓↓↓↓↓↓↓↓↓
   - service_key: '<PAGERDUTY_SERVICE_API_KEY>'
     severity: 'critical'
     send_resolved: true
