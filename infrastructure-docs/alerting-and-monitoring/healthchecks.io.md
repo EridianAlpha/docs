@@ -5,7 +5,7 @@
 Used to monitor if Prometheus and Alertmanager are running, and if the entire machine is offline or unresponsive.
 
 ```bash
-vim ~/healthchecks.sh
+sudo vim /etc/default/healthchecks.sh
 ```
 
 * Edit `UNIQUE_ID`
@@ -38,17 +38,19 @@ fi
 ```
 
 ```bash
-chmod u+x ~/healthchecks.sh
+sudo chmod u+x /etc/default/healthchecks.sh
 ```
 
 ## Configure CRON
+
+* Run every 5 minutes.
 
 ```bash
 sudo crontab -e
 ```
 
 ```
-*/5 * * * * /home/<USERNAME>/healthchecks.sh
+*/5 * * * * /etc/default/healthchecks.sh
 ```
 
 ## Integrations

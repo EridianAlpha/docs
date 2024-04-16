@@ -124,7 +124,7 @@ Edit this script to add additional client metrics paths.
 {% endhint %}
 
 ```bash
-vim ~/nginx_config_script.sh
+sudo vim /etc/default/nginx-config-script.sh
 ```
 
 {% code fullWidth="true" %}
@@ -177,19 +177,16 @@ echo "Configuration for NGINX has been updated."
 {% endcode %}
 
 ```bash
-sudo chmod +x ~/nginx_config_script.sh
+sudo chmod +x /etc/default/nginx-config-script.sh
 ```
 
 ### NGINX Service Config
 
-* Edit the NGINX service file to run the `~/nginx_config_script.sh` script before every start.
+* Edit the NGINX service file to run the `/etc/default/nginx-config-script.sh` script before every start.
 
 ```bash
 sudo vim /lib/systemd/system/nginx.service
 ```
-
-* Add `Restart=always`
-* Edit `USER`
 
 ```ini
 [Unit]
@@ -204,8 +201,7 @@ PIDFile=/run/nginx.pid
 # ***********
 # CHANGE HERE
 # ↓↓↓↓↓↓↓↓↓↓↓
-ExecStartPre=/usr/bin/sudo /home/<USER>/nginx_config_script.sh
-Restart=always
+ExecStartPre=/usr/bin/sudo /etc/default/nginx-config-script.sh
 
 ExecStartPre=/usr/sbin/nginx -t -q -g 'daemon on; master_process on;'
 ExecStart=/usr/sbin/nginx -g 'daemon on; master_process on;'
@@ -220,10 +216,10 @@ WantedBy=multi-user.target
 
 ### NGINX Service - Restart CRON
 
-* I couldn't get the service to reliably wait for the EL/BN to start, so as a workaround, run this script with CRON every minute, and if NGINX isn't running, manually restart the service.
+* I couldn't get the NGINX service to reliably wait for the EL/BN to start, so as a workaround, run this script with CRON every minute, and if NGINX isn't running, manually restart the service.
 
 ```bash
-vim ~/nginx-service-restart-cron-script.sh
+sudo vim /etc/default/nginx-service-restart-cron-script.sh
 ```
 
 ```bash
@@ -237,23 +233,21 @@ if ! systemctl is-active --quiet nginx; then
     # Attempt to restart NGINX
     sudo systemctl restart nginx
     echo "NGINX restart attempted."
-else
-    echo "NGINX is running."
 fi
 ```
 
 ```bash
-chmod u+x ~/nginx-service-restart-cron-script.sh
+sudo chmod u+x /etc/default/nginx-service-restart-cron-script.sh
 ```
 
 ```bash
 sudo crontab -e
 ```
 
-* Edit `USERNAME`
+* Runs every minute.
 
 ```
-* * * * * /home/<USERNAME>/nginx-service-restart-cron-script.sh
+* * * * * /etc/default/nginx-service-restart-cron-script.sh
 ```
 
 ### NGINX Template
