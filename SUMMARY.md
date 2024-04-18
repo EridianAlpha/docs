@@ -2,14 +2,6 @@
 
 * [📖 Eridian Docs](README.md)
 
-## General Dev
-
-* [💾 Git Notes](general-dev/git-notes/README.md)
-  * [Repos](general-dev/git-notes/repos.md)
-  * [Committing changes](general-dev/git-notes/committing-changes.md)
-  * [Branches](general-dev/git-notes/branches.md)
-  * [Merging & Rebasing](general-dev/git-notes/merging-and-rebasing.md)
-
 ## Ethereum Dev
 
 * [✏️ Ethereum Notes](ethereum-dev/ethereum-notes/README.md)
@@ -151,3 +143,11 @@
   * [🔥 Prometheus](infrastructure-docs/alerting-and-monitoring/prometheus.md)
   * [🌡️ HealthChecks.io](infrastructure-docs/alerting-and-monitoring/healthchecks.io.md)
   * [📟 PagerDuty](infrastructure-docs/alerting-and-monitoring/pagerduty.md)
+
+## General Dev
+
+* [💾 Git Notes](general-dev/git-notes/README.md)
+  * [Repos](general-dev/git-notes/repos.md)
+  * [Committing changes](general-dev/git-notes/committing-changes.md)
+  * [Branches](general-dev/git-notes/branches.md)
+  * [Merging & Rebasing](general-dev/git-notes/merging-and-rebasing.md)

@@ -15,16 +15,14 @@ layout:
 
 # 📖 Eridian Docs
 
-### General Dev
-
-{% content-ref url="general-dev/git-notes/" %}
-[git-notes](general-dev/git-notes/)
-{% endcontent-ref %}
-
 ### Ethereum Dev
 
 {% content-ref url="ethereum-dev/ethereum-notes/" %}
 [ethereum-notes](ethereum-dev/ethereum-notes/)
+{% endcontent-ref %}
+
+{% content-ref url="ethereum-dev/useful-tools/" %}
+[useful-tools](ethereum-dev/useful-tools/)
 {% endcontent-ref %}
 
 {% content-ref url="ethereum-dev/solidity-notes/" %}
@@ -55,4 +53,14 @@ layout:
 
 {% content-ref url="infrastructure-docs/client-software/" %}
 [client-software](infrastructure-docs/client-software/)
+{% endcontent-ref %}
+
+{% content-ref url="infrastructure-docs/alerting-and-monitoring/" %}
+[alerting-and-monitoring](infrastructure-docs/alerting-and-monitoring/)
+{% endcontent-ref %}
+
+### General Dev
+
+{% content-ref url="general-dev/git-notes/" %}
+[git-notes](general-dev/git-notes/)
 {% endcontent-ref %}
