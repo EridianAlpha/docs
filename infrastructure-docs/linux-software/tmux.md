@@ -29,20 +29,18 @@ tmux new -s <SESSION_NAME>
 ```
 {% endcode %}
 
-{% code title="- You have to start a session first before these config options exist" %}
+{% code title="You have to start a session first before these config options exist" %}
 ```bash
 tmux show -g | sed 's/^/set-option -g /' > ~/.tmux.conf
-cd
-vim .tmux.conf
+vim ~/.tmux.conf
 ```
 {% endcode %}
 
 * Change `mouse` to `on` globally
 
-{% code title=".tmux.conf" %}
+{% code title="~/.tmux.conf" %}
 ```bash
-sudo apt-get install -y tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+set-option -g mouse on
 ```
 {% endcode %}
 

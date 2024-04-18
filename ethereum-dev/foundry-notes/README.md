@@ -52,14 +52,3 @@ forge install OpenZeppelin/openzeppelin-contracts@v4.9.3 --no-commit
 curl -L https://foundry.paradigm.xyz | bash
 foundryup
 ```
-
-### Using Foundry
-
-{% content-ref url="useful-commands.md" %}
-[useful-commands.md](useful-commands.md)
-{% endcontent-ref %}
-
-{% content-ref url="tests/" %}
-[tests](tests/)
-{% endcontent-ref %}
-
