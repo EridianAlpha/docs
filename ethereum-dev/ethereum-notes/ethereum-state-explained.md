@@ -1,4 +1,4 @@
-# Ethereum State Explained
+# 📚 Ethereum State Explained
 
 In Ethereum, the entire state of the blockchain, including all accounts and smart contracts, can be thought of as a part of a large, shared state database. Each contract has its own storage, but it's not exactly like a "mapping within a mapping." Let's break this down:
 
