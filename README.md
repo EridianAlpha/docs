@@ -15,6 +15,8 @@ layout:
 
 # 📖 Eridian Docs
 
+{% embed url="https://github.com/EridianAlpha" %}
+
 ### Ethereum Dev
 
 {% content-ref url="ethereum-dev/ethereum-notes/" %}
