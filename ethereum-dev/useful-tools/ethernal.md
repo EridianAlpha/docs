@@ -51,6 +51,8 @@ This code snippet adds a `Proxy Address` field to the `Read/Write` tab on a cont
 
 {% embed url="https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" %}
 
+* Enable `Developer mode` for extensions to allow Tampermonkey to work: [https://www.tampermonkey.net/faq.php#Q209](https://www.tampermonkey.net/faq.php#Q209)
+
 ### Tampermonkey Script
 
 {% code fullWidth="true" %}
