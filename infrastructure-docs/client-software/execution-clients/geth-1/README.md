@@ -1,17 +1,17 @@
 ---
-description: Notes on how to install, use and maintain a Besu client.
+description: Notes on how to install, use and maintain an Erigon client.
 ---
 
-# 🧶 Besu
+# 🐻 Erigon
 
-{% content-ref url="../geth/installation.md" %}
-[installation.md](../geth/installation.md)
+{% content-ref url="installation.md" %}
+[installation.md](installation.md)
 {% endcontent-ref %}
 
-{% content-ref url="../geth/useful-commands.md" %}
-[useful-commands.md](../geth/useful-commands.md)
+{% content-ref url="useful-commands.md" %}
+[useful-commands.md](useful-commands.md)
 {% endcontent-ref %}
 
-{% content-ref url="../geth/maintenance.md" %}
-[maintenance.md](../geth/maintenance.md)
+{% content-ref url="maintenance.md" %}
+[maintenance.md](maintenance.md)
 {% endcontent-ref %}

@@ -1,32 +1,38 @@
 ---
-description: Notes on how to maintain and update a Besu Client.
+description: Notes on how to maintain and update a Geth Client.
 ---
 
 # 🏗️ Maintenance
 
-### Java - Update
+### Go - Update
 
-TODO
+Find the latest version of `Go` here: [https://go.dev/doc/install](https://go.dev/doc/install)
 
 ```bash
-TODO
+GO_LATEST_VERSION=    # Add the latest Go version here
+
+cd ~/
+wget https://go.dev/dl/go${GO_LATEST_VERSION}.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go${GO_LATEST_VERSION}.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+echo 'PATH="$PATH:/usr/local/go/bin"' >> ~/.profile
 ```
 
-### Besu - Update Client
+### Erigon - Update Client
 
 ```bash
-besu-update
+erigon-update
 ```
 
-### Besu - Update besu.service
+### Erigon - Update erigon.service
 
 ```bash
-besu-stop
-besu-config
+erigon-stop
+erigon-config
 
 # MAKE ANY CHANGES TO THE CONFIG
 
 daemon-reload
-besu-start
-besu-status
+erigon-start
+erigon-status
 ```
