@@ -130,7 +130,9 @@ ExecStart=/usr/local/bin/teku/bin/teku \
     --validators-proposer-default-fee-recipient ${BEACON_SUGGESTED_FEE_RECIPIENT} \
     --initial-state ${BEACON_CHECKPOINT_SYNC_URL} \
     --builder-endpoint ${BEACON_BUILDER} \
-    --validators-builder-registration-default-enabled=true
+    --validators-builder-registration-default-enabled=true \
+    # Needed for an SSV block proposal bug
+    --validators-graffiti-client-append-format=DISABLED
 
 [Install]
 WantedBy=multi-user.target
