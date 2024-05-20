@@ -16,7 +16,7 @@ You are given 20 tokens to start with and you will beat the level if you somehow
 
 ### Level Contract
 
-{% embed url="https://github.com/OpenZeppelin/ethernaut/blob/master/contracts/contracts/levels/Token.sol" %}
+{% embed url="https://github.com/OpenZeppelin/ethernaut/blob/a89c8f7832258655c09fde16e6602c78e5e99dbd/contracts/src/levels/Token.sol" %}
 
 {% code lineNumbers="true" %}
 ```solidity

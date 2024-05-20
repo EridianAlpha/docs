@@ -10,7 +10,7 @@ This is a coin flipping game where you need to build up your winning streak by g
 
 ### Level Contract
 
-{% embed url="https://github.com/OpenZeppelin/ethernaut/blob/master/contracts/contracts/levels/CoinFlip.sol" %}
+{% embed url="https://github.com/OpenZeppelin/ethernaut/blob/a89c8f7832258655c09fde16e6602c78e5e99dbd/contracts/src/levels/CoinFlip.sol" %}
 
 {% code lineNumbers="true" %}
 ```solidity

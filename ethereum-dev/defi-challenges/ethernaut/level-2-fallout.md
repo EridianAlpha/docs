@@ -14,7 +14,7 @@ Claim ownership of the contract below to complete this level.
 
 ### Level Contract
 
-{% @github-files/github-code-block url="https://github.com/OpenZeppelin/ethernaut/blob/master/contracts/contracts/levels/Fallout.sol" fullWidth="false" %}
+{% embed url="https://github.com/OpenZeppelin/ethernaut/blob/a89c8f7832258655c09fde16e6602c78e5e99dbd/contracts/src/levels/Fallout.sol" %}
 
 {% code lineNumbers="true" %}
 ```solidity

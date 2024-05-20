@@ -14,7 +14,7 @@ When you submit the instance back to the level, the level is going to reclaim ki
 
 ### Level Contract
 
-{% embed url="https://github.com/OpenZeppelin/ethernaut/blob/master/contracts/contracts/levels/King.sol" %}
+{% embed url="https://github.com/OpenZeppelin/ethernaut/blob/a89c8f7832258655c09fde16e6602c78e5e99dbd/contracts/src/levels/King.sol" %}
 
 {% code lineNumbers="true" %}
 ```solidity
@@ -49,9 +49,9 @@ contract King {
 
 ### Exploit
 
-The
+The old king is sent back `msg.value` before the new king is set. So if the old king is a contract that doesn't implement a `receive` or `fallback` function then the call will fail and a new king can't be set, breaking the game.
 
-1.
+1. Create an exploit contract that doesn't contain a `receive` or `fallback` function.
 
 {% tabs %}
 {% tab title="Anvil" %}

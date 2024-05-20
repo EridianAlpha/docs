@@ -149,6 +149,10 @@ forge snapshot
 ```
 {% endcode %}
 
+{% hint style="info" %}
+If you see the error `EvmError: NotActivated` when trying to deploy contracts using `forge` it may be that you need to explicitly set the `--evm-version` when running the forge command
+{% endhint %}
+
 ### Inspect
 
 * List out all the methods and function selectors in a contract

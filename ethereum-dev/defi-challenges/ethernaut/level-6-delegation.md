@@ -16,7 +16,7 @@ The goal of this level is for you to claim ownership of the instance you are giv
 
 ### Level Contract
 
-{% embed url="https://github.com/OpenZeppelin/ethernaut/blob/master/contracts/contracts/levels/Delegation.sol" %}
+{% embed url="https://github.com/OpenZeppelin/ethernaut/blob/a89c8f7832258655c09fde16e6602c78e5e99dbd/contracts/src/levels/Delegation.sol" %}
 
 {% code lineNumbers="true" %}
 ```solidity
@@ -58,7 +58,7 @@ contract Delegation {
 
 ### Exploit
 
-The contract forwards any unmatched function calls through to the `Delegate` contract through the `fallback()` function. As `pwn()` is only on the `Delegate` contract, it's a simple as calling `pwn()` and having it execute the function on the `Delegate` instead of the `Delegation` contract.
+The contract forwards any unmatched function calls through to the `Delegate` contract through the `fallback()` function. As `pwn()` is only on the `Delegate` contract, it's as simple as calling `pwn()` and having it execute the function on the `Delegate` instead of the `Delegation` contract.
 
 1. Call `pwn()`.
 
