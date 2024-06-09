@@ -6,6 +6,7 @@
 
 * [✏️ Ethereum Notes](ethereum-dev/ethereum-notes/README.md)
   * [🎛️ Technical Basics](ethereum-dev/ethereum-notes/technical-basics.md)
+  * [🪧 Ethereum Addresses](ethereum-dev/ethereum-notes/ethereum-addresses.md)
   * [📚 Ethereum State Explained](ethereum-dev/ethereum-notes/ethereum-state-explained.md)
   * [⛽ Gas Fees Explained](ethereum-dev/ethereum-notes/gas-fees-explained.md)
 * [🔧 Useful Tools](ethereum-dev/useful-tools/README.md)

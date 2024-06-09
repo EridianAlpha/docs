@@ -19,7 +19,7 @@ Useful for ERC20 token addresses.
 * If not, the contract will be imported but you'll have to manually add the name and ABI.
 * To be able to use this, your workspace needs to be connected to a mainnet fork. If it is not, the contract will still be imported but calls will fail.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## CLI Tool
 
@@ -45,7 +45,7 @@ This code snippet adds a `Proxy Address` field to the `Read/Write` tab on a cont
 * If the contract is accessed via a proxy, input the proxy address to read and write via that proxy address.
 * If left blank, it will use the current contract address
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Install Tampermonkey Chrome app
 

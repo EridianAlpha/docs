@@ -87,7 +87,7 @@ Test functions must have either `external` or `public` visibility. Functions dec
 
 ### Naming Convention
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p><a href="https://twitter.com/paulrberg/status/1616068157088714765">https://twitter.com/paulrberg/status/1616068157088714765</a></p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p><a href="https://twitter.com/paulrberg/status/1616068157088714765">https://twitter.com/paulrberg/status/1616068157088714765</a></p></figcaption></figure>
 
 ### Shared test setups
 

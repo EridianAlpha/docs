@@ -14,4 +14,4 @@ To avoid the "stack too deep" error, you can:
 
 Be aware that these workarounds might affect gas costs and contract readability, so they should be used judiciously.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p><a href="https://twitter.com/PaulRBerg/status/1612043506545033218">https://twitter.com/PaulRBerg/status/1612043506545033218</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://twitter.com/PaulRBerg/status/1612043506545033218">https://twitter.com/PaulRBerg/status/1612043506545033218</a></p></figcaption></figure>
