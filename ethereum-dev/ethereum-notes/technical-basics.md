@@ -19,7 +19,7 @@ Ethereum addresses are 40 hexadecimal characters long, excluding the "0x" prefix
 
 <details>
 
-<summary>Code to generate a wallet from a private key</summary>
+<summary>Code to generate an Ethereum address from a private key</summary>
 
 {% code fullWidth="true" %}
 ```html
@@ -43,7 +43,7 @@ Ethereum addresses are 40 hexadecimal characters long, excluding the "0x" prefix
 </head>
 <body style="background-color: #14171C; color: white;">
     <label class="inline-label" for="privateKey">1. Enter Private Key:</label>
-    <input  style="width: 500px;" type="text" id="privateKey" placeholder="0x...">
+    <input  style="width: 500px;" type="text" id="privateKey" placeholder="0x..." value="0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80">
     <button onclick="generatePublicKey()">Generate Public Key</button>
     <br>
     <br>
@@ -76,6 +76,8 @@ Ethereum addresses are 40 hexadecimal characters long, excluding the "0x" prefix
                 document.getElementById('publicKey').innerText = publicKey;
             } catch (error) {
                 document.getElementById('publicKey').innerText = 'Invalid publicKey';
+                wallet = null;
+                publicKey = null;
                 console.error(error);
             }
 
@@ -112,6 +114,7 @@ Ethereum addresses are 40 hexadecimal characters long, excluding the "0x" prefix
                 console.error(error);
             }
         }
+        window.onload = generatePublicKey;
     </script>
 </body>
 </html>
