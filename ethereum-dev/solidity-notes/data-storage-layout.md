@@ -84,10 +84,12 @@ Constants and immutable variables are not in storage and don't take up a storage
 
 {% code fullWidth="true" %}
 ```solidity
-[0] 0x00...19       <--    uint256 favoriteNumber = 25;                 // Hex representation of 25 (0x19)
-[1] 0x00...01       <--    bool someBool = true;                        // Hex value of 1 for true (0x1)
-[2] 0x00...01       <--    uint256[] myArray;                           // Storage slot only contains array length in hex
-[3] 0x00...00       <--    mapping(address => uint256) public balances  // Empty storage slot since it's a mapping
+[0] 0x00...19       <--    uint256 favoriteNumber = 25;         // Hex representation of 25 (0x19)
+[1] 0x00...01       <--    bool someBool = true;                // Hex value of 1 for true (0x1)
+[2] 0x00...01       <--    uint256[] dynamicArray;              // Storage slot only contains array length in hex (0x1)
+[3] 0x00...0E       <--    uint256[2] fixedArray = [14,15];     // Stoage of item 0 in fixedArray (0xE)
+[4] 0x00...0F       <--                                         // Stoage of item 1 in fixedArray (0xF)
+[5] 0x00...00       <--    mapping(address => uint256) public balances  // Empty storage slot since it's a mapping (0x0)
 ...
 
 // DYNAMIC ARRAYS
