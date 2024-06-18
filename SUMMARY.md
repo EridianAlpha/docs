@@ -10,6 +10,7 @@
   * [📚 Ethereum State Explained](ethereum-dev/ethereum-notes/ethereum-state-explained.md)
   * [⛽ Gas Fees Explained](ethereum-dev/ethereum-notes/gas-fees-explained.md)
 * [🔧 Useful Tools](ethereum-dev/useful-tools/README.md)
+  * [☁️ Ethers](ethereum-dev/useful-tools/ethers.md)
   * [\*️⃣ Ethernal](ethereum-dev/useful-tools/ethernal.md)
 * [📝 Solidity Notes](ethereum-dev/solidity-notes/README.md)
   * [OpenZeppelin](ethereum-dev/solidity-notes/openzeppelin.md)
