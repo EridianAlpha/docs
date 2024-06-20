@@ -183,6 +183,17 @@ In functions that emit a lot of events, it's possible to "skip" events and only 
 
 ### expectEmit Examples
 
+{% code title="Just check that an event happens but no details about it" fullWidth="true" %}
+```solidity
+// The first parameter: Whether to check the event signature.
+// The second parameter: Whether to check the indexed parameters (topics) of the event.
+// The third parameter: Whether to check the unindexed parameters (data) of the event.
+// The fourth parameter: Whether to check the event data's values.
+vm.expectEmit(true, true, true, false); // `false` for data means we don't care about the value
+emit IAavePM.Rebalanced(0); // The data is a placeholder and not checked
+```
+{% endcode %}
+
 {% code title="This does not check the emitting address." fullWidth="true" %}
 ```solidity
 event Transfer(address indexed from, address indexed to, uint256 amount);
