@@ -32,8 +32,8 @@ source ~/.bashrc
 `Teku` requires version 17+ of Java.
 
 ```bash
-sudo apt-get install openjdk-17-jre-headless -y
-sudo apt-get install openjdk-17-jdk -y
+sudo apt-get install openjdk-21-jre-headless -y
+sudo apt-get install openjdk-21-jdk -y
 
 sudo apt-get install libsodium23 libnss3 -y
 ```

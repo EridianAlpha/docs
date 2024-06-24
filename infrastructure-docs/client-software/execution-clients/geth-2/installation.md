@@ -35,8 +35,8 @@ Configure the firewall using generic Execution client UFW settings:[#ufw](../#uf
 `Besu` requires version 17+ of Java: [https://besu.hyperledger.org/public-networks/get-started/install/binary-distribution#prerequisites-1](https://besu.hyperledger.org/public-networks/get-started/install/binary-distribution#prerequisites-1)
 
 ```bash
-sudo apt-get install openjdk-17-jre-headless -y
-sudo apt-get install openjdk-17-jdk -y
+sudo apt-get install openjdk-21-jre-headless -y
+sudo apt-get install openjdk-21-jdk -y
 
 sudo apt-get install libsodium23 libnss3 -y
 ```
@@ -75,7 +75,7 @@ sudo useradd --no-create-home --shell /bin/false besu
 sudo mkdir -p /var/lib/besu
 ```
 
-JWT Secret is now shared between all clients on the same machine:[#create-jwt-secret](../#create-jwt-secret "mention")
+JWT Secret is now shared between all clients on the same machine: [#create-jwt-secret](../#create-jwt-secret "mention")
 
 ### Besu - Configure Service
 
