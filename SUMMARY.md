@@ -98,6 +98,8 @@
     * [Level 28 - Gatekeeper 3 ⏺⏺⏺](ethereum-dev/defi-challenges/ethernaut/level-28-gatekeeper-three.md)
     * [Level 29 - Switch ⏺⏺⏺⏺](ethereum-dev/defi-challenges/ethernaut/level-29-switch.md)
   * [💸 Damn Vulnerable DeFi](ethereum-dev/defi-challenges/damn-vulnerable-defi.md)
+* [🔍 Auditing](ethereum-dev/auditing/README.md)
+  * [🔧 Audit Tools](ethereum-dev/auditing/audit-tools.md)
 * [🤖 MEV](ethereum-dev/mev.md)
 
 ## Infrastructure Docs
