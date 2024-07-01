@@ -21,3 +21,7 @@ Solidity                        16            335            837           1355
 SUM:                            16            335            837           1355
 -------------------------------------------------------------------------------
 ```
+
+### VCS Solidity Metrics Report&#x20;
+
+{% embed url="https://marketplace.visualstudio.com/items?itemName=tintinweb.solidity-metrics" %}
