@@ -1,3 +1,5 @@
 # 💸 Damn Vulnerable DeFi
 
-[https://www.damnvulnerabledefi.xyz/](https://www.damnvulnerabledefi.xyz/)
+Original (Hardhat): [https://www.damnvulnerabledefi.xyz](https://www.damnvulnerabledefi.xyz/)
+
+Foundry version: [https://github.com/nicolasgarcia214/damn-vulnerable-defi-foundry](https://github.com/nicolasgarcia214/damn-vulnerable-defi-foundry)
