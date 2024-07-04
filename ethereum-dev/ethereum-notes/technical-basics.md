@@ -2,25 +2,30 @@
 
 ## Why 0x?
 
-&#x20;In Ethereum, and more broadly in the world of cryptography and blockchain technology, the prefix "0x" is used to denote that the following string is in hexadecimal (base 16) format. Hexadecimal is a numeral system that uses 16 symbols: 0-9 to represent values 0 to 9 and A-F to represent values 10 to 15.
+In Ethereum, and more broadly in the world of cryptography and blockchain technology, the prefix `0x` is used everywhere... but why?
 
-{% code title="Hexadecimal " %}
-```
-1 2 3 4 5 6 7 8 9 A B C D E F
-```
-{% endcode %}
+The prefix `0x` indicates that the following string is in hexadecimal (base 16) format. Hexadecimal is a numeral system that uses 16 symbols: 0-9 to represent values 0 to 9 and A-F to represent values 10 to 15.
 
-By starting with `0x` Ethereum ensures that there is no ambiguity about the format of the data, which is crucial for the proper functioning of smart contracts and transactions.
+```
+Base 10:     0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 16
+Hexadecimal: 0 1 2 3 4 5 6 7 8 9 A  B  C  D  E  F
+```
+
+By starting with `0x` Ethereum ensures no ambiguity about the data format.
 
 {% hint style="info" %}
-`0x` "The string that follows is a hexadecimal!"
+`0x` means "The string that follows is a hexadecimal!"
 {% endhint %}
 
 For example, an Ethereum address looks like `0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266` and is represented in a hexadecimal format.
 
 <table><thead><tr><th width="172">Type</th><th>Value</th></tr></thead><tbody><tr><td>Hexadecimal</td><td><code>f39Fd6e51aad88F6F4ce6aB8827279cffFb92266</code></td></tr><tr><td>Base 10</td><td><code>1390849295786071768276380950238675083608645509734</code></td></tr><tr><td>Base 2 (Binary)</td><td><code>1111001110011111110101101110010100011010101011011000100011110110111101001100111001101010101110001000001001110010011110011100111111111111101110010010001001100110</code></td></tr></tbody></table>
 
-You'll notice from the table that the hexadecimal representation is the shortest number of characters. Each hexadecimal digit represents four binary digits (bits). This means a long binary string can be represented by a much shorter hexadecimal string, making it easier to read, write, and communicate.
+You'll notice from the table that the hexadecimal representation is the shortest number of characters.&#x20;
+
+> Each hexadecimal digit represents four binary digits (bits).
+
+This means a long binary string can be represented by a much shorter hexadecimal string, making it easier to read, write, and communicate.
 
 <div data-full-width="true">
 
