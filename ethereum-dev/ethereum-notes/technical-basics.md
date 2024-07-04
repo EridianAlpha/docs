@@ -7,7 +7,7 @@ In Ethereum, and more broadly in the world of cryptography and blockchain techno
 The prefix `0x` indicates that the following string is in hexadecimal (base 16) format. Hexadecimal is a numeral system that uses 16 symbols: 0-9 to represent values 0 to 9 and A-F to represent values 10 to 15.
 
 ```
-Base 10:     0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 16
+Base 10:     0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
 Hexadecimal: 0 1 2 3 4 5 6 7 8 9 A  B  C  D  E  F
 ```
 
