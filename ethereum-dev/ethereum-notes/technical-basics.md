@@ -33,7 +33,7 @@ This means a long binary string can be represented by a much shorter hexadecimal
 
 </div>
 
-## uint8 - Smallest Example
+## uint8 - Smallest Solidity Example
 
 A `uint8` in Solidity is an unsigned integer that can hold values from 0 to 255.&#x20;
 
@@ -57,11 +57,16 @@ uint8 public myNumberDecimal = 150;
 uint8 public myNumberHex = 0x96;
 ```
 
-## uint256 - Biggest Example
+## uint256 - Biggest Solidity Example
 
 A `uint256` variable can hold values from `0` to `2^256 - 1`.
 
-**Bits and Bytes**:
+**Maximum `uint256` value**
+
+* Base 10: `115792089237316195423570985008687907853269984665640564039457584007913129639935`
+* Hexadecimal: `0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff`
+
+A 256-bit binary number can range from 00000000…00000000 (0) to 11111111…11111111 (2^256 - 1).
 
 * `uint256` means it is an unsigned integer that uses 256 bits.
 * 256 bits = 32 bytes (since 1 byte = 8 bits).
