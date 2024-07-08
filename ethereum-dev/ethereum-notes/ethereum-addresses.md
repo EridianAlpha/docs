@@ -146,7 +146,7 @@ Live example showing Ethereum address derivation from a private key
 
 {% code title="Private Key" %}
 ```
-0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+0xa7e80c9eac797885cad8d6bdfaa663e12f91dd643ac01ff38e52f9cc35c9251b
 ```
 {% endcode %}
 
@@ -159,7 +159,7 @@ publicKey = wallet.signingKey.publicKey;
 
 {% code title="Public Key" overflow="wrap" %}
 ```
-0x048318535b54105d4a7aae60c08fc45f9687181b4fdfc625bd1a753fa7397fed753547f11ca8696646f2f3acb08e31016afac23e630c5d11f59f61fef57b0d2aa5
+0x04f743d6226bab9de56e067f068371bbe1967ab0f8b32c86b0360f5c9a8dfd3fd03994f9babf7b5efcec75c78f9efa4668df930da585b1d57b8c2b4f7de5a6849d
 ```
 {% endcode %}
 
@@ -178,13 +178,13 @@ const publicKeyHash = ethers.keccak256(publicKeyBytes);
 
 {% code title="Public Key (no '0x04')" overflow="wrap" %}
 ```
-0x8318535b54105d4a7aae60c08fc45f9687181b4fdfc625bd1a753fa7397fed753547f11ca8696646f2f3acb08e31016afac23e630c5d11f59f61fef57b0d2aa5
+0xf743d6226bab9de56e067f068371bbe1967ab0f8b32c86b0360f5c9a8dfd3fd03994f9babf7b5efcec75c78f9efa4668df930da585b1d57b8c2b4f7de5a6849d
 ```
 {% endcode %}
 
 {% code title="Keccak-256 Hash" %}
 ```
-0xc1ffd3cfee2d9e5cd67643f8f39fd6e51aad88f6f4ce6ab8827279cfffb92266
+0x624d10d9dd0d1f68800320293872e96f79890737fcf74aa85d6d760a5a451fe9
 ```
 {% endcode %}
 
@@ -212,6 +212,6 @@ const ethereumAddress = wallet.address
 
 {% code title="Ethereum Address" %}
 ```
-0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+0x3872E96F79890737fCf74aa85D6d760a5a451Fe9
 ```
 {% endcode %}
