@@ -7,7 +7,29 @@ Ethereum addresses are 40 hexadecimal characters long, excluding the "0x" prefix
 * **20 Bytes Long**: An Ethereum address is derived from the last 20 bytes of the Keccak-256 hash of the public key.
 * **160 Bits**: This length provides a vast address space, which helps avoid address collisions and enhances security.
 
-### Step-by-Step Example
+## How to get a Private Key
+
+When you got your first Ethereum address, you mostly likely used a tool like MetaMask or a Ledger which gave you a `Seed Phrase`. But that `Seed Phrase` is a string of 12-24 words, so how does that relate to your address?
+
+{% code title="Seed Phrase Example" %}
+```
+twin galaxy such vague current rhythm about laundry upset fatigue fragile whisper
+```
+{% endcode %}
+
+The specific words chosen matter, and the details of how they work can be found here:
+
+{% embed url="https://bips.dev/39/" %}
+
+A single `Seed Phrase` can be used to generate a nearly infinite number of Ethereum addresses. Those addresses are determined using a `Derivation Path` explained in great detail [here](https://medium.com/myetherwallet/hd-wallets-and-derivation-paths-explained-865a643c7bf2).
+
+{% hint style="info" %}
+What if you want to generate your own `Private Key`? Well since a `Private Key` is simply a binary number 256 digits long, you could flip a coin 256 times counting heads as 1 and tails as 0.
+{% endhint %}
+
+## Step-by-Step Example
+
+<table data-full-width="false"><thead><tr><th width="179">Type</th><th>Value</th></tr></thead><tbody><tr><td>Seed Phrase</td><td><code>twin galaxy such vague current rhythm about laundry upset fatigue fragile whisper</code></td></tr><tr><td>Private Key<br>Base 2 (Binary)</td><td><code>1010011111101000000011001001111010101100011110010111100010000101110010101101100011010110101111011111101010100110011000111110000100101111100100011101110101100100001110101100000000011111111100111000111001010010111110011100110000110101110010010010010100011011</code></td></tr><tr><td>Private Key<br>Hexadecimal</td><td><code>0xa7e80c9eac797885cad8d6bdfaa663e12f91dd643ac01ff38e52f9cc35c9251b</code></td></tr></tbody></table>
 
 {% embed url="https://codepen.io/EridianAlpha/pen/NWVvBaQ" fullWidth="true" %}
 Live example showing Ethereum address derivation from a private key
@@ -39,7 +61,7 @@ Live example showing Ethereum address derivation from a private key
 </head>
 <body style="background-color: #14171C; color: white;">
     <label class="inline-label" for="privateKey">1. Enter Private Key:</label>
-    <input  style="width: 500px;" type="text" id="privateKey" placeholder="0x..." value="0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80">
+    <input  style="width: 500px;" type="text" id="privateKey" placeholder="0x..." value="0xa7e80c9eac797885cad8d6bdfaa663e12f91dd643ac01ff38e52f9cc35c9251b">
     <button onclick="generatePublicKey()">Generate Public Key</button>
     <br>
     <br>
