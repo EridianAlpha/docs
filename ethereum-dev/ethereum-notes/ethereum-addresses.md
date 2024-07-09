@@ -21,7 +21,7 @@ The specific words chosen matter, and the details of how they work can be found 
 
 {% embed url="https://bips.dev/39/" %}
 
-A single `Seed Phrase` can be used to generate a nearly infinite number of Ethereum addresses. Those addresses are determined using a `Derivation Path` explained in great detail [here](https://medium.com/myetherwallet/hd-wallets-and-derivation-paths-explained-865a643c7bf2).
+A single `Seed Phrase` can be used to generate a nearly infinite number of Ethereum addresses. Those addresses are generated using a specific hierarchical deterministic derivation path explained in great detail [here](https://medium.com/myetherwallet/hd-wallets-and-derivation-paths-explained-865a643c7bf2).
 
 {% hint style="info" %}
 What if you want to generate your own `Private Key`? Well since a `Private Key` is simply a binary number 256 digits long, you could flip a coin 256 times counting heads as 1 and tails as 0.
