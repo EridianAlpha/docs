@@ -53,6 +53,7 @@
   * [Style Guide](ethereum-dev/solidity-notes/style-guide.md)
   * [Time Units](ethereum-dev/solidity-notes/time-units.md)
   * [Typecasting](ethereum-dev/solidity-notes/typecasting.md)
+  * [Using Directive](ethereum-dev/solidity-notes/using-directive.md)
   * [Variables, Consts & Immutable](ethereum-dev/solidity-notes/variables-consts-and-immutable.md)
   * [Withdraws](ethereum-dev/solidity-notes/withdraws.md)
 * [⚒️ Foundry Notes](ethereum-dev/foundry-notes/README.md)
