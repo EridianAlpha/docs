@@ -207,6 +207,12 @@ function test_FuzzTestExample(
 [https://www.youtube.com/watch?v=juyY-CTolac](https://www.youtube.com/watch?v=juyY-CTolac)
 {% endhint %}
 
+{% hint style="info" %}
+**TODO: Write notes on this blog.**
+
+[https://blog.sigmaprime.io/forge-testing-leveling.html](https://blog.sigmaprime.io/forge-testing-leveling.html)
+{% endhint %}
+
 
 
 ### Coverage

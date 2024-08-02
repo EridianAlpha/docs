@@ -41,6 +41,20 @@ contract newContract is SomeOtherContract {
 ```
 
 * So if we had a file named `someothercontract.sol` in the same directory as this contract (that's what the `./`means), it would get imported by the compiler.
+* Imports can also be renamed when being imported:
+
+```solidity
+import {WETH9Test as Handler} from "./WETH9Test.t.sol";
+
+contract WETH9TestInvariant is Test, Counter {
+
+    Handler public handler;
+
+    function setUp() public {
+        handler = new Handler();
+    }
+}
+```
 
 ### Contract Layout
 
