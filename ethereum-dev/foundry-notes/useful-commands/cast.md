@@ -1,7 +1,7 @@
 # 🪄 Cast
 
 * `call` is used for viewing data
-* `send` is used for modifying state
+* `send` is used for modifying state (invoke functions, create contracts, etc.)
 
 ### Send ETH to an address
 
@@ -18,6 +18,13 @@ cast send <SENDER_ADDRESS> --value 1ether --rpc-url ${RPC_URL} --private-key ${P
 cast call <CONTRACT_ADDRESS> "getCreator()" --rpc-url ${RPC_URL}
 ```
 {% endcode %}
+
+### Invoke a function
+
+```bash
+cast send <CONTRACT_ADDRESS> "withdraw(address,uint256)" <ARG_1> <ARG_2> \
+--rpc-url ${RPC_URL} --private-key ${PRIVATE_KEY}
+```
 
 ### Get and send tokens on an anvil fork
 
