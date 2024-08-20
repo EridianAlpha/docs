@@ -3,6 +3,12 @@
 * An error will undo all changes made to the state during a transaction.
 * You can throw an error by calling `require`, `revert` or `assert`.
 
+{% hint style="info" %}
+Great article explaining how Solidity reverts, custom errors, and try/catch work:
+
+[https://www.rareskills.io/post/try-catch-solidity](https://www.rareskills.io/post/try-catch-solidity)
+{% endhint %}
+
 ### require
 
 * Used to validate inputs and conditions before execution.
