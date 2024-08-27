@@ -12,7 +12,7 @@ https://ethernaut.openzeppelin.com/level/1
 
 {% embed url="https://github.com/OpenZeppelin/ethernaut/blob/master/contracts/contracts/levels/Telephone.sol" %}
 
-{% code lineNumbers="true" %}
+{% code lineNumbers="true" fullWidth="true" %}
 ```solidity
 ```
 {% endcode %}
