@@ -150,3 +150,7 @@ Typically one should follow the [checks-effects-interactions](http://solidity.re
 
 _Note_: An external `CALL` can use at most 63/64 of the gas currently available at the time of the `CALL`. Thus, depending on how much gas is required to complete a transaction, a transaction of sufficiently high gas (i.e. one such that 1/64 of the gas is capable of completing the remaining opcodes in the parent call) can be used to mitigate this particular attack.
 {% endhint %}
+
+### Notes
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_20_Denial.md" %}

@@ -108,4 +108,4 @@ To ensure that data is private, it needs to be encrypted before being put onto t
 
 ### Notes
 
-*
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_8_Vault.md" %}

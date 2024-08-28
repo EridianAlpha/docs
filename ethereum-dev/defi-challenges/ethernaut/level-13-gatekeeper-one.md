@@ -149,3 +149,7 @@ Submit instance... 🥳
 {% hint style="info" %}
 Well done! Next, try your hand with the second gatekeeper...
 {% endhint %}
+
+### Notes
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_13_Gatekeeper-One.md" %}

@@ -132,3 +132,5 @@ Please refer to the [The Parity Wallet Hack Explained](https://blog.openzeppelin
 ### Notes
 
 * [delegatecall](https://eip2535diamonds.substack.com/p/understanding-delegatecall-and-how) in Solidity
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_6_Delegation.md" %}

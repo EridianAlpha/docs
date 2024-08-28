@@ -160,3 +160,7 @@ Submit instance... 🥳
 {% hint style="info" %}
 As the previous level, `delegate` mentions, the use of `delegatecall` to call libraries can be risky. This is particularly true for contract libraries that have their own state. This example demonstrates why the `library` keyword should be used for building libraries, as it prevents the libraries from storing and accessing state variables.
 {% endhint %}
+
+### Notes
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_16_Preservation.md" %}

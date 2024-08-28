@@ -150,3 +150,5 @@ function () payable {
 
 * [Difference between `tx.origin` and `msg.sender`](https://ethereum.stackexchange.com/questions/1891/whats-the-difference-between-msg-sender-and-tx-origin)
 * In a simple call chain `A->B->C->D` inside `D` `msg.sender` will be `C` and `tx.origin` will be `A`.
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_4_Telephone.md" %}

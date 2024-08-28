@@ -134,3 +134,7 @@ Additionally, it exploits the arithmetic underflow of array length, by expanding
 
 Both vulnerabilities are inspired by 2017's [Underhanded coding contest](https://medium.com/@weka/announcing-the-winners-of-the-first-underhanded-solidity-coding-contest-282563a87079)
 {% endhint %}
+
+### Notes
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_19_Alien-Codex.md" %}

@@ -125,3 +125,5 @@ However, there is no way to stop an attacker from sending ether to a contract by
 ### Notes
 
 {% embed url="https://eips.ethereum.org/EIPS/eip-6780" %}
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_7_Force.md" %}

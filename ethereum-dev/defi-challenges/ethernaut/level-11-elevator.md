@@ -153,3 +153,5 @@ An alternative way to solve this level is to build a view function which returns
 
 * The function `isLastFloor` is called twice, with the returned value changing for the same input as the state is changed.
 * If the `isLastFloor` had been restricted to view, then this attack wouldn't be possible (unless it was calling a library, which [doesn't have runtime checks](https://docs.soliditylang.org/en/develop/contracts.html#view-functions) to make sure it doesn't modify the state when it says it's view)
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_11_Building.md" %}

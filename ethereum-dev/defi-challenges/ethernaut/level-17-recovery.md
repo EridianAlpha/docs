@@ -141,3 +141,7 @@ An interesting [blog post](https://swende.se/blog/Ethereum\_quirks\_and\_vulns.h
 
 If you're going to implement this technique, make sure you don't miss the nonce, or your funds will be lost forever.
 {% endhint %}
+
+### Notes
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_17_Recovery.md" %}

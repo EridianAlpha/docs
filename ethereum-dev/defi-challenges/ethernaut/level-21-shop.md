@@ -138,3 +138,7 @@ Contracts can manipulate data seen by other contracts in any way they want.
 
 It's unsafe to change the state based on external and untrusted contracts logic.
 {% endhint %}
+
+### Notes
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_21_Shop.md" %}

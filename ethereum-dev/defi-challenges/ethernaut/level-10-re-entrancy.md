@@ -196,3 +196,5 @@ The famous DAO hack used reentrancy to extract a huge amount of ether from the v
 ### Notes
 
 * No function, including the `receive()` function, can be invoked from logic in the constructor.
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_10_Re-entrancy.md" %}

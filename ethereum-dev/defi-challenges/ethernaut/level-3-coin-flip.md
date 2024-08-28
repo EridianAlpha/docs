@@ -163,3 +163,5 @@ Some other options include using Bitcoin block headers (verified through [BTC Re
 
 * The real challenge is getting the script to run 10 times.
 * This was hard to do in foundry with a real blockchian, but would have been easy to test on anvil simply by advancing the block by one then calling it again.
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_3_Coin-Flip.md" %}

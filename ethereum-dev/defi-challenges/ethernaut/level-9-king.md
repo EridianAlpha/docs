@@ -148,3 +148,5 @@ In this case, see: [King of the Ether](https://www.kingoftheether.com/thrones/ki
 ### Notes
 
 * Executing everything in the constructor removes points of failure e.g. if the prize was calculated before sending, then the transaction was pending for a few blocks, it would no longer be the correct value. So it's better to calculate as much as possible on chain, even if it costs more gas that off-chain calculations, as it's more important that it actually goes through (and the check can be right at the start to minimize wasted gas if it does revert)
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_9_King.md" %}

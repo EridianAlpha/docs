@@ -159,3 +159,5 @@ This allowed the attacker to call the old constructor and claim ownership of the
 * This exploit occurred because before Solidity `v0.5.0` it was not mandatory to name the constructor `constructor`. This was updated with a [breaking change in the `v0.5.0` release](https://docs.soliditylang.org/en/latest/050-breaking-changes.html#constructors).
 * Even though this contract uses `v0.6.0` this mistake still happened.
 * Exploited contract: [https://etherscan.io/address/0xe82719202e5965Cf5D9B6673B7503a3b92DE20be](https://etherscan.io/address/0xe82719202e5965Cf5D9B6673B7503a3b92DE20be)
+
+{% embed url="https://github.com/nvnx7/ethernaut-openzeppelin-hacks/blob/e936301859334383d568a614084917100319205e/level_2_Fallout.md" %}
