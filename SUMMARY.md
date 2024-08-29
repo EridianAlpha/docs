@@ -99,6 +99,8 @@
     * [Level 27 - Good Samaritan ⏺⏺⏺](ethereum-dev/defi-challenges/ethernaut/level-27-good-samaritan.md)
     * [Level 28 - Gatekeeper 3 ⏺⏺⏺](ethereum-dev/defi-challenges/ethernaut/level-28-gatekeeper-three.md)
     * [Level 29 - Switch ⏺⏺⏺⏺](ethereum-dev/defi-challenges/ethernaut/level-29-switch.md)
+    * [Level 30 - Higher Order ⏺⏺⏺⏺](ethereum-dev/defi-challenges/ethernaut/level-30-higher-order.md)
+    * [Level 31 - Stake ⏺⏺⏺](ethereum-dev/defi-challenges/ethernaut/level-31-stake.md)
   * [💸 Damn Vulnerable DeFi](ethereum-dev/defi-challenges/damn-vulnerable-defi.md)
 * [🔍 Auditing](ethereum-dev/auditing/README.md)
   * [🗞️ Exploit Resources](ethereum-dev/auditing/exploit-resources.md)
