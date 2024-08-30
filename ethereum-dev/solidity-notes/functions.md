@@ -119,6 +119,37 @@ contract BLT is Sandwich {
 }
 ```
 
+## Free Functions
+
+Functions can be defined inside and outside of contracts.
+
+Functions outside of a contract, also called “[free functions](https://docs.soliditylang.org/en/latest/contracts.html#functions)”, always have implicit `internal` visibility. Their code is included in all contracts that call them, similar to internal library functions.
+
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.7.1 <0.9.0;
+
+function sum(uint[] memory arr) pure returns (uint s) {
+    for (uint i = 0; i < arr.length; i++)
+        s += arr[i];
+}
+
+contract ArrayExample {
+    bool found;
+    function f(uint[] memory arr) public {
+        // This calls the free function internally.
+        // The compiler will add its code to the contract.
+        uint s = sum(arr);
+        require(s >= 10);
+        found = true;
+    }
+}
+```
+
+{% hint style="info" %}
+Functions defined outside a contract are still always executed in the context of a contract. They still can call other contracts, send them Ether and destroy the contract that called them, among other things. The main difference to functions defined inside a contract is that free functions do not have direct access to the variable `this`, storage variables and functions not in their scope.
+{% endhint %}
+
 ## Function Input Parameters
 
 * If a function requires an input parameter for the function to be valid (e.g. for an override) but you don't actually use the parameter in the function, it can be commented out.
@@ -130,8 +161,6 @@ function checkUpkeep( bytes memory /* checkData */ ) public view override
     // Function content...
 }
 ```
-
-
 
 ## Handling Multiple Return Values
 
