@@ -1,5 +1,17 @@
 # ⚙️ Execution Clients
 
+{% content-ref url="geth/" %}
+[geth](geth/)
+{% endcontent-ref %}
+
+{% content-ref url="geth-1/" %}
+[geth-1](geth-1/)
+{% endcontent-ref %}
+
+{% content-ref url="geth-2/" %}
+[geth-2](geth-2/)
+{% endcontent-ref %}
+
 ## Process - Changing Clients
 
 1. Stop old client.

@@ -1,5 +1,13 @@
 # 🤝 Beacon Clients
 
+{% content-ref url="lighthouse/" %}
+[lighthouse](lighthouse/)
+{% endcontent-ref %}
+
+{% content-ref url="lighthouse-1/" %}
+[lighthouse-1](lighthouse-1/)
+{% endcontent-ref %}
+
 ## Process - Changing Clients
 
 1. Stop old client.
