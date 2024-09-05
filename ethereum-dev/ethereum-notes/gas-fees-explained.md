@@ -19,12 +19,12 @@ Max Fee is the maximum amount you are willing to pay for the gas at the pump at 
 ### Max Priority Fee
 
 {% hint style="info" %}
-Once gas reaches the price you want to pay for your journey, at that point there might be a long queue at the petrol station for you to fill up, and while you're waiting in line the price could go up again! So a priority fee is like a bribe/tip you pay to the pump attendant to fill up your car first before anyone else.
+Once gas reaches the price you want to pay for your journey, at that point there might be a long queue at the gas station for you to fill up, and while you're waiting in line the price could go up again! So a priority fee is like a bribe/tip you pay to the pump attendant to fill up your car first before anyone else.
 {% endhint %}
 
 ### Max Transaction Fee
 
-If you are buying 21,000 units of gas, and you set a `max fee` to limit the maximum amount you will pay, then the validator will pocket the difference from the base fee, up to the `max priority fee` set. So, if I want to buy 21,000 units of gas, and I set a `max fee` of 50 Gwei and a `max priority fee` of 5 Gwei, then if the base fee at the time of the transaction is:
+If you are buying 21,000 units of gas, and you set a `max fee` to limit the maximum amount you will pay, then the validator will pocket the difference from the base fee, up to the `max priority fee` set. So, if I want to buy 21,000 units of gas, and I set a `max fee` of 50 Gwei and a `max priority fee` of 5 Gwei, then if the `base fee` at the time of the transaction is:
 
 * 47 Gwei then the validator will earn the 3 Gwei
   * But if 3 Gwei isn't a high enough fee compared with other transactions then I'll be left out
