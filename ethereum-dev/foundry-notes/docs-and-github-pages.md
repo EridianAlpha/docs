@@ -23,6 +23,13 @@ forge doc --build --serve --port=4000
 
 * Create a workflow `.yml` file at `.github/workflows/deployGitHubPages.yml`
 
+{% hint style="info" %}
+Modify:
+
+* \<ADD\_TITLE\_HERE>
+* \<ADD\_AUTHOR\_HERE>
+{% endhint %}
+
 {% code title=".github/workflows/deployGitHubPages.yml" fullWidth="true" %}
 ```yaml
 name: Deploy Docs to GitHub Pages
@@ -52,8 +59,8 @@ jobs:
 
       - name: Edit book.toml
         run: |
-          sed -i 's/title = ""/title = "<ADD_TITLE_HERE>"/' ./docs/book.toml            # Set the title of the book
-          sed -i 's/authors = \[\]/authors = \["<ADD_AUTHOR_HERE>"\]/' ./docs/book.toml                    # Set the author of the book
+          sed -i 's/title = ""/title = "<ADD_TITLE_HERE>"/' ./docs/book.toml                          # Set the title of the book
+          sed -i 's/authors = \[\]/authors = \["<ADD_AUTHOR_HERE>"\]/' ./docs/book.toml               # Set the author of the book
           sed -i '/\[book\]/a language = "en"' ./docs/book.toml                                       # Add language setting under [book]
           sed -i '/\[book\]/a multilingual = false' ./docs/book.toml                                  # Add multilingual setting under [book]
           sed -i 's/no-section-label = true/no-section-label = false/' ./docs/book.toml               # Change no-section-label to false
