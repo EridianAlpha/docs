@@ -39,6 +39,10 @@ layout:
 [defi-challenges](ethereum-dev/defi-challenges/)
 {% endcontent-ref %}
 
+{% content-ref url="ethereum-dev/auditing/" %}
+[auditing](ethereum-dev/auditing/)
+{% endcontent-ref %}
+
 {% content-ref url="ethereum-dev/mev.md" %}
 [mev.md](ethereum-dev/mev.md)
 {% endcontent-ref %}
