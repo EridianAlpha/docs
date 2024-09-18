@@ -41,7 +41,14 @@ forge verify-contract <CONTRACT_ADDRESS> ./src/<CONTRACT>.sol:<CONTRACT_NAME> --
 ```
 {% endcode %}
 
-* `--watch` leaves the terminal waiting for a status confirmation reply
+* `--watch` leaves the terminal waiting for a status confirmation reply.
+* If constructor arguments are required they can be encoded using `cast` e.g for a constructor requiring a single address:
+
+```solidity
+cast abi-encode "constructor(address)" <ADDRESS_TO_PASS_INTO_CONSTRUCTOR>
+```
+
+* Then use that `cast` output  to add `--constructor-args` to the end of the `forge verify-contract` command.
 
 {% hint style="info" %}
 For Ethereum L1 or L1 testnets use the Etherscan API key: [https://etherscan.io/myapikey](https://etherscan.io/myapikey)
