@@ -35,8 +35,7 @@ Configure the firewall using generic Execution client UFW settings:[#ufw](../#uf
 `Besu` requires version 17+ of Java: [https://besu.hyperledger.org/public-networks/get-started/install/binary-distribution#prerequisites-1](https://besu.hyperledger.org/public-networks/get-started/install/binary-distribution#prerequisites-1)
 
 ```bash
-sudo apt-get install openjdk-21-jre-headless -y
-sudo apt-get install openjdk-21-jdk -y
+sudo apt-get install openjdk-21-jre-headless openjdk-21-jdk -y
 
 sudo apt-get install libsodium23 libnss3 -y
 ```
@@ -178,11 +177,13 @@ while true; do
     esac
 done
 
-cd ~/besu
-
 read -p "Enter the commit hash you want to checkout: " commit_hash
 
-git fetch
+# Delete existing besu directory to avoid commit mismatch errors
+cd ~
+sudo rm -rf besu
+git clone --recursive https://github.com/hyperledger/besu
+cd ~/besu
 git checkout $commit_hash
 
 echo
@@ -202,7 +203,7 @@ if sudo systemctl is-active --quiet besu.service; then
 fi
 
 echo "Replacing previous version..."
-sudo rm /usr/local/bin/besu
+sudo rm -rf /usr/local/bin/besu
 sudo cp -R ~/besu/build/install/besu /usr/local/bin
 
 # Only start besu.service if it was running originally

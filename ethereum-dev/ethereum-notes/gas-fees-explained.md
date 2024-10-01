@@ -26,9 +26,9 @@ Once gas reaches the price you want to pay for your journey, at that point there
 
 If you are buying 21,000 units of gas, and you set a `max fee` to limit the maximum amount you will pay, then the validator will pocket the difference from the base fee, up to the `max priority fee` set. So, if I want to buy 21,000 units of gas, and I set a `max fee` of 50 Gwei and a `max priority fee` of 5 Gwei, then if the `base fee` at the time of the transaction is:
 
-* 47 Gwei then the validator will earn the 3 Gwei
-  * But if 3 Gwei isn't a high enough fee compared with other transactions then I'll be left out
-* 45 Gwei then the validator will earn the maximum 5 Gwei
-  * Again, only if 5 is enough of a tip to beat other people in the same block
-* 40 Gwei then the validator will still only earn a maximum of 5 Gwei as that's the limit I set and any difference will be returned to the senders wallet
-  * This returned amount will be a messy number
+* 47 Gwei then the validator will earn the 3 Gwei.
+  * But if 3 Gwei isn't a high enough fee compared with other transactions then I'll be left out.
+* 45 Gwei then the validator will earn the maximum 5 Gwei.
+  * Again, only if 5 is enough of a tip to beat other people in the same block.
+* 40 Gwei then the validator will still only earn a maximum of 5 Gwei as that's the limit I set and any difference will be returned to the senders wallet.
+  * This returned amount will be a messy number.

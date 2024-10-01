@@ -210,7 +210,7 @@ if sudo systemctl is-active --quiet geth.service; then
 fi
 
 echo "Replacing previous version..."
-sudo rm /usr/local/bin/geth
+sudo rm -rf /usr/local/bin/geth
 sudo cp ~/go-ethereum/build/bin/geth /usr/local/bin
 
 # Only start geth.service if it was running originally

@@ -4,14 +4,6 @@ description: Notes on how to maintain and update a Besu Client.
 
 # 🏗️ Maintenance
 
-### Java - Update
-
-TODO
-
-```bash
-TODO
-```
-
 ### Besu - Update Client
 
 ```bash

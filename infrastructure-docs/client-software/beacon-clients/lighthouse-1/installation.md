@@ -29,11 +29,10 @@ source ~/.bashrc
 
 ## Dependency - Install Java
 
-`Teku` requires version 17+ of Java.
+`Teku` requires version 21+ of Java.
 
 ```bash
-sudo apt-get install openjdk-21-jre-headless -y
-sudo apt-get install openjdk-21-jdk -y
+sudo apt-get install openjdk-21-jre-headless openjdk-21-jdk -y
 
 sudo apt-get install libsodium23 libnss3 -y
 ```

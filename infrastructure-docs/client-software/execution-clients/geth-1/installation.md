@@ -188,7 +188,7 @@ if sudo systemctl is-active --quiet erigon.service; then
 fi
 
 echo "Replacing previous version..."
-sudo rm /usr/local/bin/erigon
+sudo rm -rf /usr/local/bin/erigon
 sudo cp ~/erigon/build/bin/erigon /usr/local/bin
 
 # Only start erigon.service if it was running originally
