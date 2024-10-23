@@ -58,7 +58,6 @@ wget \
 curl \
 ccze \
 vim \
-mlocate \
 jq \
 net-tools \
 unzip \
@@ -449,7 +448,7 @@ Do you want to enable rate-limiting: y
 Once you're done, restart `sshd` so it grabs the new settings:
 
 ```bash
-sudo systemctl restart sshd
+sudo systemctl restart ssh
 ```
 
 When you try to SSH into your server with your SSH keys, you should now also be asked for a 2FA verification code, but not for a password.
