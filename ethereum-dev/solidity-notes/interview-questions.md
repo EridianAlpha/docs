@@ -118,51 +118,203 @@ All of these questions can be answered in three sentences or less.
 
 
 
-### Medium
+## 2. Medium
 
-1. What is the difference between transfer and send? Why should they not be used?
-2. What is a storage collision in a proxy contract?
-3. What is the difference between `abi.encode` and `abi.encodePacked`?
-4. `uint8`, `uint32`, `uint64`, `uint128`, `uint256` are all valid uint sizes. Are there others? What changed with block.timestamp before and after proof of stake?
-5. What is frontrunning?
-6. What is a commit-reveal scheme and when would you use it?
-7. Under what circumstances could `abi.encodePacked` create a vulnerability?
-8. How does Ethereum determine the BASEFEE in EIP-1559?
-9. What is the difference between a cold read and a warm read?
-10. How does an AMM price assets?
-11. What is a function selector clash in a proxy and how does it happen?
-12. What is the effect on gas of making a function `payable`?
-13. What is a signature replay attack?
-14. How would you design a game of rock-paper-scissors in a smart contract such that players cannot cheat?
-15. What is the free memory pointer and where is it stored?
-16. What function modifiers are valid for interfaces? What is the difference between memory and calldata in a function argument?
-17. Describe the three types of storage gas costs for writes.
-18. Why shouldn’t upgradeable contracts use the constructor?
-19. What is the difference between UUPS and the Transparent Upgradeable Proxy pattern?
-20. If a contract delegatecalls an empty address or an implementation that was previously self-destructed, what happens? What if it is a low-level call instead of a delegatecall?
-21. What danger do ERC777 tokens pose?
-22. According to the solidity style guide, how should functions be ordered?
-23. According to the solidity style guide, how should function modifiers be ordered?
-24. What is a bonding curve?
-25. How does `_safeMint` differ from `_mint` in the OpenZeppelin ERC721 implementation? What keywords are provided in Solidity to measure time? What is a sandwich attack?
-26. If a delegatecall is made to a function that reverts, what does the delegatecall do?
-27. What is a gas efficient alternative to multiplying and dividing by a power of two?
-28. How large a uint can be packed with an address in one slot?
-29. Which operations give a partial refund of gas? What is ERC165 used for?
-30. If a proxy makes a delegatecall to A, and A does address(this).balance, whose balance is returned, the proxy’s or A?
-31. What is a slippage parameter useful for?
-32. What does ERC721A do to reduce mint costs? What is the tradeoff?
-33. Why doesn’t Solidity support floating point arithmetic?
-34. What is TWAP?
-35. How does Compound Finance calculate utilization?
-36. If a delegatecall is made to a function that reads from an immutable variable, what will the value be?
-37. What is a fee-on-transfer token?
-38. What is a rebasing token?
-39. In what year will a timestamp stored in a `uint32` overflow?
-40. What is LTV in the context of DeFi?
-41. What are aTokens and cTokens in the context of Compound Finance and AAVE?
-42. Describe how to use a lending protocol to go leveraged long or leveraged short on an asset.
-43. What is a perpetual protocol?
+### 2.1 What is the difference between transfer and send?
+
+
+
+### 2.2 Why should they not be used?
+
+
+
+### 2.3 What is a storage collision in a proxy contract?
+
+
+
+### 2.4 What is the difference between abi.encode and abi.encodePacked?
+
+
+
+### 2.5 uint8, uint32, uint64, uint128, uint256 are all valid uint sizes. Are there others?
+
+
+
+### 2.6 What changed with block.timestamp before and after proof of stake?
+
+
+
+### 2.7 What is frontrunning?
+
+
+
+### 2.8 What is a commit-reveal scheme and when would you use it?
+
+
+
+### 2.9 Under what circumstances could abi.encodePacked create a vulnerability?
+
+
+
+### 2.10 How does Ethereum determine the BASEFEE in EIP-1559?
+
+
+
+### 2.11 What is the difference between a cold read and a warm read?
+
+
+
+### 2.12 How does an AMM price assets?
+
+
+
+### 2.13 What is a function selector clash in a proxy and how does it happen?
+
+
+
+### 2.14 What is the effect on gas of making a function payable?
+
+
+
+### 2.15 What is a signature replay attack?
+
+
+
+### 2.16 How would you design a game of rock-paper-scissors in a smart contract such that players cannot cheat?
+
+
+
+### 2.17 What is the free memory pointer and where is it stored?
+
+
+
+### 2.18 What function modifiers are valid for interfaces?
+
+
+
+### 2.19 What is the difference between memory and calldata in a function argument?
+
+
+
+### 2.20 Describe the three types of storage gas costs for writes.
+
+
+
+### 2.21 Why shouldn’t upgradeable contracts use the constructor?
+
+
+
+### 2.22 What is the difference between UUPS and the Transparent Upgradeable Proxy pattern?
+
+
+
+### 2.23 If a contract delegatecalls an empty address or an implementation that was previously self-destructed, what happens?
+
+
+
+### 2.24 What if it is a low-level call instead of a delegatecall?
+
+
+
+### 2.25 What danger do ERC777 tokens pose?
+
+
+
+### 2.26 According to the solidity style guide, how should functions be ordered?
+
+
+
+### 2.27 According to the solidity style guide, how should function modifiers be ordered?
+
+
+
+### 2.28 What is a bonding curve?
+
+
+
+### 2.29 How does \_safeMint differ from \_mint in the OpenZeppelin ERC721 implementation?
+
+
+
+### 2.30 What keywords are provided in Solidity to measure time?
+
+
+
+### 2.31 What is a sandwich attack?
+
+
+
+### 2.32 If a delegatecall is made to a function that reverts, what does the delegatecall do?
+
+
+
+### 2.33 What is a gas efficient alternative to multiplying and dividing by a power of two?
+
+
+
+### 2.34 How large a uint can be packed with an address in one slot?
+
+
+
+### 2.35 Which operations give a partial refund of gas?
+
+
+
+### 2.36 What is ERC165 used for?
+
+
+
+### 2.37 If a proxy makes a delegatecall to A, and A does address(this).balance, whose balance is returned, the proxy’s or A?
+
+
+
+### 2.38 What is a slippage parameter useful for?
+
+
+
+### 2.39 What does ERC721A do to reduce mint costs? What is the tradeoff?
+
+
+
+### 2.40 Why doesn’t Solidity support floating point arithmetic?
+
+
+
+### 2.41 What is TWAP? How does Compound Finance calculate utilization?
+
+
+
+### 2.42 If a delegatecall is made to a function that reads from an immutable variable, what will the value be?
+
+
+
+### 2.43 What is a fee-on-transfer token?
+
+
+
+### 2.44 What is a rebasing token?
+
+
+
+### 2.45 In what year will a timestamp stored in a uint32 overflow?
+
+
+
+### 2.46 What is LTV in the context of DeFi?
+
+
+
+### 2.47 What are aTokens and cTokens in the context of Compound Finance and AAVE?
+
+
+
+### 2.48 Describe how to use a lending protocol to go leveraged long or leveraged short on an asset.
+
+
+
+### 2.49 What is a perpetual protocol?
+
+
 
 ### Hard
 
