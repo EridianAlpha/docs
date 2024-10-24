@@ -14,6 +14,7 @@ Still to document
 * [committing-changes.md](committing-changes.md "mention")
 * [branches.md](branches.md "mention")
 * [merging-and-rebasing.md](merging-and-rebasing.md "mention")
+* [prs.md](prs.md "mention")
 
 ### Useful Resources
 

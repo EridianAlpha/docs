@@ -168,3 +168,4 @@
   * [Committing changes](general-dev/git-notes/committing-changes.md)
   * [Branches](general-dev/git-notes/branches.md)
   * [Merging & Rebasing](general-dev/git-notes/merging-and-rebasing.md)
+  * [PRs](general-dev/git-notes/prs.md)
