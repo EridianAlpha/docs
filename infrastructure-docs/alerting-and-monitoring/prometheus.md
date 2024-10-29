@@ -102,6 +102,16 @@ services:
       - '--storage.path=/alertmanager'
 ```
 
+{% code title="Start the Docker container" %}
+```bash
+cd ~/alerting
+docker compose up -d
+
+# View logs to check it has started up correctly
+docker compose logs -f
+```
+{% endcode %}
+
 ## Prometheus Config
 
 {% hint style="info" %}
