@@ -1,6 +1,18 @@
 # 🌡️ HealthChecks.io
 
+## Create a new check
+
 {% embed url="https://healthchecks.io" %}
+
+* These settings allow for a system restart without triggering the alerts
+* Period:
+  * 5 minutes
+  * The expected time between pings
+* Grace Time:
+  * 10 minutes
+  * When a check is late, how long to wait to send an alert
+
+## Bash script
 
 Used to monitor if Prometheus and Alertmanager are running, and if the entire machine is offline or unresponsive.
 
