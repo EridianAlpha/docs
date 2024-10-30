@@ -102,16 +102,6 @@ services:
       - '--storage.path=/alertmanager'
 ```
 
-{% code title="Start the Docker container" %}
-```bash
-cd ~/alerting
-docker compose up -d
-
-# View logs to check it has started up correctly
-docker compose logs -f
-```
-{% endcode %}
-
 ## Prometheus Config
 
 {% hint style="info" %}
@@ -222,6 +212,10 @@ KillMode=mixed
 
 [Install]
 WantedBy=multi-user.target
+```
+
+```bash
+daemon-reload
 ```
 
 ### NGINX Service - Restart CRON
@@ -384,3 +378,13 @@ route:
       severity: critical
     receiver: 'pagerduty'
 ```
+
+{% code title="Start the Docker container" %}
+```bash
+cd ~/alerting
+docker compose up -d
+
+# View logs to check it has started up correctly
+docker compose logs -f
+```
+{% endcode %}
