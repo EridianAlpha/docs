@@ -20,7 +20,8 @@ Add useful `Bash` aliases.
 
 {% code fullWidth="true" %}
 ```bash
-echo "alias lsl='ls -la'" >> ~/.bashrc
+echo "alias lsl='ls -l'" >> ~/.bashrc
+echo "alias lsla='ls -la'" >> ~/.bashrc
 echo "alias clc='clear'" >> ~/.bashrc
 echo "alias myip='echo Response from https://ipinfo.io/ip:; curl https://ipinfo.io/ip; echo'" >> ~/.bashrc
 echo "alias ports='sudo lsof -i -P -n | grep LISTEN'" >> ~/.bashrc
