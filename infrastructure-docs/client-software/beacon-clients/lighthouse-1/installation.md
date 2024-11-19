@@ -113,8 +113,6 @@ ExecStart=/usr/local/bin/teku/bin/teku \
     --ee-jwt-secret-file="/var/lib/jwtsecret" \
     --ee-endpoint ${BEACON_EXECUTION_ENDPOINTS} \
     --p2p-port ${BEACON_P2P_PORT} \
-    --p2p-peer-lower-bound=150 \
-    --p2p-peer-upper-bound=175 \
     \
     --rest-api-enabled=true \
     --rest-api-interface=${BEACON_HTTP_ADDRESS} \
