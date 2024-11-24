@@ -4,8 +4,8 @@
 [lighthouse](lighthouse/)
 {% endcontent-ref %}
 
-{% content-ref url="lighthouse-1/" %}
-[lighthouse-1](lighthouse-1/)
+{% content-ref url="teku/" %}
+[teku](teku/)
 {% endcontent-ref %}
 
 ## Process - Changing Clients

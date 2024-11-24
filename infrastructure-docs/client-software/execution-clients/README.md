@@ -4,12 +4,12 @@
 [geth](geth/)
 {% endcontent-ref %}
 
-{% content-ref url="geth-1/" %}
-[geth-1](geth-1/)
+{% content-ref url="erigon/" %}
+[erigon](erigon/)
 {% endcontent-ref %}
 
-{% content-ref url="geth-2/" %}
-[geth-2](geth-2/)
+{% content-ref url="besu/" %}
+[besu](besu/)
 {% endcontent-ref %}
 
 ## Process - Changing Clients
