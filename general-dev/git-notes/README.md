@@ -26,7 +26,8 @@ Still to document
 * Logging in to GitHub on the command line: [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
   * Use a personal access token instead of a password
   * [https://stackoverflow.com/questions/35942754/how-can-i-save-username-and-password-in-git](https://stackoverflow.com/questions/35942754/how-can-i-save-username-and-password-in-git)
-  * View stored credentials (plain text)`vim ~/.git-credentials`
+  * View stored credentials (plain text)
+    * `vim ~/.git-credentials`
 * Using SSH Key
   * [https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 

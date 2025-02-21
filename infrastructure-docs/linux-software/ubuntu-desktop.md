@@ -63,7 +63,7 @@ sudo apt-get install onboard
 {% endtab %}
 
 {% tab title="Raspberry Pi" %}
-`onboard` didn't work on a Raspberry pi, so instead just use the default on-screen keyboard in the Settings -> Accessibility menu.
+`onboard` didn't work on a Raspberry pi, so instead just use the default on-screen keyboard in the `Settings` -> `Accessibility` menu.
 {% endtab %}
 {% endtabs %}
 
