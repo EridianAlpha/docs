@@ -27,11 +27,7 @@ You'll notice from the table that the hexadecimal representation is the shortest
 
 This means a long binary string can be represented by a much shorter hexadecimal string, making it easier to read, write, and communicate.
 
-<div data-full-width="true">
-
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p><a href="https://medium.com/portis/part-two-turning-random-numbers-into-an-ethereum-address-3928f56b225c">https://medium.com/portis/part-two-turning-random-numbers-into-an-ethereum-address-3928f56b225c</a></p></figcaption></figure>
-
-</div>
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p><a href="https://medium.com/portis/part-two-turning-random-numbers-into-an-ethereum-address-3928f56b225c">https://medium.com/portis/part-two-turning-random-numbers-into-an-ethereum-address-3928f56b225c</a></p></figcaption></figure></div>
 
 ## uint8 - Smallest Solidity Example
 
