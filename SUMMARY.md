@@ -27,7 +27,7 @@
   * [CEI - Checks, Effects, Interactions](ethereum-dev/solidity-notes/cei-checks-effects-interactions.md)
   * [Comments (NATSPEC)](ethereum-dev/solidity-notes/comments-natspec.md)
   * [Constructor](ethereum-dev/solidity-notes/constructor.md)
-  * [Contract Structure & Versions](ethereum-dev/solidity-notes/contract-structure-and-versions.md)
+  * [Contract Structure & Versions](ethereum-dev/solidity-notes/contract-structure-versions.md)
   * [Data - Storage vs Memory](ethereum-dev/solidity-notes/data-storage-vs-memory.md)
   * [Data - Storage Layout](ethereum-dev/solidity-notes/data-storage-layout.md)
   * [Enum](ethereum-dev/solidity-notes/enum.md)
