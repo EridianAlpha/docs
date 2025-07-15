@@ -6,7 +6,7 @@ description: Notes on how to use a Teku BN.
 
 ### tekubeacon.service
 
-{% code fullWidth="true" %}
+{% code fullWidth="false" %}
 ```bash
 teku-beacon-log            # View the tekubeacon.service logs
 teku-beacon-start          # Start the tekubeacon.service
