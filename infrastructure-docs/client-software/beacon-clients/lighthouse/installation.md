@@ -137,8 +137,7 @@ ExecStart=/usr/local/bin/lighthouse bn \
     \
     --suggested-fee-recipient ${BEACON_SUGGESTED_FEE_RECIPIENT} \
     --checkpoint-sync-url ${BEACON_CHECKPOINT_SYNC_URL} \
-    --builder ${BEACON_BUILDER} \
-    --reconstruct-historic-states
+    --builder ${BEACON_BUILDER}
 
 [Install]
 WantedBy=multi-user.target

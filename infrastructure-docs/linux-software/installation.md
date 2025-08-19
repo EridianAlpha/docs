@@ -42,9 +42,12 @@ Install useful packages.
 sudo apt-get install -y \
 git \
 build-essential \
+libssl-dev \
 software-properties-common \
 pkg-config \
 cmake \
+make \
+ccze \
 clang \
 wget \
 curl \
