@@ -8,11 +8,9 @@ description: >-
 
 ### 💾 Installing Linux
 
-To avoid duplication these details can be found on the EthStaker Knowledge Base.
+To avoid duplication, these details can be found on the EthStaker Knowledge Base.
 
-{% content-ref url="https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/installing-linux" %}
-[Installing Linux](https://app.gitbook.com/s/KnJhWg57YoZq2MPfatKE/tutorials/installing-linux)
-{% endcontent-ref %}
+{% embed url="https://docs.ethstaker.org/tutorials/installing-linux/" %}
 
 ### 🔧 System Configuration
 
@@ -27,7 +25,6 @@ echo "alias myip='echo Response from https://ipinfo.io/ip:; curl https://ipinfo.
 echo "alias ports='sudo lsof -i -P -n | grep LISTEN'" >> ~/.bashrc
 echo "alias update-system='sudo apt-get update -y; sudo apt-get dist-upgrade -y'" >> ~/.bashrc
 echo "alias update-firmware='fwupdmgr refresh; fwupdmgr get-updates; fwupdmgr update'" >> ~/.bashrc
-echo "alias update-kernel='sudo apt-get install -y linux-image-generic-hwe-22.04'" >> ~/.bashrc
 echo "alias daemon-reload='sudo systemctl daemon-reload'" >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -37,12 +34,6 @@ Update system packages.
 
 ```bash
 update-system
-```
-
-Update kernel to the latest version for 22.04.
-
-```bash
-update-kernel
 ```
 
 Install useful packages.
@@ -499,7 +490,7 @@ vim ~/.gitconfig
 
 Add this to the `[alias]` section for a pretty view of commit tree for current branch.
 
-```
+```bash
 [alias] tree = log --color --graph --pretty=format:'%Cred%h%Creset -%C(bold magenta)%d%Creset %s %C(cyan)(%cr)%C(bold blue) <%an> %Creset' --date=relative --abbrev-commit --all
 [alias] tree-current = log --color --graph --pretty=format:'%Cred%h%Creset -%C(bold magenta)%d%Creset %s %C(cyan)(%cr)%C(bold blue) <%an> %Creset' --date=relative --abbrev-commit --all
 ```
