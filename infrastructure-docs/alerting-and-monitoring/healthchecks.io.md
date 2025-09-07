@@ -55,14 +55,14 @@ sudo chmod u+x /etc/default/healthchecks.sh
 
 ## Configure CRON
 
-* Run every 5 minutes.
+* Run every 1 minute.
 
 ```bash
 sudo crontab -e
 ```
 
 ```
-*/5 * * * * /etc/default/healthchecks.sh
+* * * * * /etc/default/healthchecks.sh
 ```
 
 ## Integrations
