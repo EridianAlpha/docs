@@ -339,12 +339,12 @@ groups:
   rules:
   - alert: ServiceDown
     expr: up == 0
-    for: 5m
+    for: 20m
     labels:
       severity: critical
     annotations:
       summary: "Service {{ $labels.job }} down"
-      description: "{{ $labels.job }} has been down for more than 5 minutes."
+      description: "{{ $labels.job }} has been down for more than 20 minutes."
 ```
 {% endcode %}
 
