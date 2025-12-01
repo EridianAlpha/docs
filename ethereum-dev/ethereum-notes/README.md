@@ -1,2 +1,6 @@
-# ✏ General Notes
+---
+icon: pencil
+---
+
+# Ethereum Notes
 

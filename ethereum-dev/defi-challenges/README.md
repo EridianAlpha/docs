@@ -1,2 +1,6 @@
-# 👾 DeFi Challenges
+---
+icon: gamepad-modern
+---
+
+# DeFi Challenges
 

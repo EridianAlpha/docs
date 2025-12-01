@@ -1,4 +1,8 @@
-# 🔨 Anvil
+---
+icon: weight-hanging
+---
+
+# Anvil
 
 [https://book.getfoundry.sh/reference/anvil](https://book.getfoundry.sh/reference/anvil/)
 

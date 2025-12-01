@@ -1,4 +1,8 @@
-# ☁️ Ethers
+---
+icon: cloud
+---
+
+# Ethers
 
 How to use a custom struct in Ethers
 

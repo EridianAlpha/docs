@@ -1,3 +1,7 @@
+---
+icon: code-pull-request
+---
+
 # PRs
 
 When a PR is created on GitHub in a forked codebase and that fork allows edits from the main repos maintainers, these are the steps to make changes to that forked branch, which will add the updates to the existing PR.

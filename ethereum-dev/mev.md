@@ -1,4 +1,8 @@
-# 🤖 MEV
+---
+icon: robot
+---
+
+# MEV
 
 {% hint style="info" %}
 Under construction 🏗️

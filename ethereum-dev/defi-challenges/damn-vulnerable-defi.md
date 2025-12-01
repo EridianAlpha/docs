@@ -1,4 +1,8 @@
-# 💸 Damn Vulnerable DeFi
+---
+icon: hands-holding-dollar
+---
+
+# Damn Vulnerable DeFi
 
 Original (Hardhat): [https://www.damnvulnerabledefi.xyz](https://www.damnvulnerabledefi.xyz/)
 

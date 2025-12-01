@@ -1,4 +1,8 @@
-# 🎛️ Technical Basics
+---
+icon: dial
+---
+
+# Technical Basics
 
 ## Why 0x?
 

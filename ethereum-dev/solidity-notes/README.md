@@ -1,2 +1,6 @@
-# 📝 Solidity Notes
+---
+icon: file-pen
+---
+
+# Solidity Notes
 

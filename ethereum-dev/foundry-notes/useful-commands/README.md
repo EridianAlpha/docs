@@ -1,4 +1,8 @@
-# 🤝 Useful Commands
+---
+icon: code
+---
+
+# Useful Commands
 
 {% content-ref url="anvil.md" %}
 [anvil.md](anvil.md)

@@ -1,4 +1,8 @@
-# 🔥 Forge
+---
+icon: fire-flame-curved
+---
+
+# Forge
 
 ### Inspect
 

@@ -1,4 +1,8 @@
-# 📖 Docs & GitHub Pages
+---
+icon: file-lines
+---
+
+# Docs & GitHub Pages
 
 Foundry has a built-in documentation feature that generates an `mdbook` for all contracts in the `src` directory. NATSPEC comments are used to populate the content. This can then be built using GitHub Actions and hosted using GitHub pages.
 
@@ -102,8 +106,4 @@ jobs:
 The branch `gh-pages` is created by the Actions workflow, so this step can only be completed after the Action has run successfully for the first time.
 {% endhint %}
 
-<div data-full-width="true">
-
-<figure><img src="../../.gitbook/assets/image (84).png" alt=""><figcaption></figcaption></figure>
-
-</div>
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (84).png" alt=""><figcaption></figcaption></figure></div>

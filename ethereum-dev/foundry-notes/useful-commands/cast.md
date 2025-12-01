@@ -1,4 +1,8 @@
-# 🪄 Cast
+---
+icon: wand-magic-sparkles
+---
+
+# Cast
 
 * `call` is used for viewing data
 * `send` is used for modifying state (invoke functions, create contracts, etc.)

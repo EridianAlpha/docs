@@ -1,3 +1,7 @@
+---
+icon: code-merge
+---
+
 # Merging & Rebasing
 
 * So do you rebase, then merge? It looks like rebase just makes changes?

@@ -1,4 +1,8 @@
-# \*️⃣ Ethernal
+---
+icon: star
+---
+
+# Ethernal
 
 {% embed url="https://tryethernal.com/" %}
 

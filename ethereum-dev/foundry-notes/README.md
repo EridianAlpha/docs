@@ -1,4 +1,8 @@
-# ⚒️ Foundry Notes
+---
+icon: screwdriver-wrench
+---
+
+# Foundry Notes
 
 {% hint style="info" %}
 **What is Foundry good for?**

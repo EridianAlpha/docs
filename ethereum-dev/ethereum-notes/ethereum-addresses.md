@@ -1,4 +1,8 @@
-# 🪧 Ethereum Addresses
+---
+icon: sign-post
+---
+
+# Ethereum Addresses
 
 ## Ethereum Addresses
 

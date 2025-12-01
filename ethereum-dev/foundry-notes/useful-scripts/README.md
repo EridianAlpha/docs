@@ -1,2 +1,6 @@
-# 📝 Useful Scripts
+---
+icon: scroll
+---
+
+# Useful Scripts
 

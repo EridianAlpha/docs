@@ -1,2 +1,6 @@
-# 🔍 Auditing
+---
+icon: magnifying-glass
+---
+
+# Auditing
 

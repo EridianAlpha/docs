@@ -1,17 +1,3 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Cheatcodes
 
 To manipulate the state of the blockchain, as well as test for specific reverts and events, Foundry is shipped with a set of cheatcodes.
@@ -272,8 +258,6 @@ Read an environment variable as `uint256` or `uint256[]`.
 vm.envUint("PRIVATE_KEY")
 ```
 
-
-
 ## load
 
 Read a storage value directly.
@@ -281,4 +265,3 @@ Read a storage value directly.
 ```solidity
 vm.load(targetContractAddress, bytes32(uint256(1)));
 ```
-

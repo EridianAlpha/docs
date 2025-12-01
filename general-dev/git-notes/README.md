@@ -1,4 +1,8 @@
-# 💾 Git Notes
+---
+icon: git-alt
+---
+
+# Git Notes
 
 ```
 Still to document

@@ -1,4 +1,8 @@
-# ⛽ Gas Fees Explained
+---
+icon: gas-pump
+---
+
+# Gas Fees Explained
 
 ### Gas Limit
 

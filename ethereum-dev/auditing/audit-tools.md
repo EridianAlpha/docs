@@ -1,4 +1,8 @@
-# 🔧 Audit Tools
+---
+icon: screwdriver
+---
+
+# Audit Tools
 
 ## Count Lines of Code (cloc)
 

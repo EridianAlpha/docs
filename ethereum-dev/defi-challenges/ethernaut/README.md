@@ -1,2 +1,6 @@
-# 👨🚀 Ethernaut
+---
+icon: user-astronaut
+---
+
+# Ethernaut
 
