@@ -61,3 +61,24 @@ vim ~/.gitconfig
 git tree
 git tree-current
 ```
+
+### Git Temp Patch
+
+* A great way to get all the changes from a branch and see them on another branch
+
+1\. Make sure you're on your feature branch
+
+`git checkout your-branch`
+
+2\. Create a patch of all changes since main (as a diff)
+
+`git diff main > temp.patch`
+
+3\. Checkout main and pull latest
+
+`git checkout main git pull origin main`
+
+4\. Apply the patch (this makes the changes uncommitted on main)
+
+`git apply temp.patch`
+
