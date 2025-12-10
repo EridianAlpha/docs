@@ -1,7 +1,8 @@
 # Table of contents
 
 * [Eridian Docs](README.md)
-* [AI Dev](ai-dev.md)
+* [Design Dev](design-dev/README.md)
+  * [Rotating Text](design-dev/rotating-text.md)
 * [General Dev](general-dev/README.md)
   * [Linux](general-dev/linux-software/README.md)
     * [Linux Glossary](general-dev/linux-software/linux-glossary.md)

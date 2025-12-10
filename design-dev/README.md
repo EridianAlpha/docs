@@ -1,7 +1,7 @@
 ---
-icon: brain-circuit
+icon: object-group
 ---
 
-# AI Dev
+# Design Dev
 
 Under construction...
