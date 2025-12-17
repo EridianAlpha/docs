@@ -7,12 +7,6 @@ icon: circle-play
 
 # Installation
 
-### 💾 Installing Linux
-
-To avoid duplication, these details can be found on the EthStaker Knowledge Base.
-
-{% embed url="https://docs.ethstaker.org/tutorials/installing-linux/" %}
-
 ### 🔧 System Configuration
 
 Add useful `Bash` aliases.
