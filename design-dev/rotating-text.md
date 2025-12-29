@@ -6,7 +6,7 @@ icon: arrows-spin
 
 ## Interactive Design
 
-{% embed url="https://www.designedto.work/#rotating-text" %}
+{% embed url="https://www.designedto.work/design/rotating-text" %}
 
 ## Code
 

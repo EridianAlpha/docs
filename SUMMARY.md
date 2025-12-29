@@ -2,6 +2,11 @@
 
 * [Eridian Docs](README.md)
 * [Design Dev](ai-dev.md)
+  * [DesignedTo.Work](design-dev/designedto.work/README.md)
+    * [GSAP Button Pulse](design-dev/designedto.work/gsap-button-pulse.md)
+    * [GSAP List Hover](design-dev/designedto.work/gsap-list-hover.md)
+    * [Sparkle Button](design-dev/designedto.work/sparkle-button.md)
+    * [Drag Lock Direction](design-dev/designedto.work/drag-lock-direction.md)
   * [Rotating Text](design-dev/rotating-text.md)
 * [General Dev](general-dev/README.md)
   * [Linux](general-dev/linux-software/README.md)
