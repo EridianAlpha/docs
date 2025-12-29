@@ -33,7 +33,7 @@ icon: arrows-spin
 * Cons:
   * Text covered by the vertical padding during transition
 
-![](../.gitbook/assets/ReactBitsRotatingText.gif)
+![](../../.gitbook/assets/ReactBitsRotatingText.gif)
 {% endhint %}
 
 {% hint style="info" %}
@@ -44,9 +44,9 @@ icon: arrows-spin
 * Vertical rotation used for large screens
 * Linear typing effect used on small screens
 
-![](../.gitbook/assets/DefiSaverRotatingText.gif)
+![](../../.gitbook/assets/DefiSaverRotatingText.gif)
 
-![](../.gitbook/assets/DefiSaverTypingText.gif)
+![](../../.gitbook/assets/DefiSaverTypingText.gif)
 {% endhint %}
 
 

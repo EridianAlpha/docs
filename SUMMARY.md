@@ -7,7 +7,7 @@
     * [GSAP List Hover](design-dev/designedto.work/gsap-list-hover.md)
     * [Sparkle Button](design-dev/designedto.work/sparkle-button.md)
     * [Drag Lock Direction](design-dev/designedto.work/drag-lock-direction.md)
-  * [Rotating Text](design-dev/rotating-text.md)
+    * [Rotating Text](design-dev/designedto.work/rotating-text.md)
 * [General Dev](general-dev/README.md)
   * [Linux](general-dev/linux-software/README.md)
     * [Linux Glossary](general-dev/linux-software/linux-glossary.md)
