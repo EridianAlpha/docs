@@ -2,7 +2,9 @@
 
 * [Eridian Docs](README.md)
 * [Design Dev](ai-dev.md)
+  * [Figma](design-dev/figma.md)
   * [DesignedTo.Work](design-dev/designedto.work/README.md)
+    * [\_TEMPLATE](design-dev/designedto.work/_template.md)
     * [GSAP Button Pulse](design-dev/designedto.work/gsap-button-pulse.md)
     * [GSAP List Hover](design-dev/designedto.work/gsap-list-hover.md)
     * [Sparkle Button](design-dev/designedto.work/sparkle-button.md)
