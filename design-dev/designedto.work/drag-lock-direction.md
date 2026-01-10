@@ -14,12 +14,16 @@ icon: up-down-left-right
 
 ## Design Notes
 
-* TODO
+* **Controlling drag direction and animation using Motion.** Useful to return an object to a datum position after manipulating.
 
 ## Design Ideas
 
 {% hint style="info" %}
-**TODO**
+**React Bits**
 
-TODO
+[https://motion.dev/examples/react-drag-lock-direction](https://motion.dev/examples/react-drag-lock-direction)
+
+
+
+![](../../.gitbook/assets/Image20260110171404.gif)
 {% endhint %}

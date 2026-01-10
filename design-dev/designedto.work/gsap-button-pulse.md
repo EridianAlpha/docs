@@ -12,14 +12,3 @@ icon: tennis-ball
 
 {% embed url="https://github.com/EridianAlpha/DesignedTo.Work/tree/main/components/designs/gsap-button-pulse" %}
 
-## Design Notes
-
-* TODO
-
-## Design Ideas
-
-{% hint style="info" %}
-**TODO**
-
-TODO
-{% endhint %}
