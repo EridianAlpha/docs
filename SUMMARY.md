@@ -163,6 +163,7 @@
     * [Merging & Rebasing](general-dev/git-notes/merging-and-rebasing.md)
     * [PRs](general-dev/git-notes/prs.md)
 * [Design Dev](ai-dev.md)
+  * [Design X Posts](design-dev/design-x-posts.md)
   * [Figma](design-dev/figma.md)
   * [DesignedTo.Work](design-dev/designedto.work/README.md)
     * [\_TEMPLATE](design-dev/designedto.work/_template.md)
