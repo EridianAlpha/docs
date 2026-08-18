@@ -123,7 +123,6 @@ ExecStart=/usr/local/bin/geth \
     \
     --pprof \
     --metrics \
-    --metrics.expensive \
     --metrics.addr ${EXECUTION_METRICS_ADDR} \
     --metrics.port ${EXECUTION_METRICS_PORT} \
     \
